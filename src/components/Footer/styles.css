@@ -1,0 +1,24 @@
+footer {
+  background-color: var(--background-dark) !important;
+}
+footer h5 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+footer li a {
+  font-size: 1.6rem;
+}
+
+footer img{
+  max-width: 100%;
+}
+
+.footer-copyright div,
+.footer-copyright a {
+  font-size: 1.8rem;
+}
+
+.footer-copyright {
+  background-color: #1f1d1e !important;
+}
