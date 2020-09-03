@@ -18,7 +18,7 @@ class Footer extends Component {
 
   componentDidMount() {
     var scrollComponent = this;
-    document.addEventListener("scroll", function(e) {
+    document.addEventListener("scroll", function (e) {
       scrollComponent.toggleVisibility();
     });
   }
@@ -62,12 +62,11 @@ class Footer extends Component {
                 </ul>
               </div>
               <div className="col l1 s4 right">
-              {is_visible && (
-          <div onClick={() => this.scrollToTop()}>
-                  <img src={Up} alt="Voltar ao topo" width='150' />
-          </div>
-        )}
-                
+                {is_visible && (
+                  <div onClick={() => this.scrollToTop()}>
+                    <img src={Up} alt="Voltar ao topo" width='150' />
+                  </div>
+                )}
               </div>
             </div>
           </div>
