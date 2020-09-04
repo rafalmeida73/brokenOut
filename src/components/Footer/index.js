@@ -54,10 +54,10 @@ class Footer extends Component {
               <div className="col l4 offset-l2 s12">
                 <ul>
                   <li><Link className="white-text text-lighten-3" to="/">Home</Link></li>
-                  <li><Link className="white-text text-lighten-3" to="/home">Sobre</Link></li>
-                  <li><Link className="white-text text-lighten-3" to="/home/financas">Jogos</Link></li>
-                  <li><Link className="white-text text-lighten-3" to="/depoimento">Entrar</Link></li>
-                  <li><Link className="white-text text-lighten-3" to="/logout">Registrar</Link></li>
+                  <li><Link className="white-text text-lighten-3" to="/sobre">Sobre</Link></li>
+                  <li><Link className="white-text text-lighten-3" to="jogos">Jogos</Link></li>
+                  <li><Link className="white-text text-lighten-3" to="/login">Entrar</Link></li>
+                  <li><Link className="white-text text-lighten-3" to="/registrar">Registrar</Link></li>
                 </ul>
               </div>
               <div className="col l1 s4 right">

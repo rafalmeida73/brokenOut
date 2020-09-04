@@ -1,0 +1,60 @@
+.TeamProfile {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 0px 30px 25px rgba(71, 68, 69, 1);
+  -moz-box-shadow: 0px 0px 30px 25px rgba(71, 68, 69, 1);
+  box-shadow: 0px 0px 30px 5px rgba(71, 68, 69, 1);
+}
+
+.TeamProfile .info img {
+  width: 148px;
+  height: 148px;
+  border-radius: 100%;
+}
+
+.TeamProfile .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.TeamProfile .info h3 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.TeamProfile .info p {
+  font-size: 1.6rem;
+}
+
+.iconsTeam svg {
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+}
+.iconsTeam {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.TeamProfile p {
+  color: #000;
+}
+
+.TeamProfile:hover #link {
+  fill: #0e76a8;
+}
+
+.TeamProfile:hover #git {
+  fill: #f05033;
+}
+
+@media (min-width: 1100px) {
+}

@@ -7,9 +7,21 @@ nav li a {
  font-size: 1.6rem;
 }
 
+nav img{
+ width: 65%;
+}
+
+.sidenav{
+ background-color: var(--background);
+}
+
+.sidenav li a {
+ color: #fff;
+}
+
 @media (min-width: 1100px) {
  nav {
-  height: 85px !important;
+  height: 60px !important;
   background-color: var(--background-dark);
  }
 
@@ -17,5 +29,4 @@ nav li a {
 nav li a {
  font-size: 1.6rem;
 }
-
 }

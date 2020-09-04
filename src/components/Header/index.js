@@ -39,22 +39,33 @@ class Home extends Component {
           <NavItem>
             <Link to="/">
               Home
-        </Link>
+            </Link>
           </NavItem>
-          <NavItem href="">
+
+          <NavItem>
             <Link to="/sobre">
               Sobre
-        </Link>
+            </Link>
           </NavItem>
-          <NavItem href="">
-            Jogos
-  </NavItem>
-          <NavItem href="">
-            entrar
-  </NavItem>
-          <NavItem href="">
-            Registrar
-  </NavItem>
+
+          <NavItem>
+            <Link to="/jogos">
+              Jogos
+            </Link>
+          </NavItem>
+
+          <NavItem>
+            <Link to='/login'>
+              Entrar
+            </Link>
+          </NavItem>
+
+          <NavItem>
+            <Link to='/Registrar'>
+              Registrar
+            </Link>
+          </NavItem>
+
         </Navbar>
       </div>
     )
