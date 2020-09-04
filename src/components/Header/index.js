@@ -8,53 +8,57 @@ import './styles.css';
 
 class Home extends Component {
 
- constructor(props) {
-  super(props);
-  this.state = {
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
 
- }
+  }
 
 
- render() {
-  return (
-   <div>
-    <Navbar
-  alignLinks="right"
-  brand={ <Link to="/#" className="brand-logo"><img className="responsive-img" src={Logo} alt="Broken Out" /></Link>}
-  id="mobile-nav"
-  menuIcon={<Icon>menu</Icon>}
-  options={{
-    draggable: true,
-    edge: 'left',
-    inDuration: 250,
-    onCloseEnd: null,
-    onCloseStart: null,
-    onOpenEnd: null,
-    onOpenStart: null,
-    outDuration: 200,
-    preventScrolling: true
-  }}
->
-  <NavItem href="">
-    Home
+  render() {
+    return (
+      <div>
+        <Navbar
+          alignLinks="right"
+          brand={<Link to="/#" className="brand-logo"><img className="responsive-img" src={Logo} alt="Broken Out" /></Link>}
+          id="mobile-nav"
+          menuIcon={<Icon>menu</Icon>}
+          options={{
+            draggable: true,
+            edge: 'left',
+            inDuration: 250,
+            onCloseEnd: null,
+            onCloseStart: null,
+            onOpenEnd: null,
+            onOpenStart: null,
+            outDuration: 200,
+            preventScrolling: true
+          }}
+        >
+          <NavItem>
+            <Link to="/">
+              Home
+        </Link>
+          </NavItem>
+          <NavItem href="">
+            <Link to="/sobre">
+              Sobre
+        </Link>
+          </NavItem>
+          <NavItem href="">
+            Jogos
   </NavItem>
-  <NavItem href="">
-    Sobre
+          <NavItem href="">
+            entrar
   </NavItem>
-  <NavItem href="">
-    Jogos
+          <NavItem href="">
+            Registrar
   </NavItem>
-  <NavItem href="">
-    entrar
-  </NavItem>
-  <NavItem href="">
-    Registrar
-  </NavItem>
-</Navbar>
-   </div>
-  )
- }
+        </Navbar>
+      </div>
+    )
+  }
 }
 
 export default Home;

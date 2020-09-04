@@ -1,8 +1,21 @@
 nav {
- height: 85px !important;
+ height: 50px !important;
  background-color: var(--background-dark);
 }
 
 nav li a {
  font-size: 1.6rem;
+}
+
+@media (min-width: 1100px) {
+ nav {
+  height: 85px !important;
+  background-color: var(--background-dark);
+ }
+
+ 
+nav li a {
+ font-size: 1.6rem;
+}
+
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './styles.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
-import { Button, Card, Row, Col } from 'react-materialize';
 import { Link } from 'react-router-dom';
 
 import Up from '../../assets/img/up.png'
