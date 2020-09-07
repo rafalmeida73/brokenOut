@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
-import { Navbar, NavItem, Icon } from 'react-materialize';
 import './styles.css';
 
 

@@ -36,35 +36,25 @@ class Home extends Component {
             preventScrolling: true
           }}
         >
-          <NavItem>
             <Link to="/">
               Home
             </Link>
-          </NavItem>
 
-          <NavItem>
             <Link to="/sobre">
               Sobre
             </Link>
-          </NavItem>
 
-          <NavItem>
             <Link to="/jogos">
               Jogos
             </Link>
-          </NavItem>
 
-          <NavItem>
             <Link to='/login'>
               Entrar
             </Link>
-          </NavItem>
 
-          <NavItem>
             <Link to='/Registrar'>
               Registrar
             </Link>
-          </NavItem>
 
         </Navbar>
       </div>

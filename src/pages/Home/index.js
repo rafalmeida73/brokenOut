@@ -11,6 +11,8 @@ import Line from '../../assets/img/line.svg';
 import Fall from '../../assets/img/fall.jpeg';
 import Team from '../../assets/img/team.svg';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const defaultOptions = {
    loop: true,
@@ -25,19 +27,18 @@ class Home extends Component {
 
    constructor(props) {
       super(props);
-      this.state = {
-
-      };
-
    }
-
-
+   componentDidMount() {
+      AOS.init({
+         duration: 3000
+      })
+   }
    render() {
       return (
          <div>
             <div >
 
-               <header className="headerBlock">
+               <header data-aos='fade-right' className="headerBlock">
                   <Row>
                      <div className="col s12 m12 l6 robotBlock">
                         <Lottie className='robo'
@@ -59,16 +60,16 @@ class Home extends Component {
                   </Row>
                </header>
 
-               <div className="row center-align benefits">
+               <div data-aos='fade-right' className="row center-align benefits">
                   <Benefits />
                </div>
 
-               <div className='line'>
+               <div data-aos='fade-left' className='line'>
                   <img src={Line} alt="" />
                </div>
 
 
-               <Row className='teamBlock'>
+               <Row data-aos='fade-right' className='teamBlock'>
                   <div className="col s12 m6 l6">
                      <img src={Team} alt="Equipe" className="responsive-img" />
                   </div>
@@ -78,13 +79,13 @@ class Home extends Component {
                         </p>
 
                      <Link to='/sobre' className="waves-effect waves-light btn">
-                        Conheça nosso time!
+                        Saber mais
                      </Link>
                   </div>
                </Row>
 
 
-               <div className='freeGames container'>
+               <div data-aos='fade-right' className='freeGames container'>
                   <h3>Jogos gratuitos</h3>
 
                   <div className="imgGames">
