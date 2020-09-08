@@ -7,8 +7,8 @@
   max-width: 100%;
 }
 
-svg,
-g {
+.socialIcons svg,
+.socialIcons g {
   max-width: 100%;
 }
 
@@ -32,6 +32,59 @@ header p {
 footer {
   margin-top: 150px;
 }
+
+/* FAÇA PARTE EMAIL */
+.contact {
+  margin-top: 100px;
+}
+
+.svg-wrapper {
+  height: 60px;
+	margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+}
+
+.shape {
+  fill: transparent;
+  stroke-dasharray: 280 540;
+  /* stroke-dasharray: 140 540; */
+  /* stroke-dashoffset: -474; */
+  stroke-dashoffset: -405;
+  stroke-width: 8px;
+  stroke: var(--primary);
+}
+
+.text {
+  color: #fff;
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  letter-spacing: 8px;
+  line-height: 32px;
+  position: relative;
+  top: -48px;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+  }
+  100% {
+    stroke-dasharray: 760;
+    stroke-dashoffset: 0;
+    stroke-width: 2px;
+  }
+}
+
+.svg-wrapper:hover .shape {
+  -webkit-animation: 0.5s draw linear forwards;
+  animation: 0.5s draw linear forwards;
+}
+
 
 @media (min-width: 1100px) {
   .headerSobre p {

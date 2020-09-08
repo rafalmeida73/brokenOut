@@ -1,23 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import './styles.css';
 
 
-class Games extends Component {
-
- constructor(props) {
-  super(props);
-  this.state = {
-  };
-
- }
-
- render() {
+function Games() {
   return(
    <h1>Jogos</h1>
   )
  }
-}
+
 
 export default Games;

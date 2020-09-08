@@ -1,65 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
-import { Navbar, NavItem, Icon } from 'react-materialize';
+import { Navbar, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/logo.svg';
 import './styles.css';
 
-class Home extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-
-  }
-
-
-  render() {
-    return (
-      <div>
-        <Navbar
-          alignLinks="right"
-          brand={<Link to="/#" className="brand-logo"><img className="responsive-img" src={Logo} alt="Broken Out" /></Link>}
-          id="mobile-nav"
-          menuIcon={<Icon>menu</Icon>}
-          options={{
-            draggable: true,
-            edge: 'left',
-            inDuration: 250,
-            onCloseEnd: null,
-            onCloseStart: null,
-            onOpenEnd: null,
-            onOpenStart: null,
-            outDuration: 200,
-            preventScrolling: true
-          }}
-        >
-            <Link to="/">
-              Home
+function Home() {
+  return (
+    <div>
+      <Navbar
+        alignLinks="right"
+        brand={<Link to="/#" className="brand-logo"><img className="responsive-img" src={Logo} alt="Broken Out" /></Link>}
+        id="mobile-nav"
+        menuIcon={<Icon>menu</Icon>}
+        options={{
+          draggable: true,
+          edge: 'left',
+          inDuration: 250,
+          onCloseEnd: null,
+          onCloseStart: null,
+          onOpenEnd: null,
+          onOpenStart: null,
+          outDuration: 200,
+          preventScrolling: true
+        }}
+      >
+        <Link to="/">
+          Home
             </Link>
 
-            <Link to="/sobre">
-              Sobre
+        <Link to="/sobre">
+          Sobre
             </Link>
 
-            <Link to="/jogos">
-              Jogos
+        <Link to="/jogos">
+          Jogos
             </Link>
 
-            <Link to='/login'>
-              Entrar
+        <Link to='/login'>
+          Entrar
             </Link>
 
-            <Link to='/Registrar'>
-              Registrar
+        <Link to='/Registrar'>
+          Registrar
             </Link>
 
-        </Navbar>
-      </div>
-    )
-  }
+      </Navbar>
+    </div>
+  )
 }
 
 export default Home;

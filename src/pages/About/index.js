@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
@@ -7,9 +7,7 @@ import Lottie from 'react-lottie';
 import Team from '../../lotties/team.json';
 import TeamProfile from '../../components/Team';
 import SocialIcons from '../../components/SocialIcons';
-
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import SendEmail from '../../components/Email';
 
 const defaultOptions = {
  loop: true,
@@ -20,17 +18,7 @@ const defaultOptions = {
  }
 };
 
-class About extends Component {
- constructor(props) {
-  super(props);
- }
- componentDidMount() {
-  AOS.init({
-   duration: 3000
-  })
- }
-
- render() {
+function About(){
   return (
    <div>
 
@@ -44,7 +32,7 @@ class About extends Component {
      </div>
     </header>
 
-    <div data-aos='fade-right' className="center-align">
+    <div data-aos='fade-right' className="center-align socialIcons ">
      <SocialIcons />
     </div>
 
@@ -59,12 +47,31 @@ class About extends Component {
       </Row>
      </div>
 
-    </div>
 
+     {/* <div data-aos="fade-up" className="center-align contact">
+
+      <div className="col s12 m12 l12">
+       <a href="">
+        <div class="svg-wrapper">
+         <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+          <rect class="shape" height="60" width="320" />
+         </svg>
+         <div class="text">FALE CONOSCO!</div>
+        </div>
+       </a>
+      </div>
+
+     </div> */}
+
+<div>
+ 
+</div>
+
+    </div>
+<SendEmail/>
 
    </div>
   )
- }
 }
 
 export default About;

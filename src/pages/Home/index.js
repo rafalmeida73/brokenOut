@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import './styles.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
@@ -23,17 +23,15 @@ const defaultOptions = {
    }
 };
 
-class Home extends Component {
+function Home() {
 
-   constructor(props) {
-      super(props);
-   }
-   componentDidMount() {
+   useEffect(()=>{
       AOS.init({
          duration: 3000
       })
-   }
-   render() {
+   }, []);
+   
+  
       return (
          <div>
             <div >
@@ -122,6 +120,5 @@ class Home extends Component {
          </div>
       )
    }
-}
 
 export default Home;
