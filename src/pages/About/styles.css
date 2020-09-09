@@ -35,36 +35,7 @@ footer {
 
 /* FAÇA PARTE EMAIL */
 .contact {
-  margin-top: 100px;
-}
-
-.svg-wrapper {
-  height: 60px;
-	margin: 0 auto;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 320px;
-}
-
-.shape {
-  fill: transparent;
-  stroke-dasharray: 280 540;
-  /* stroke-dasharray: 140 540; */
-  /* stroke-dashoffset: -474; */
-  stroke-dashoffset: -405;
-  stroke-width: 8px;
-  stroke: var(--primary);
-}
-
-.text {
-  color: #fff;
-  font-family: 'Roboto Condensed';
-  font-size: 22px;
-  letter-spacing: 8px;
-  line-height: 32px;
-  position: relative;
-  top: -48px;
+  margin-top: 200px;
 }
 
 @keyframes draw {

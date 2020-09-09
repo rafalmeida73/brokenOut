@@ -62,8 +62,8 @@ function Home() {
                   <Benefits />
                </div>
 
-               <div data-aos='fade-left' className='line'>
-                  <img src={Line} alt="" />
+               <div className='line'>
+                  <img src={Line} alt="Linha" className="responsive-img"/>
                </div>
 
 

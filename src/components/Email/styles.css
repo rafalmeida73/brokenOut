@@ -1,0 +1,55 @@
+.emailForm form {
+ margin-top: 50px;
+}
+
+.emailForm .input-field input:not(.browser-default):focus:not([readonly]) {
+ border-bottom: 1px solid var(--primary);
+ box-shadow: 0 1px 0 0 var(--primary);
+}
+
+.emailForm .input-field > label {
+ color: #000;
+ position: absolute;
+ top: 0;
+ left: 0;
+ font-size: 1rem;
+ cursor: text;
+ transition: transform 0.2s ease-out, color 0.2s ease-out;
+ transform-origin: 0% 100%;
+ text-align: initial;
+ transform: translateY(12px);
+}
+
+.emailForm
+ .input-field
+ input:not(.browser-default):focus:not([readonly])
+ + label {
+ color: #000;
+}
+
+.emailForm .file-field {
+ padding-top: 10px;
+}
+.emailForm .input-field .prefix.active {
+ color: #fff;
+}
+
+.emailForm button {
+ margin: 20px 0;
+ background-color: var(--primary);
+ float: right;
+}
+
+.emailForm button:hover,
+.emailForm button:focus {
+ background-color: var(--primary-dark);
+}
+
+.emailForm .character-counter {
+ color: #fff;
+}
+
+.emailForm p {
+ color: #f44336;
+ font-size: 13px;
+}

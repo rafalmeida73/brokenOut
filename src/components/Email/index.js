@@ -1,88 +1,77 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import './styles.css';
 import 'materialize-css';
 import { TextInput, Icon, Button } from 'react-materialize';
+import { useForm } from "react-hook-form";
 
 function SendEmail() {
 
- const [campos, setCampos] = useState({
-  name: '',
-  email: '',
-  message: '',
-  attachment: ''
- });
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = data => {
+    console.log(data);
+  };
 
- function handleInputChange(event) {
-  if (event.target.name === "attachment")
-   campos[event.target.name] = event.target.files[0];
-  else
-   campos[event.target.name] = event.target.value;
-  setCampos(campos);
- }
+  return (
+    <div className="container emailForm">
+      <form onSubmit={handleSubmit(onSubmit)}>
 
- function handleFormSubmit(event) {
-  event.preventDefault();
-  console.log(campos);
- }
+        <TextInput
+          icon={<Icon>account_circle</Icon>}
+          id="name"
+          name="name"
+          label="Nome"
+          validate
+          ref={register({ required: true })}
+        />
+        {errors.name && <p className="right-align">Este campo é obrigatório.</p>}
 
- return (
-  <div className="container">
-   <form onSubmit={handleFormSubmit}>
+        <TextInput
+          icon={<Icon>email</Icon>}
+          email
+          id="email"
+          name="email"
+          label="Email"
+          validate
+          ref={register({
+            required: true,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+            },
+          })}
+        />
+        {errors.email && <p className="right-align">Por favor, forneça um endereço de email válido.</p>}
 
-    <TextInput
-     icon={<Icon>account_circle</Icon>}
-     id="name"
-     name="name"
-     label="Nome"
-     validate
-     onChange={handleInputChange}
-    />
+        <TextInput
+          data-length={500}
+          icon={<Icon>question_answer</Icon>}
+          id="message"
+          name="message"
+          label="Mensagem"
+          validate
+          ref={register({ required: true })}
+        />
+        {errors.message && <p className="right-align">Este campo é obrigatório.</p>}
 
-    <TextInput
-     icon={<Icon>email</Icon>}
-     email
-     error="Por favor, forneça um endereço de email válido."
-     id="email"
-     name="email"
-     label="Email"
-     validate
-     onChange={handleInputChange}
-    />
+        <div class="file-field input-field">
+          <div class="btn black grey-text">
+            <span>Anexo</span>
+            <input type="file" accept="application/pdf" />
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" />
+          </div>
+        </div>
 
-    <TextInput
-     data-length={500}
-     icon={<Icon>question_answer</Icon>}
-     id="message"
-     name="message"
-     label="Mensagem"
-     validate
-     onChange={handleInputChange}
-    />
-
-    <TextInput
-     id="TextInput-4"
-     id="attachment"
-     name="attachment"
-     label="File"
-     type="file"
-     onChange={handleInputChange}
-    />
-
-
-    <Button
-     node="button"
-     type="submit"
-     waves="light"
-    >
-     Submit
-  <Icon right>
-      send
-  </Icon>
-    </Button>
-   </form>
-  </div>
- );
+        <Button node="button" type="submit" waves="light">
+          Enviar
+          <Icon right>
+            send
+          </Icon>
+        </Button>
+      </form>
+    </div>
+  );
 }
 
 
