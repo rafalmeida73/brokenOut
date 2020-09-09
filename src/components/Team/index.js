@@ -24,12 +24,12 @@ let team = [
  },
  {
   id: 3,
-  name: "Rafael Santana",
+  name: "Claudio Zanelatto",
   job: "Desenvolvedor Full Stack",
-  email: 'rafaelsantana7213@gmail.com',
-  github: "https://github.com/rafalmeida73",
-  linkedin: "https://www.linkedin.com/in/rafael-santana-5876a117a/",
-  img: "https://avatars3.githubusercontent.com/u/49356234?s=460&u=7a90cc7df33c841e5ed74fdf93605ef7365cf817&v=4"
+  email: 'claudiozanelatto@gmail.com',
+  github: "https://github.com/claudiozanelatto",
+  linkedin: "https://www.linkedin.com/in/claudio-zanelatto-79bb4911a/",
+  img: "https://media-exp1.licdn.com/dms/image/C4E03AQE3mkEIHbhOHQ/profile-displayphoto-shrink_400_400/0?e=1605139200&v=beta&t=uFoC6isetaxAVComzXdCUbzsTblhHmMFn3DP6LWH2tA"
  },
  {
   id: 4,
