@@ -1,0 +1,13 @@
+.notFoundBlock{
+ height: 95vh;
+ width: 100vw;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ max-width: 100%;
+}
+
+.notFoundBlock h2{
+ color: #fff;
+ font-weight: bold;
+}

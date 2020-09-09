@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer';
 import About from './pages/About';
 import Games from './pages/Games';
+import Error from './pages/Error';
 
 const Routes = ()=>{
  return(
@@ -15,6 +16,7 @@ const Routes = ()=>{
    <Route exact path="/" component={Home}/>
    <Route exact path="/sobre" component={About}/>
    <Route exact path="/jogos" component={Games}/>
+   <Route path="*" component={Error}/>
   </Switch>
   <Footer/>
   </BrowserRouter>

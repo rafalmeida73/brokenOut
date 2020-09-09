@@ -1,5 +1,6 @@
 .emailForm form {
  margin-top: 50px;
+ margin-bottom: 230px;
 }
 
 .emailForm .input-field input:not(.browser-default):focus:not([readonly]) {
