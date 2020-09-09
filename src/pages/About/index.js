@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
@@ -8,6 +8,8 @@ import Team from '../../lotties/team.json';
 import TeamProfile from '../../components/Team';
 import SocialIcons from '../../components/SocialIcons';
 import SendEmail from '../../components/Email';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const defaultOptions = {
   loop: true,
@@ -19,6 +21,12 @@ const defaultOptions = {
 };
 
 function About() {
+  useEffect(() => {
+    AOS.init({
+      duration: 3000
+    })
+  }, []);
+
   return (
     <div>
 
