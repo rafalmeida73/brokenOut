@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './styles.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
@@ -53,11 +53,31 @@ class Footer extends Component {
               </div>
               <div className="col l4 offset-l2 s12">
                 <ul>
-                  <li><Link className="white-text text-lighten-3" to="/">Home</Link></li>
-                  <li><Link className="white-text text-lighten-3" to="/sobre">Sobre</Link></li>
-                  <li><Link className="white-text text-lighten-3" to="jogos">Jogos</Link></li>
-                  <li><Link className="white-text text-lighten-3" to="/login">Entrar</Link></li>
-                  <li><Link className="white-text text-lighten-3" to="/registrar">Registrar</Link></li>
+                  <li>
+                    <Link className="white-text text-lighten-3" to="/">
+                      Home
+                      </Link>
+                  </li>
+                  <li>
+                    <Link className="white-text text-lighten-3" to="/sobre">
+                      Sobre
+                      </Link>
+                  </li>
+                  <li>
+                    <Link className="white-text text-lighten-3" to="jogos">
+                      Jogos
+                      </Link>
+                  </li>
+                  <li>
+                    <Link className="white-text text-lighten-3" to="/login">
+                      Entrar
+                      </Link>
+                  </li>
+                  <li>
+                    <Link className="white-text text-lighten-3" to="/registrar">
+                      Registrar
+                      </Link>
+                  </li>
                 </ul>
               </div>
               <div className="col l1 s4 right">
@@ -72,8 +92,9 @@ class Footer extends Component {
           <div className="footer-copyright">
             <div className="container white-text">
               © 2020 Broken Out Copyright
-            <Link className="white-text text-lighten-4 right" to="https://logomakr.com">Created my free logo at
-                LogoMakr.com</Link>
+            <a className="white-text text-lighten-4 right" href="https://logomakr.com"
+             target="_blank" rel="noopener noreferrer">Created my free logo at
+                LogoMakr.com</a>
             </div>
           </div>
         </footer>

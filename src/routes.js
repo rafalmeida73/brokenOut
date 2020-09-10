@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer';
 import About from './pages/About';
 import Games from './pages/Games';
+import GamesInfo from './pages/GamesInfo';
 import Error from './pages/Error';
 
 const Routes = ()=>{
@@ -16,6 +17,7 @@ const Routes = ()=>{
    <Route exact path="/" component={Home}/>
    <Route exact path="/sobre" component={About}/>
    <Route exact path="/jogos" component={Games}/>
+   <Route exact path="/jogos/123" component={GamesInfo}/>
    <Route path="*" component={Error}/>
   </Switch>
   <Footer/>
