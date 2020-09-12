@@ -7,7 +7,7 @@ import Color from 'color-thief-react';
 import ReactHtmlParser from 'react-html-parser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import axios from "axios";
+import api from "../../Services/api";
 
 
 function GamesInfo() {
@@ -18,8 +18,9 @@ function GamesInfo() {
 
   //News API
   useEffect(() => {
-    let url = "http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=" + appID + "&count=5&maxlength=300&format=json%27";
-    axios.get(url)
+    // let url = "http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?" + process.env.key + "&appid=" + appID + "&count=5&maxlength=300&format=json%27";
+    let url = "/steam/game/" + appID + "/news";
+    api.get(url)
       .then(res => {
         setNews(res.data.appnews.newsitems)
       });
@@ -71,7 +72,7 @@ function GamesInfo() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Ver mais
+                            Ver a matéria completa
              </Button>
                         </CollapsibleItem>
                       )
