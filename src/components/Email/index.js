@@ -53,13 +53,13 @@ function SendEmail() {
         />
         {errors.message && <p className="right-align">Este campo é obrigatório.</p>}
 
-        <div class="file-field input-field">
-          <div class="btn black grey-text">
+        <div className="file-field input-field">
+          <div className="btn black grey-text">
             <span>Anexo</span>
             <input type="file" accept="application/pdf" />
           </div>
-          <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" />
+          <div className="file-path-wrapper">
+            <input className="file-path validate" type="text" />
           </div>
         </div>
 

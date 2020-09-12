@@ -8,6 +8,7 @@ import About from './pages/About';
 import Games from './pages/Games';
 import GamesInfo from './pages/GamesInfo';
 import Error from './pages/Error';
+import SingUp from './pages/SingUp';
 
 const Routes = ()=>{
  return(
@@ -18,6 +19,7 @@ const Routes = ()=>{
    <Route exact path="/sobre" component={About}/>
    <Route exact path="/jogos" component={Games}/>
    <Route exact path="/jogos/123" component={GamesInfo}/>
+   <Route exact path="/registrar" component={SingUp}/>
    <Route path="*" component={Error}/>
   </Switch>
   <Footer/>

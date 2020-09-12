@@ -42,7 +42,7 @@ function Home() {
           Entrar
             </Link>
 
-        <Link to='/Registrar'>
+        <Link to='/registrar'>
           Registrar
             </Link>
 
