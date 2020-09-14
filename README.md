@@ -1,7 +1,7 @@
 # Broken Out
 ### Desenvolver uma vitrine digital com jogos para PC e dispositivos mobile.
   
-<img src="web/src/assets/img/screen.gif" />
+<img src="web/src/assets/img/screen.gif" width="100%"/>
 
 #### Equipe:
 * Claudio Zanelatto | claudiozanelatto@gmail.com
