@@ -4,6 +4,17 @@
   margin-bottom: 50px;
 }
 
+.gameInfoBlock h1 {
+  -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+}
+
+.gameInfoBlock p{
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #000;
+  font-weight: bold;
+}
+
 .descriptionGameBlock {
   height: 100vh;
   display: flex;
@@ -34,6 +45,8 @@ iframe {
 .news h3{
  font-weight: bold;
  margin-bottom: 100px;
+ -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
 }
 
 .news .collapsible-header{
@@ -66,3 +79,8 @@ text-transform: uppercase;
   width: 100%;
   max-height: 400px;
 }
+
+.news .collapsible-body p{
+  word-break: break-word;
+}
+
