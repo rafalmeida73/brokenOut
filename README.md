@@ -14,6 +14,7 @@
 
 ------------
 ####  Tecnologias utilizadas
+- React Js
 - nodeJS
 - expressJS
 - javaScript
