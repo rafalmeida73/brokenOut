@@ -1,14 +1,128 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
+import { Row, TextInput, Icon, Button, Dropdown, Divider } from 'react-materialize';
 import './styles.css';
+import GamesCard from '../../components/GamesCard';
+import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 function Games() {
-  return(
-   <h1>Jogos</h1>
+
+  useEffect(() => {
+    AOS.init({
+      duration: 3000
+    })
+  }, []);
+
+  return (
+    <div>
+      <Row data-aos='fade-right' className=" titleBlock">
+
+        <div className="col s12 m8 l8">
+          <h1 className="white-text">Jogos cadastrados</h1>
+        </div>
+
+        <div className="col s12 m4 l4">
+          <Button
+            node="a"
+            waves="light"
+          >
+            Adicionar jogo
+          <Icon right>
+              add
+          </Icon>
+          </Button>
+        </div>
+      </Row>
+
+      <Row data-aos='fade-right' className="center-align filtersBlock">
+        <div className="col s8 m8 l10 ">
+          <TextInput
+            icon={<Icon>search</Icon>}
+            id="TextInput-4"
+            label="Procurar Jogo"
+          />
+        </div>
+        <div className="col s4 m4 l2 ">
+
+          <Dropdown
+            id="Dropdown_6"
+            options={{
+              alignment: 'left',
+              autoTrigger: true,
+              closeOnClick: true,
+              constrainWidth: true,
+              container: null,
+              coverTrigger: true,
+              hover: false,
+              inDuration: 150,
+              onCloseEnd: null,
+              onCloseStart: null,
+              onOpenEnd: null,
+              onOpenStart: null,
+              outDuration: 250
+            }}
+            trigger={<Button node="button">Filtrar</Button>}
+          >
+            <Link className="action" to="#">
+              Ação/ Aventura
+            </Link>
+
+            <Divider />
+
+            <Link className="strategy" to="#">
+              Estratégia
+            </Link>
+
+            <Divider />
+            <Link className="fight" to="#">
+              Luta
+            </Link>
+
+            <Divider />
+            <Link className="running" to="#">
+              Corrida
+            </Link>
+
+            <Divider />
+            <Link className="rpg" to="#">
+              RPG
+            </Link>
+
+            <Divider />
+            <Link className="construction" to="#">
+              Construção
+            </Link>
+
+            <Divider />
+            <Link className="real_life" to="#">
+              VR
+            </Link>
+
+            <Divider />
+            <Link className="music" to="#">
+              Música
+            </Link>
+
+            <Divider />
+            <Link className="sports" to="#">
+              Esportes
+            </Link>
+
+
+          </Dropdown>
+        </div>
+      </Row>
+
+      <Row data-aos='fade-right' className='container catalog'>
+        <GamesCard />
+      </Row>
+    </div>
   )
- }
+}
 
 
 export default Games;

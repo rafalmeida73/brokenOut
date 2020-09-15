@@ -4,6 +4,18 @@
  --primary: #E10F4C;
  --primary-dark: #D40340;
  --color-secondary: #C4C4C4;
+
+ 
+ --action: #ED213A;
+ --strategy: #11998E;
+ --fight: #F37335;
+ --running: #63707B;
+ --rpg: #000;
+ --construction: #3C1053;
+ --real-life: #1295EA;
+ --music: #FF957E;
+ --sports: #FFC412;
+
  
  font-size: 60%;
 }

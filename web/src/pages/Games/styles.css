@@ -1,0 +1,123 @@
+/* COLORS */
+.action {
+  background-color: var(--action);
+}
+
+.strategy {
+  background-color: var(--strategy);
+}
+
+.fight {
+  background-color: var(--fight);
+}
+
+.running {
+  background-color: var(--running);
+}
+
+.rpg {
+  background-color: var(--rpg);
+}
+
+.construction {
+  background-color: var(--construction);
+}
+
+.real_life {
+  background-color: var(--real-life);
+}
+
+.music {
+  background-color: var(--music);
+}
+
+.sports {
+  background-color: var(--sports);
+}
+
+/* STYLES */
+
+.titleBlock h1 {
+  font-weight: bold;
+  font-size: 4rem;
+}
+
+.titleBlock a {
+  display: block;
+  margin-top: 10%;
+  background-color: var(--primary);
+  font-size: 1.6rem;
+  font-weight: bold;
+  width: 100%;
+}
+
+.titleBlock a:hover,
+.titleBlock a:focus {
+  background-color: var(--primary-dark);
+}
+
+.filtersBlock i {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.filtersBlock button {
+  background-color: var(--primary);
+  width: 95%;
+}
+
+.filtersBlock button:hover,
+.filtersBlock button:focus {
+  background-color: var(--primary-dark);
+}
+
+.filtersBlock .dropdown-content li > a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.filtersBlock .input-field input:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid var(--primary);
+  box-shadow: 0 1px 0 0 var(--primary);
+}
+
+.emailForm .input-field > label {
+  color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  cursor: text;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+  transform-origin: 0% 100%;
+  text-align: initial;
+  transform: translateY(12px);
+}
+
+.filtersBlock
+  .input-field
+  input:not(.browser-default):focus:not([readonly])
+  + label {
+  color: #fff;
+}
+
+.filtersBlock .input-field .prefix.active {
+  color: #fff;
+}
+
+.dropdown-content {
+  background: none;
+  box-shadow: none;
+}
+
+.filtersBlock .input-field {
+  width: 100%;
+}
+
+@media (min-width: 1100px) {
+  .catalog {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+}
