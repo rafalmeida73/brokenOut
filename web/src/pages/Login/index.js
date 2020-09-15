@@ -4,7 +4,7 @@ import 'materialize-css';
 import { Row, TextInput, Icon, Button } from 'react-materialize';
 import Alert from '@material-ui/lab/Alert';
 import Lottie from 'react-lottie';
-import Controle from '../../lotties/controle.json';
+import Robot from '../../lotties/robo.json';
 import { useForm } from "react-hook-form";
 import './styles.css';
 import AOS from 'aos';
@@ -15,14 +15,14 @@ import 'aos/dist/aos.css';
 const defaultOptions8 = {
   loop: true,
   autoplay: true,
-  animationData: Controle,
+  animationData: Robot,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice"
   }
 };
 
 
-function SingUp() {
+function Login() {
 
   useEffect(() => {
     AOS.init({
@@ -38,20 +38,20 @@ function SingUp() {
     console.log(data);
   };
 
-
   return (
     <div>
-      <header className="signUpBlock">
+      <header className="loginBlock">
         <div>
 
           <Row>
 
-            <div data-aos='fade-right' className="col s12 m12 l5 controlBlock">
+            <div data-aos='fade-right' className="col s12 m12 l5 loginRobotBlock">
               <Lottie className='control'
                 options={defaultOptions8}
               />
             </div>
-            <div data-aos='fade-left' className="col s12 m12 l7">
+
+            <div data-aos="fade-left" className="col s12 m12 l7">
 
               <div className="errorBlock">
                 {errors.name || errors.email ? (
@@ -60,15 +60,15 @@ function SingUp() {
                   </Alert>
                 ) : ''}
 
-                {errors.password && (
+                {/* {errors.password && (
 
-                  <Alert variant="filled" severity="error">
-                    Senha fraca!
-                  </Alert>
-                )}
+         <Alert variant="filled" severity="error">
+           E-mail ou senha incorreta!
+         </Alert>
+        )} */}
 
                 {/* <Alert variant="filled" severity="error">
-         E-mail já está em uso!
+         E-mail ou senha incorreta!
        </Alert>
 
         <Alert variant="filled" severity="success">
@@ -121,7 +121,7 @@ function SingUp() {
                 />
 
                 <Button node="button" type="submit" waves="light">
-                  Registrar
+                  Entrar
           <Icon right>
                     send
           </Icon>
@@ -137,4 +137,4 @@ function SingUp() {
 }
 
 
-export default SingUp;
+export default Login;

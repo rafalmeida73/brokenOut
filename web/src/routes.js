@@ -9,6 +9,7 @@ import Games from './pages/Games';
 import GamesInfo from './pages/GamesInfo';
 import Error from './pages/Error';
 import SingUp from './pages/SingUp';
+import Login from './pages/Login';
 
 const Routes = ()=>{
  return(
@@ -19,6 +20,7 @@ const Routes = ()=>{
    <Route exact path="/sobre" component={About}/>
    <Route exact path="/jogos" component={Games}/>
    <Route exact path="/jogos/:id" component={GamesInfo}/>
+   <Route exact path="/login" component={Login}/>
    <Route exact path="/registrar" component={SingUp}/>
    <Route path="*" component={Error}/>
   </Switch>
