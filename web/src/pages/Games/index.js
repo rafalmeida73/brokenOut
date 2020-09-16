@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
-import { Row, TextInput, Icon, Button, Dropdown, Divider } from 'react-materialize';
+import { Row, TextInput, Icon, Button, Dropdown, Divider, Tabs, Tab } from 'react-materialize';
 import './styles.css';
 import GamesCard from '../../components/GamesCard';
 import { Link } from 'react-router-dom';
@@ -21,7 +21,7 @@ function Games() {
     <div>
       <Row data-aos='fade-right' className=" titleBlock">
 
-        <div className="col s12 m8 l8">
+        <div className="col s12 m7 l8">
           <h1 className="white-text">Jogos cadastrados</h1>
         </div>
 
@@ -38,16 +38,122 @@ function Games() {
         </div>
       </Row>
 
-      <Row data-aos='fade-right' className="center-align filtersBlock">
-        <div className="col s8 m8 l10 ">
-          <TextInput
-            icon={<Icon>search</Icon>}
-            id="TextInput-4"
-            label="Procurar Jogo"
-          />
-        </div>
-        <div className="col s4 m4 l2 ">
+      {/* TABELA DE FILTROS */}
 
+      <div className="col s12 m12 l12 container tabsFilters">
+        <Tabs className="tab-demo z-depth-1 tabs-fixed-width">
+          <Tab
+            active
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">Ação</Link>}
+          >
+          </Tab>
+          <Tab
+            disabled
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">Estratégia</Link>}
+          >
+          </Tab>
+          <Tab
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">Luta</Link>}
+          >
+          </Tab>
+          <Tab
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">Corrida</Link>}
+          >
+          </Tab>
+          <Tab
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">RPG</Link>}
+          >
+          </Tab>
+          <Tab
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">Construção</Link>}
+          >
+          </Tab>
+          <Tab
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">VR</Link>}
+          >
+          </Tab>
+          <Tab
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">Música</Link>}
+          >
+          </Tab>
+          <Tab
+            options={{
+              duration: 300,
+              onShow: null,
+              responsiveThreshold: Infinity,
+              swipeable: false
+            }}
+            title={<Link to="/jogos">Esportes</Link>}
+          >
+          </Tab>
+        </Tabs>
+      </div>
+
+      {/* FORM PESQUISAR JOGO */}
+
+      <Row data-aos='fade-right' className="center-align filtersBlock">
+        <div className="col s12 m12 l10 ">
+          <form action="">
+            <TextInput
+              icon={<Icon>search</Icon>}
+              id="TextInput-4"
+              label="Procurar Jogo"
+            />
+          </form>
+        </div>
+
+
+        {/* DROPDOWN DE FILTROS */}
+
+        <div className="col s4 m4 l2">
           <Dropdown
             id="Dropdown_6"
             options={{

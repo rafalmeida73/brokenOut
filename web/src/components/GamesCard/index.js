@@ -3,6 +3,8 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import './styles.css';
 import { Link } from 'react-router-dom';
+import { Box } from '@material-ui/core';
+import Rating from '@material-ui/lab/Rating';
 
 let games = [
  {
@@ -64,6 +66,7 @@ let games = [
 
 
 function GamesCard() {
+ const [value] = React.useState(2);
  return (
   <div>
    {games.map(game => {
@@ -81,9 +84,13 @@ function GamesCard() {
                game.category === "sports" ? "sports" :
                 game.category === "real life" ? "real_life" :
                  ""
-        }`}>
-         <img src={game.img} alt={game.name} />
-         <h4 className="center-align responsive-img">{game.name}</h4>
+         }`}>
+         <img className="responsive-img" src={game.img} alt={game.name} />
+         <h4 className="center-align">{game.name}</h4>
+
+         <Box className="center-align" component="fieldset" mb={3} borderColor="transparent">
+          <Rating name="disabled" value={value} disabled />
+         </Box>
         </div>
        </div>
       </Link>

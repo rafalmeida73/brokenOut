@@ -56,5 +56,11 @@
   fill: #f05033;
 }
 
+.TeamProfile:hover #email #v,
+.TeamProfile:hover #email #Qdireita,
+.TeamProfile:hover #email #Qesquerda {
+  fill: #dc4b3e;
+}
+
 @media (min-width: 1100px) {
 }

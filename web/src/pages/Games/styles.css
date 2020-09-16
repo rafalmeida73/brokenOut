@@ -1,37 +1,46 @@
 /* COLORS */
-.action {
+.action,
+.tabsFilters ul li:first-of-type {
   background-color: var(--action);
 }
 
-.strategy {
+.strategy,
+.tabsFilters ul :nth-child(2) {
   background-color: var(--strategy);
 }
 
-.fight {
+.fight,
+.tabsFilters ul :nth-child(3) {
   background-color: var(--fight);
 }
 
-.running {
+.running,
+.tabsFilters ul :nth-child(4) {
   background-color: var(--running);
 }
 
-.rpg {
+.rpg,
+.tabsFilters ul :nth-child(5) {
   background-color: var(--rpg);
 }
 
-.construction {
+.construction,
+.tabsFilters ul :nth-child(6) {
   background-color: var(--construction);
 }
 
-.real_life {
+.real_life,
+.tabsFilters ul :nth-child(7) {
   background-color: var(--real-life);
 }
 
-.music {
+.music,
+.tabsFilters ul :nth-child(8) {
   background-color: var(--music);
 }
 
-.sports {
+.sports,
+.tabsFilters ul :nth-child(9) {
   background-color: var(--sports);
 }
 
@@ -63,13 +72,12 @@
 }
 
 .filtersBlock button {
-  background-color: var(--primary);
-  width: 95%;
+  display: none;
 }
 
-.filtersBlock button:hover,
-.filtersBlock button:focus {
-  background-color: var(--primary-dark);
+.tabsFilters .tabs .tab a,
+.tabsFilters .tabs .tab a.active {
+  color: #fff;
 }
 
 .filtersBlock .dropdown-content li > a {
@@ -111,13 +119,53 @@
   box-shadow: none;
 }
 
+.dropdown-content {
+  margin-left: 1px !important;
+}
+
 .filtersBlock .input-field {
   width: 100%;
+}
+
+.catalog {
+  z-index: -1;
 }
 
 @media (min-width: 1100px) {
   .catalog {
     margin-top: 50px;
     margin-bottom: 100px;
+  }
+
+  .filtersBlock button {
+    display: block;
+    background-color: var(--primary);
+    width: 100%;
+  }
+
+  .filtersBlock button:hover,
+  .filtersBlock button:focus {
+    background-color: var(--primary-dark);
+  }
+
+  .tabsFilters {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 1366px) {
+  .filtersBlock button {
+    display: block;
+    background-color: var(--primary);
+    width: 100%;
+  }
+
+  .filtersBlock button:hover,
+  .filtersBlock button:focus {
+    background-color: var(--primary-dark);
+  }
+
+  .tabsFilters {
+    display: none;
   }
 }
