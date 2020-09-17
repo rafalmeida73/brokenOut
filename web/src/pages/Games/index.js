@@ -26,6 +26,7 @@ function Games() {
         </div>
 
         <div className="col s12 m4 l4">
+        <Link to="/novoGame">
           <Button
             node="a"
             waves="light"
@@ -35,12 +36,13 @@ function Games() {
               add
           </Icon>
           </Button>
+          </Link>
         </div>
       </Row>
 
       {/* TABELA DE FILTROS */}
 
-      <div className="col s12 m12 l12 container tabsFilters">
+      <div data-aos='fade-right' className="col s12 m12 l12 container tabsFilters">
         <Tabs className="tab-demo z-depth-1 tabs-fixed-width">
           <Tab
             active

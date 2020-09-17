@@ -29,7 +29,7 @@
   background-color: var(--construction);
 }
 
-.real_life,
+.vr,
 .tabsFilters ul :nth-child(7) {
   background-color: var(--real-life);
 }
@@ -48,7 +48,7 @@
 
 .titleBlock h1 {
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 3.6rem;
 }
 
 .titleBlock a {

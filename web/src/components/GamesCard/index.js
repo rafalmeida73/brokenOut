@@ -46,7 +46,7 @@ let games = [
  {
   id: 1222670,
   name: "The Sims™ 4",
-  category: "real life",
+  category: "vr",
   img: "https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/header.jpg?t=1598662171"
  },
  {
@@ -82,7 +82,7 @@ function GamesCard() {
              game.category === "construction" ? "construction" :
               game.category === "music" ? "music" :
                game.category === "sports" ? "sports" :
-                game.category === "real life" ? "real_life" :
+                game.category === "vr" ? "vr" :
                  ""
          }`}>
          <img className="responsive-img" src={game.img} alt={game.name} />

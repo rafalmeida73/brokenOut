@@ -107,8 +107,6 @@ function SingUp() {
                     },
                   })}
                 />
-                <div>
-                </div>
 
                 <TextInput
                   icon={<Icon>lock_outline</Icon>}

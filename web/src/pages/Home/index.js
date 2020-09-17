@@ -50,7 +50,7 @@ function Home() {
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. At sit enim imperdiet blandit ultrices fermentum gravida pellentesque. Amet scelerisque mi id enim etiam adipiscing velit proin aliquet. Amet condimentum nibh amet semper ut integer sed facilisis. Lacus lorem nisl, tellus, dui convallis. In sit ut elementum at. Amet, orci nibh dignissim eget semper ac ullamcorper elit.
                         </p>
 
-                           <Link to='/' className="waves-effect waves-light btn">
+                           <Link to='/jogos' className="waves-effect waves-light btn">
                               Ver os jogos
                      </Link>
                         </div>
