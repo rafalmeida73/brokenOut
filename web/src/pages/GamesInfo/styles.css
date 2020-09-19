@@ -15,6 +15,10 @@
   font-weight: bold;
 }
 
+.gameInfoBlock .collapsible-body p{
+  color: #000;
+}
+
 .descriptionGameBlock {
   height: 100vh;
   display: flex;

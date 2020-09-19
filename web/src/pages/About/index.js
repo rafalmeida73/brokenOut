@@ -30,7 +30,7 @@ function About() {
   return (
     <div>
 
-      <header data-aos='fade-right' className="headerSobre">
+      <header className="headerSobre">
         <div className="col s12 m12 l12">
           <Lottie
             options={defaultOptions}
@@ -40,11 +40,11 @@ function About() {
         </div>
       </header>
 
-      <div data-aos='fade-right' className="center-align socialIcons ">
+      <div className="center-align socialIcons ">
         <SocialIcons />
       </div>
 
-      <div data-aos='fade-right' className='teamCard'>
+      <div className='teamCard'>
         <div className="center-align">
           <h4>NOSSO TIME</h4>
         </div>
@@ -57,7 +57,7 @@ function About() {
       </div>
 
 
-      <div data-aos='fade-right' className="contact">
+      <div className="contact">
         <div className="center-align">
           <h4>FALE CONOSCO</h4>
         </div>

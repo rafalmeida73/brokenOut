@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import './styles.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 
@@ -125,6 +126,16 @@ function SingUp() {
           </Icon>
                 </Button>
               </form>
+
+              <div className="withoutRegOurLog">
+                <Link to="/login">
+                  <p>
+                    Já sou registrado!
+                  <Icon> navigate_before</Icon>
+                  </p>
+                </Link>
+              </div>
+
             </div>
 
           </Row>

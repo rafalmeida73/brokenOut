@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import './styles.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 
@@ -122,11 +123,21 @@ function Login() {
 
                 <Button node="button" type="submit" waves="light">
                   Entrar
-          <Icon right>
+                  <Icon right>
                     send
-          </Icon>
+                  </Icon>
                 </Button>
               </form>
+
+              <div className="withoutRegOurLog">
+                <Link to='/registrar'>
+                  <p>
+                    Ainda não estou registrado
+                  <Icon> navigate_next</Icon>
+                  </p>
+                </Link>
+              </div>
+
             </div>
 
           </Row>

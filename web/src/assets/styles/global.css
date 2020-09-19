@@ -38,6 +38,10 @@ textarea{
  font: 500 1.6rem;
 }
 
+.collapsible-body{
+ background-color: #fff;
+}
+
 
 @media(min-width: 700px){
  :root{

@@ -41,7 +41,7 @@ function GamesInfo() {
         <Color src={imgSrc} crossOrigin="anonymous" format="hex">
           {({ data, loading }) => {
             return (
-              <div data-aos='fade-right' style={{ backgroundColor: data }} className='container gameInfoBlock'>
+              <div  style={{ backgroundColor: data }} className='container gameInfoBlock'>
                 <div className="col s12 m12 l12 descriptionGameBlock">
                   <img src={imgSrc} alt="" />
                   <h1 className="white-text"> Lorem ipsum dolor</h1>
@@ -52,7 +52,7 @@ function GamesInfo() {
 
                 {/* News */}
 
-                <div data-aos='fade-right' className="col s12 m12 l12 news container">
+                <div  className="col s12 m12 l12 news container">
                   <h3 className='left-align white-text'>
                     Notícias
                   </h3>
@@ -91,7 +91,7 @@ function GamesInfo() {
 
                 {/* iframe */}
 
-                <div data-aos='fade-right' className='iframeGame'>
+                <div  className='iframeGame'>
                   <iframe title="Concurrent players" src={"https://steamdb.info/embed/?appid=" + appID} height="389"
                     style={{ border: 0, overflow: "hidden" }}></iframe>
                 </div>
