@@ -3,14 +3,35 @@
   padding: 37px 10px !important;
   margin-bottom: 50px;
   max-width: 98%;
-  height: 300px;
+  height: 250px;
 }
 
 .cardGame h4 {
   height: 50px;
 }
 
+.cardGame i{
+  position: absolute;
+  font-size: 4rem;
+}
+
 .Mui-disabled label {
   font-size: 4rem;
   color: #fff;
+}
+
+@media (min-width: 1600px) {
+  .cardGame {
+    height: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cardGame {
+    height: 225px;
+  }
+
+  .cardGame h4 {
+    height: 50px;
+  }
 }

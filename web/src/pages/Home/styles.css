@@ -247,7 +247,7 @@ svg:not(:root) {
 }
 
 @media (min-width: 1024px) and (max-height: 1366px) {
-  .row .col.l6 {
+  .headerBlock .row .col.l6 {
     width: 100% !important;
     margin-left: auto;
     left: auto;

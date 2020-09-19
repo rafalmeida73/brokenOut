@@ -6,16 +6,16 @@
 
 .gameInfoBlock h1 {
   -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: #000;
+  -webkit-text-stroke-color: #000;
 }
 
-.gameInfoBlock p{
+.gameInfoBlock .descriptionGameBlock p {
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: #000;
   font-weight: bold;
 }
 
-.gameInfoBlock .collapsible-body p{
+.gameInfoBlock .collapsible-body p {
   color: #000;
 }
 
@@ -43,50 +43,167 @@ iframe {
   margin: 100px 0;
 }
 
-.news{
- width: 90%;
+.news {
+  width: 90%;
 }
 
-.news h3{
- font-weight: bold;
- margin-bottom: 100px;
- -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: #000;
+.news h3 {
+  font-weight: bold;
+  margin: 100px 0;
+
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
 }
 
-.news .collapsible-header{
- font-size: 1.6rem;
+.news .collapsible-header {
+  font-size: 1.6rem;
 }
 
-.news .collapsible-header i{
- font-size: 2.5rem;
+.news .collapsible-header i {
+  font-size: 2.5rem;
+  color: var(--primary);
 }
 
-
-.news a{
- font-weight: bold;
- color: var(--primary);
-text-transform: uppercase;
+.news a {
+  font-weight: bold;
+  color: var(--primary);
+  text-transform: uppercase;
 }
 
 .news .btn {
- background-color: var(--primary) ;
- color: #fff;
- margin-top: 10px;
- width: 100%;
+  background-color: var(--primary);
+  color: #fff;
+  margin-top: 10px;
+  width: 100%;
 }
 
-.news .btn:hover{
- background-color: var(--primary-dark) ;
+.news .btn:hover {
+  background-color: var(--primary-dark);
 }
 
-.news .collapsible-body img{
+.news .collapsible-body img {
   width: 100%;
   max-height: 200px;
 }
 
-.news .collapsible-body p{
+.news .collapsible-body p {
   word-break: break-word;
+}
+
+.commentsBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.commentsBlock h4{
+  width: 90%;
+  margin-bottom: 50px;
+  text-align: left;
+  font-weight: bold;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+}
+
+.comments {
+  border-radius: 5px;
+  width: 90%;
+}
+
+.comments h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+.comments p {
+  text-align: center;
+  color: #000;
+  word-break: break-word;
+}
+
+.comments h3 span {
+  font-size: 1.1rem;
+}
+
+.comments hr {
+  height: 5px;
+  border: none;
+}
+
+.commentsForm {
+  padding-bottom: 100px;
+  margin-top: 100px;
+  width: 90%;
+}
+
+.commentsForm form {
+  padding-top: 10px;
+}
+
+.commentsForm .input-field input:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid var(--primary);
+  box-shadow: 0 1px 0 0 var(--primary);
+}
+
+.commentsForm .input-field > label {
+  color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  cursor: text;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+  transform-origin: 0% 100%;
+  text-align: initial;
+  transform: translateY(12px);
+}
+
+.commentsForm
+  .input-field
+  input:not(.browser-default):focus:not([readonly])
+  + label {
+  color: #000;
+}
+
+.commentsForm .file-field {
+  padding-top: 10px;
+}
+.commentsForm .input-field .prefix.active {
+  color: #fff;
+}
+
+.commentsForm button {
+  margin: 20px 0;
+  background-color: var(--primary);
+  width: 100%;
+}
+
+.commentsForm button:hover,
+.commentsForm button:focus {
+  background-color: var(--primary-dark);
+}
+
+.commentsForm .input-field .prefix {
+  color: #000;
+}
+
+.note i {
+  float: right;
+  font-size: 4rem;
+}
+
+.good {
+  color: var(--good);
+}
+
+.reasonable {
+  color: var(--reasonable);
+}
+
+.bad {
+  color: var(--bad);
 }
 
 @media (min-width: 1100px) {
@@ -94,8 +211,7 @@ text-transform: uppercase;
     padding-top: 0;
   }
 
-  .news .collapsible-body img{
-    max-height: 400px ;
+  .news .collapsible-body img {
+    max-height: 400px;
   }
 }
-

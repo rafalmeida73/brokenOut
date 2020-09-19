@@ -36,7 +36,7 @@ function Home() {
          <div>
             <div >
 
-               <header  className="headerBlock">
+               <header data-aos='fade-right' className="headerBlock">
                   <Row>
                      <div className="col s12 m12 l6 robotBlock">
                         <Lottie className='robo'
@@ -58,7 +58,7 @@ function Home() {
                   </Row>
                </header>
 
-               <div  className="row center-align benefits">
+               <div data-aos='fade-right' className="row center-align benefits">
                   <Benefits />
                </div>
 
@@ -67,7 +67,7 @@ function Home() {
                </div>
 
 
-               <Row  className='teamBlock'>
+               <Row data-aos='fade-right' className='teamBlock'>
                   <div className="col s12 m6 l6">
                      <img src={Team} alt="Equipe" className="responsive-img" />
                   </div>
@@ -83,7 +83,7 @@ function Home() {
                </Row>
 
 
-               <div  className='freeGames container'>
+               <div data-aos='fade-right' className='freeGames container'>
                   <h3>Jogos gratuitos</h3>
 
                   <div className="imgGames">

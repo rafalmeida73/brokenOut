@@ -19,7 +19,7 @@ function Games() {
 
   return (
     <div>
-      <Row  className=" titleBlock">
+      <Row data-aos='fade-right'  className=" titleBlock">
 
         <div className="col s12 m7 l8">
           <h1 className="white-text">Jogos cadastrados</h1>
@@ -42,7 +42,7 @@ function Games() {
 
       {/* TABELA DE FILTROS */}
 
-      <div  className="col s12 m12 l12 container tabsFilters">
+      <div data-aos='fade-right'  className="col s12 m12 l12 container tabsFilters">
         <Tabs className="tab-demo z-depth-1 tabs-fixed-width">
           <Tab
             active
@@ -141,7 +141,7 @@ function Games() {
 
       {/* FORM PESQUISAR JOGO */}
 
-      <Row  className="center-align filtersBlock">
+      <Row data-aos='fade-right'  className="center-align filtersBlock">
         <div className="col s12 m12 l10 ">
           <form action="">
             <TextInput
@@ -225,7 +225,7 @@ function Games() {
         </div>
       </Row>
 
-      <Row  className='container catalog'>
+      <Row data-aos='fade-right'  className='container catalog'>
         <GamesCard />
       </Row>
     </div>
