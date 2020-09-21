@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import { Row, TextInput, Icon, Button } from 'react-materialize';
@@ -10,6 +10,7 @@ import './styles.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
+import firebase from '../../fireConnection';
 // import { Link } from 'react-router-dom';
 
 
@@ -24,6 +25,9 @@ const defaultOptions8 = {
 
 
 function SingUp() {
+  const [WeakPass, SetWeakPass] = useState(false);
+  const [invalidEmail, SetInvalidEmail] = useState(false);
+  const [successRegister, SetSuccessRegister] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -32,11 +36,25 @@ function SingUp() {
   }, []);
 
 
-
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = (data, e) => {
+    // console.log(data.email);
+    firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+      .then((authData) => {
+        SetInvalidEmail(false);
+        SetWeakPass(false);
+        SetSuccessRegister(true);
+      }).catch((error) => {
+        if (error.code === 'auth/invalid-email') {
+          SetInvalidEmail(true);
+        }
+        if (error.code === 'auth/weak-password') {
+          SetWeakPass(true);
+        } else {
+          alert('Erro' + error.code)
+        }
+      });
   };
 
 
@@ -61,23 +79,27 @@ function SingUp() {
                   </Alert>
                 ) : ''}
 
-                {errors.password && (
-
+                {WeakPass ? (
                   <Alert variant="filled" severity="error">
                     Senha fraca!
                   </Alert>
+                ) : ''}
+
+                {invalidEmail && (
+                  <Alert variant="filled" severity="error">
+                    E-mail já está em uso!
+                  </Alert>
                 )}
 
-                {/* <Alert variant="filled" severity="error">
-         E-mail já está em uso!
-       </Alert>
+                {successRegister && (
+                  <Alert variant="filled" severity="success">
+                    Registro completo!
+                    <Link to="/login">
+                      FAZER LOGIN
+                    </Link>
+                  </Alert>
+                )}
 
-        <Alert variant="filled" severity="success">
-         Registro completo!
-        <Link to="/login">
-          FAZER LOGIN
-        </Link>
-        </Alert> */}
               </div>
 
 
@@ -116,7 +138,7 @@ function SingUp() {
                   label="Senha"
                   type="password"
                   validate
-                  ref={register({ minLength: 5, required: true })}
+                  ref={register({ required: true })}
                 />
 
                 <Button node="button" type="submit" waves="light">

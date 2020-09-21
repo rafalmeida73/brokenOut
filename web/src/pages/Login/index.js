@@ -35,7 +35,7 @@ function Login() {
 
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = data => {
+  const onSubmit = (data, e) => {
     console.log(data);
   };
 
@@ -61,12 +61,11 @@ function Login() {
                   </Alert>
                 ) : ''}
 
-                {/* {errors.password && (
-
-         <Alert variant="filled" severity="error">
-           E-mail ou senha incorreta!
-         </Alert>
-        )} */}
+                {errors.password && (
+                  <Alert variant="filled" severity="error">
+                    E-mail ou senha incorreta!
+                  </Alert>
+                )}
 
                 {/* <Alert variant="filled" severity="error">
          E-mail ou senha incorreta!

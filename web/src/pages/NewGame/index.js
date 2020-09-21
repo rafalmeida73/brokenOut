@@ -19,8 +19,9 @@ function NewGame() {
 
  const { register, handleSubmit, errors, control } = useForm();
 
- const onSubmit = data => {
+ const onSubmit = (data, e) => {
   console.log(data);
+  e.target.reset();
  };
 
  return (

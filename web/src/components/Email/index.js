@@ -8,8 +8,9 @@ import { useForm } from "react-hook-form";
 function SendEmail() {
 
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => {
+  const onSubmit = (data, e) => {
     console.log(data);
+    e.target.reset();
   };
 
   return (

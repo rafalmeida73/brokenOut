@@ -80,8 +80,15 @@ function GamesCard() {
     return (
      <div key={game.id}>
       <Link to={`/jogos/${game.id}`}>
-       <div className={"col s12 m6 l4"}>
-      
+       <div className={"col s12 m6 l4 iconsNote"}>
+
+       {game.note === "1" ? <Icon className="bad">looks_one</Icon> :
+        game.note === "2" ? <Icon className="reasonable">looks_two</Icon> :
+        game.note === "3" ? <Icon className="reasonable">looks_3</Icon> :
+        game.note === "4" ? <Icon className="reasonable">looks_4</Icon> :
+        game.note === "5" ? <Icon className="good">looks_5</Icon> : ""
+        }
+
         <div className={`cardGame ${game.category === "action" ? "action" :
          game.category === "strategy" ? "strategy" :
           game.category === "fight" ? "fight" :
@@ -93,12 +100,7 @@ function GamesCard() {
                 game.category === "vr" ? "vr" :
                  ""
          }`}>
-                  {game.note === "1" ? <Icon className="bad">looks_one</Icon> :
-                        game.note === "2" ? <Icon className="reasonable">looks_two</Icon> :
-                        game.note === "3" ? <Icon className="reasonable">looks_3</Icon> :
-                        game.note === "4" ? <Icon className="good">looks_4</Icon> :
-                        game.note === "5" ? <Icon className="good">looks_5</Icon> : ""
-                            }
+                 
         <img className="responsive-img" src={game.img} alt={game.name} />
         <h4 className="center-align">{game.name}</h4>
 

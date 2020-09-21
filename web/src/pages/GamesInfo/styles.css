@@ -38,6 +38,14 @@
   padding-top: 100px;
 }
 
+.linksBlock{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
 iframe {
   width: 90%;
   margin: 100px 0;
@@ -107,7 +115,6 @@ iframe {
 }
 
 .comments {
-  border-radius: 5px;
   width: 90%;
 }
 
@@ -148,7 +155,7 @@ iframe {
 }
 
 .commentsForm .input-field > label {
-  color: #000;
+  color: #fff;
   position: absolute;
   top: 0;
   left: 0;
@@ -177,7 +184,7 @@ iframe {
 .commentsForm button {
   margin: 20px 0;
   background-color: var(--primary);
-  width: 100%;
+  float: right;
 }
 
 .commentsForm button:hover,
@@ -186,7 +193,7 @@ iframe {
 }
 
 .commentsForm .input-field .prefix {
-  color: #000;
+  color: #fff;
 }
 
 .note i {
