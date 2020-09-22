@@ -10,7 +10,7 @@ import './styles.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
-import Firebase from '../../fireConnection';
+import firebase from '../../fireConnection';
 import { Redirect } from 'react-router-dom';
 
 
@@ -43,7 +43,7 @@ function Login() {
 
   const onSubmit = data => {
    
-    Firebase.login(data.email, data.password)
+    firebase.login(data.email, data.password)
       .then((authData) => {
         SetLogged(true);
       }).catch((error) => {

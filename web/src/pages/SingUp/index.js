@@ -40,7 +40,7 @@ function SingUp() {
 
   const onSubmit = data => {
     // console.log(data.email);
-    firebase.register(data.email, data.password)
+    firebase.register(data.name, data.email, data.password)
       .then((authData) => {
         SetInvalidEmail(false);
         SetWeakPass(false);

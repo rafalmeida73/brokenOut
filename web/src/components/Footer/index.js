@@ -3,29 +3,14 @@ import './styles.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import { Link } from 'react-router-dom';
-import firebase from '../../fireConnection';
-
+import IsLogeed from '../isLogged';
+import Store from '../Store'
 
 
 import Up from '../../assets/img/up.png'
 
 function Footer() {
   const [is_visible] = useState(true);
-  const [Logged, SetLogged] = useState(false);
-
-  useEffect(() => {
-    firebase.isInitialized().then(res =>{
-      res = true;
-      SetLogged(res)
-    }).catch(res =>{
-      SetLogged(false);
-    })
-  }, [])
-
-function signOut() {
-  firebase.signOut();
-  SetLogged(false);
-}
 
   function scrollToTop() {
     window.scrollTo({
@@ -59,28 +44,11 @@ function signOut() {
                     Jogos
                       </Link>
                 </li>
-                
-                {!Logged && (
-                  <li>
-                    <Link className="white-text text-lighten-3" to="/login">
-                      Entrar
-                      </Link>
-                  </li>
-                )}
-                {!Logged && (
-                  <li>
-                    <Link className="white-text text-lighten-3" to="/registrar">
-                      Registrar
-                      </Link>
-                  </li>
-                )}
-                {Logged && (
-                  <li>
-                    <Link className="white-text text-lighten-3" onClick={signOut}>
-                      Sair
-                      </Link>
-                  </li>
-                )}
+
+                <Store>
+                  <IsLogeed />
+                </Store>
+
               </ul>
             </div>
             <div className="col l1 s4 right">

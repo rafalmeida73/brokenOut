@@ -5,27 +5,12 @@ import { Navbar, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/logo.svg';
 import './styles.css';
-import firebase from '../../fireConnection';
+import IsLogeed from '../isLogged';
+import Store from '../Store'
+
+
 
 function Home() {
-  const [Logged, SetLogged] = useState(false);
-
-    useEffect(() => {
-      firebase.isInitialized().then(res =>{
-        res = true;
-        SetLogged(res)
-      }).catch(res =>{
-        SetLogged(false);
-      })
-    }, [])
-
-  function signOut() {
-    firebase.signOut();
-    SetLogged(false);
-  }
-
-
-
   return (
     <div>
       <Navbar
@@ -58,23 +43,10 @@ function Home() {
             </Link>
 
 
-        {!Logged && (
-          <Link to='/login'>
-            Entrar
-          </Link>
-        )}
+        <Store>
+          <IsLogeed />
+        </Store>
 
-        {!Logged && (
-          <Link to='/registrar'>
-            Registrar
-          </Link>
-        )}
-
-        {Logged && (
-          <Link  onClick={signOut}>
-            Sair
-          </Link>
-        )}
 
       </Navbar>
     </div>
