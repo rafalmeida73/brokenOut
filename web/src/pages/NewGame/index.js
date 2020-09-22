@@ -27,7 +27,7 @@ function NewGame() {
  return (
   <div>
    <div className="newGameBlock">
-    <header data-aos='fade-right' className="col s12 m12 l12  container">
+    <header data-aos='fade-right' className="col s12 m12 l12 ">
 
      <div className="errorBlock">
       {errors.name ||
@@ -42,7 +42,7 @@ function NewGame() {
 
      </div>
 
-     <form onSubmit={handleSubmit(onSubmit)}>
+     <form className="container" onSubmit={handleSubmit(onSubmit)}>
 
 
       <Controller

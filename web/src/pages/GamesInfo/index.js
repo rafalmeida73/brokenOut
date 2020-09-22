@@ -80,17 +80,17 @@ function GamesInfo() {
 
               {/* Links */}
               <div data-aos='fade-right' className="linksBlock container">
-                <a href="">
-                  <img src={Steam} alt="" width="50" />
+                <a href="/#">
+                  <img src={Steam} alt="Comprar na Steam" width="50" />
                 </a>
-                <a href="">
-                  <img src={Epic} alt="" width="50" />
+                <a href="/#">
+                  <img src={Epic} alt="Comprar na Steam Games" width="50" />
                 </a>
-                <a href="">
-                  <img src={Play} alt="" width="50" />
+                <a href="/#">
+                  <img src={Play} alt="Comprar na Play Store" width="50" />
                 </a>
-                <a href="">
-                  <img src={App} alt="" width="50" />
+                <a href="/#">
+                  <img src={App} alt="Comprar na App Store" width="50" />
                 </a>
               </div>
 

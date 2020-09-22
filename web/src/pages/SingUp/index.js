@@ -38,21 +38,19 @@ function SingUp() {
 
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data, e) => {
+  const onSubmit = data => {
     // console.log(data.email);
-    firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+    firebase.register(data.email, data.password)
       .then((authData) => {
         SetInvalidEmail(false);
         SetWeakPass(false);
         SetSuccessRegister(true);
       }).catch((error) => {
-        if (error.code === 'auth/invalid-email') {
+        if (error.code === 'auth/email-already-in-use') {
           SetInvalidEmail(true);
         }
         if (error.code === 'auth/weak-password') {
           SetWeakPass(true);
-        } else {
-          alert('Erro' + error.code)
         }
       });
   };

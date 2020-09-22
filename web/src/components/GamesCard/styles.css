@@ -4,7 +4,7 @@
 }
 
 .cardGame {
-  border-radius: 50px 0 50px 0;
+  border-radius: 0 50px 0 50px;
   padding: 37px 10px !important;
   margin-bottom: 50px;
   max-width: 98%;
