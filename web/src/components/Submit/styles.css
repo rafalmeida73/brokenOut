@@ -1,0 +1,10 @@
+.commentsForm a {
+  margin: 20px 0;
+  background-color: var(--primary) !important;
+  float: right;
+}
+
+.commentsForm a:hover,
+.commentsForm a:focus {
+  background-color: var(--primary-dark) !important;
+}

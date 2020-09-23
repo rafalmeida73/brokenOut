@@ -181,14 +181,16 @@ iframe {
   color: #fff;
 }
 
-.commentsForm button {
+.commentsForm button, .commentsForm a {
   margin: 20px 0;
   background-color: var(--primary);
   float: right;
 }
 
 .commentsForm button:hover,
-.commentsForm button:focus {
+.commentsForm button:focus,
+.commentsForm a,
+.commentsForm a:focus  {
   background-color: var(--primary-dark);
 }
 

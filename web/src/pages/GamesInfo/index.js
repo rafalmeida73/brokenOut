@@ -17,6 +17,12 @@ import Epic from '../../assets/img/epic.png';
 import Play from '../../assets/img/play.png';
 import App from '../../assets/img/apple.png';
 
+import firebase from '../../fireConnection';
+import Submit from '../../components/Submit';
+import Store from '../../components/Store'
+
+
+
 
 function GamesInfo() {
   let id = useParams().id;
@@ -24,7 +30,7 @@ function GamesInfo() {
   const [newsNotFound, setNewsNotFound] = useState(false);
   const [news, setNews] = useState([]);
   const [comment, setComment] = useState([]);
-
+  const [name, setName] = useState(null);
 
   useEffect(() => {
     //News API
@@ -37,17 +43,14 @@ function GamesInfo() {
         }
       });
 
-    api.get("/steam/iframe/" + id)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(error => {
-        console.log(error)
-      });
-
     AOS.init({
       duration: 3000
     });
+
+    firebase.getUserName((info) => {
+      // console.log(info.val().nome)
+      setName(info.val().nome)
+    })
 
   }, []);
 
@@ -189,13 +192,12 @@ function GamesInfo() {
                   </div>
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <TextInput
-                      icon={<Icon>face</Icon>}
                       id="name"
                       name="name"
-                      label="Nome"
-                      type="text"
+                      type="hidden"
                       validate
-                      ref={register({ minLength: 4, required: true })}
+                      value={name}
+                      ref={register()}
                     />
                     <TextInput
                       icon={<Icon>chat</Icon>}
@@ -204,7 +206,7 @@ function GamesInfo() {
                       label="Comentário"
                       type="text"
                       validate
-                      ref={register({ minLength: 5, required: true })}
+                      ref={register({ minLength: 2, required: true })}
                     />
                     <TextInput
                       icon={<Icon>grade</Icon>}
@@ -233,12 +235,10 @@ function GamesInfo() {
                       value={Math.random()}
                       ref={register()}
                     />
-                    <Button node="button" type="submit" waves="light">
-                      Comentar
-                  <Icon right>
-                        send
-                  </Icon>
-                    </Button>
+
+                    <Store>
+                      <Submit />
+                    </Store>
                   </form>
                 </div>
               </div>

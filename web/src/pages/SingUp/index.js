@@ -11,7 +11,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import firebase from '../../fireConnection';
-// import { Link } from 'react-router-dom';
 
 
 const defaultOptions8 = {
@@ -61,7 +60,7 @@ function SingUp() {
       <header className="signUpBlock">
         <div>
 
-          <Row>
+          <Row className="container">
 
             <div data-aos='fade-right' className="col s12 m12 l5 controlBlock">
               <Lottie className='control'
@@ -92,9 +91,6 @@ function SingUp() {
                 {successRegister && (
                   <Alert variant="filled" severity="success">
                     Registro completo!
-                    <Link to="/login">
-                      FAZER LOGIN
-                    </Link>
                   </Alert>
                 )}
 

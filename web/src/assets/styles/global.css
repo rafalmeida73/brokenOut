@@ -1,54 +1,50 @@
 :root {
- --background: #474445;
- --background-dark: #272526;
- --primary: #E10F4C;
- --primary-dark: #b6063b;
- --color-secondary: #C4C4C4;
+  --background: #474445;
+  --background-dark: #272526;
+  --primary: #e10f4c;
+  --primary-dark: #b6063b;
+  --color-secondary: #c4c4c4;
 
- 
- --action: #ED213A;
- --strategy: #11998E;
- --fight: #F37335;
- --running: #63707B;
- --rpg: #B79891;
- --construction: #3C1053;
- --real-life: #1295EA;
- --music: #FF957E;
- --sports: #FFC412;
+  --action: #ed213a;
+  --strategy: #11998e;
+  --fight: #f37335;
+  --running: #63707b;
+  --rpg: #FFC412;
+  --construction: #3c1053;
+  --real-life: #1295ea;
+  --music: #ff957e;
+  --sports: #0f9b0f;
 
- --good: #96c93d;
- --reasonable: #ffe000;
---bad: #dd1818;
+  --good: #96c93d;
+  --reasonable: #ffe000;
+  --bad: #f44336;
 
- 
- font-size: 60%;
+  font-size: 60%;
 }
 
-*{
- margin: 0;
- padding: 0;
- box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
- background: var(--background);
+body {
+  background: var(--background);
 }
-
 
 body,
 input,
 button,
-textarea{
- font: 500 1.6rem;
+textarea {
+  font: 500 1.6rem;
 }
 
-.collapsible-body{
- background-color: #fff;
+.collapsible-body {
+  background-color: #fff;
 }
 
-
-@media(min-width: 700px){
- :root{
-  font-size: 62.5%;
- }
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
 }

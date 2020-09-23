@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import firebase from '../../fireConnection';
 
 const IsLogeed = () => {
-    const [state, setState] = useContext(Context);
+    const [state] = useContext(Context);
 
     function handleClick() {
         firebase.signOut();
+        
     }
 
     return (
@@ -16,7 +17,7 @@ const IsLogeed = () => {
                 <li>
                     <Link className="white-text" to='/login'>
                         Entrar
-          </Link>
+                    </Link>
                 </li>
 
             )}
@@ -25,7 +26,7 @@ const IsLogeed = () => {
                 <li>
                     <Link className="white-text" to='/registrar'>
                         Registrar
-          </Link>
+                    </Link>
                 </li>
 
             )}
@@ -34,7 +35,7 @@ const IsLogeed = () => {
                 <li>
                     <Link className="white-text" onClick={handleClick}>
                         Sair
-    </Link>
+                    </Link>
                 </li>
             )}
         </>

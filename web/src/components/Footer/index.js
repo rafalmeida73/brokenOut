@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
@@ -32,17 +32,17 @@ function Footer() {
                 <li>
                   <Link className="white-text text-lighten-3" to="/">
                     Home
-                      </Link>
+                  </Link>
                 </li>
                 <li>
                   <Link className="white-text text-lighten-3" to="/sobre">
                     Sobre
-                      </Link>
+                  </Link>
                 </li>
                 <li>
                   <Link className="white-text text-lighten-3" to="jogos">
                     Jogos
-                      </Link>
+                  </Link>
                 </li>
 
                 <Store>

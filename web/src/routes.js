@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Header from './components/Header'
@@ -11,10 +11,22 @@ import Error from './pages/Error';
 import SingUp from './pages/SingUp';
 import Login from './pages/Login';
 import NewGame from './pages/NewGame';
+import {isAuthenticated} from './auth';
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+ <Route {...rest} render={props =>
+  isAuthenticated() ? (
+   <Component {...props} />
+  ) : (
+    <Redirect to={"/login"} />
+   )
+ }
+ />
+);
 
 const Routes = () => {
 
- return  (
+ return (
   <BrowserRouter>
    <Header />
    <Switch>
@@ -24,7 +36,7 @@ const Routes = () => {
     <Route exact path="/jogos/:id" component={GamesInfo} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/registrar" component={SingUp} />
-    <Route exact path="/novoGame" component={NewGame} />
+    <PrivateRoute path="/novoGame" component={NewGame} />
     <Route path="*" component={Error} />
    </Switch>
    <Footer />

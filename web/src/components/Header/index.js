@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import { Navbar, Icon } from 'react-materialize';
@@ -32,7 +32,7 @@ function Home() {
       >
         <Link to="/">
           Home
-            </Link>
+        </Link>
 
         <Link to="/sobre">
           Sobre
@@ -40,7 +40,7 @@ function Home() {
 
         <Link to="/jogos">
           Jogos
-            </Link>
+        </Link>
 
 
         <Store>

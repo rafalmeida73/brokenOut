@@ -1,6 +1,9 @@
-.iconsNote i{
+.iconsNote i {
   position: absolute;
   font-size: 4rem;
+  background-color: aliceblue;
+  margin: 3px;
+  border-radius: 9px;
 }
 
 .cardGame {
@@ -10,13 +13,13 @@
   max-width: 98%;
   height: 250px;
   display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .cardGame h4 {
-  max-height: 50px;
+  max-height: 25px;
 }
 
 .Mui-disabled label {
@@ -41,9 +44,3 @@
     height: 260px;
   }
 }
-
-
-
-
-
-
