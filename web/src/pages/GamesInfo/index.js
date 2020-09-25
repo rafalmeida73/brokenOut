@@ -16,6 +16,7 @@ import Steam from '../../assets/img/steam.png';
 import Epic from '../../assets/img/epic.png';
 import Play from '../../assets/img/play.png';
 import App from '../../assets/img/apple.png';
+import Microsoft from '../../assets/img/microsoft.svg';
 
 import firebase from '../../fireConnection';
 import Submit from '../../components/Submit';
@@ -30,7 +31,7 @@ function GamesInfo() {
   const [newsNotFound, setNewsNotFound] = useState(false);
   const [news, setNews] = useState([]);
   const [comment, setComment] = useState([]);
-  const [name, setName] = useState(null);
+  const [name, setName] = useState(localStorage.nome);
 
   useEffect(() => {
     //News API
@@ -48,8 +49,8 @@ function GamesInfo() {
     });
 
     firebase.getUserName((info) => {
-      // console.log(info.val().nome)
-      setName(info.val().nome)
+      localStorage.nome = info.val().nome;
+      setName(localStorage.nome)
     })
 
   }, []);
@@ -85,6 +86,9 @@ function GamesInfo() {
               <div data-aos='fade-right' className="linksBlock container">
                 <a href="/#">
                   <img src={Steam} alt="Comprar na Steam" width="50" />
+                </a>
+                <a href="/#">
+                  <img src={Microsoft} alt="Comprar na Microsoft Store" width="50" />
                 </a>
                 <a href="/#">
                   <img src={Epic} alt="Comprar na Steam Games" width="50" />

@@ -5,10 +5,11 @@
   background-size: cover;
 }
 
-.newGameBlock header{
+.newGameBlock header {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .newGameBlock header button {
@@ -17,20 +18,20 @@
   width: 100%;
   font-weight: bold;
   margin-top: 30px;
- }
+}
 
- .newGameBlock header button:hover,
+.newGameBlock header button:hover,
 .newGameBlock header button:focus {
- background-color: var(--primary-dark);
+  background-color: var(--primary-dark);
 }
 
 .newGameBlock
- header
- .input-field
- input:not(.browser-default):focus:not([readonly]),
+  header
+  .input-field
+  input:not(.browser-default):focus:not([readonly]),
 .newGameBlock header .select-wrapper input.select-dropdown:focus {
- border-bottom: 1px solid var(--primary);
- box-shadow: 0 1px 0 0 var(--primary);
+  border-bottom: 1px solid var(--primary);
+  box-shadow: 0 1px 0 0 var(--primary);
 }
 
 .newGameBlock header .input-field > label {
@@ -44,49 +45,49 @@
   transform-origin: 0% 100%;
   text-align: initial;
   transform: translateY(12px);
- }
+}
 
- .newGameBlock
- header
- .input-field
- input:not(.browser-default):focus:not([readonly])
- + label {
- color: #000;
+.newGameBlock
+  header
+  .input-field
+  input:not(.browser-default):focus:not([readonly])
+  + label {
+  color: #000;
 }
 
 .newGameBlock header .file-field {
- padding-top: 10px;
+  padding-top: 10px;
 }
 .newGameBlock header .input-field .prefix.active {
- color: #fff;
+  color: #fff;
 }
 
 .MuiInputBase-root {
   width: 100%;
- }
- 
- .newGameBlock header .select-dropdown {
-  position: relative;
- }
- 
- .newGameBlock header .select-wrapper .caret {
-  margin: 0;
- }
- 
- .newGameBlock header .select-dropdown li:first-of-type {
-  visibility: hidden;
- }
- 
- .newGameBlock header .select-dropdown li span {
-  color: white;
- }
- 
- .newGameBlock header .file-field .btn {
-  background-color: var(--primary);
- }
+}
 
- @media (min-width: 1100px) {
+.newGameBlock header .dropdown-content {
+  background-color: var(--background) !important;
+}
+
+.newGameBlock header .select-dropdown:focus .newGameBlock header button {
+  visibility: hidden;
+}
+
+.newGameBlock header .select-wrapper .caret {
+  margin: 0;
+}
+
+.newGameBlock header .select-dropdown li span {
+  color: white;
+}
+
+.newGameBlock header .file-field .btn {
+  background-color: var(--primary);
+}
+
+@media (min-width: 1100px) {
   .newGameBlock header {
     height: 110vh;
   }
- }
+}

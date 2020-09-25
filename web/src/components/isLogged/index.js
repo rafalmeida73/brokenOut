@@ -7,8 +7,7 @@ const IsLogeed = () => {
     const [state] = useContext(Context);
 
     function handleClick() {
-        firebase.signOut();
-        
+        firebase.logout();
     }
 
     return (
