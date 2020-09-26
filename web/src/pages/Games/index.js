@@ -18,7 +18,7 @@ function Games() {
   }, []);
 
   return (
-    <div>
+    <div style={{minHeight: "100vh"}}>
       <Row data-aos='fade-right'  className=" titleBlock">
 
         <div className="col s12 m7 l8">

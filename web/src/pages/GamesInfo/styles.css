@@ -7,11 +7,12 @@
 .gameInfoBlock h1 {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
+  color: #fff;
+  font-weight: bold;
 }
 
 .gameInfoBlock .descriptionGameBlock p {
   -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: #000;
   font-weight: bold;
 }
 
@@ -20,7 +21,6 @@
 }
 
 .descriptionGameBlock {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,12 +35,12 @@
 .descriptionGameBlock img {
   width: 90%;
   border-radius: 15px;
-  padding-top: 100px;
+  padding-top: 10%;
 }
 
-.linksBlock{
+.linksBlock {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-top: 150px;
   margin-bottom: 150px;
@@ -69,7 +69,6 @@ iframe {
 
 .news .collapsible-header i {
   font-size: 2.5rem;
-  color: var(--primary);
 }
 
 .news a {
@@ -105,13 +104,12 @@ iframe {
   flex-direction: column;
 }
 
-.commentsBlock h4{
+.commentsBlock h4 {
   width: 90%;
   margin-bottom: 50px;
   text-align: left;
   font-weight: bold;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000;
 }
 
 .comments {
@@ -149,29 +147,11 @@ iframe {
   padding-top: 10px;
 }
 
-.commentsForm .input-field input:not(.browser-default):focus:not([readonly]) {
-  border-bottom: 1px solid var(--primary);
-  box-shadow: 0 1px 0 0 var(--primary);
-}
-
-.commentsForm .input-field > label {
-  color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 1rem;
-  cursor: text;
-  transition: transform 0.2s ease-out, color 0.2s ease-out;
-  transform-origin: 0% 100%;
-  text-align: initial;
-  transform: translateY(12px);
-}
-
 .commentsForm
   .input-field
   input:not(.browser-default):focus:not([readonly])
   + label {
-  color: #000;
+  color: #fff;
 }
 
 .commentsForm .file-field {
@@ -181,7 +161,8 @@ iframe {
   color: #fff;
 }
 
-.commentsForm button, .commentsForm a {
+.commentsForm button,
+.commentsForm a {
   margin: 20px 0;
   background-color: var(--primary);
   float: right;
@@ -190,12 +171,8 @@ iframe {
 .commentsForm button:hover,
 .commentsForm button:focus,
 .commentsForm a,
-.commentsForm a:focus  {
+.commentsForm a:focus {
   background-color: var(--primary-dark);
-}
-
-.commentsForm .input-field .prefix {
-  color: #fff;
 }
 
 .note i {
@@ -216,6 +193,14 @@ iframe {
 }
 
 @media (min-width: 1100px) {
+  .descriptionGameBlock {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
   .descriptionGameBlock img {
     padding-top: 0;
   }

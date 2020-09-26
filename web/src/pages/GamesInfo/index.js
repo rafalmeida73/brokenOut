@@ -3,7 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import { Collapsible, CollapsibleItem, Icon, Button, Row, TextInput } from 'react-materialize';
 import './styles.css';
-import Color from "color-thief-react";
+import Color, { Palette } from "color-thief-react";
 import ReactHtmlParser from 'react-html-parser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -22,11 +22,11 @@ import Microsoft from '../../assets/img/microsoft.svg';
 import firebase from '../../fireConnection';
 import Submit from '../../components/Submit';
 import Store from '../../components/Store'
+import Load from '../../components/Loading'
+import styled from 'styled-components';
 
-
-
-
-function GamesInfo() {
+const Loading = () => <div style={{ height: "100vh" }}><Load /></div>;
+export default function GameInfo() {
   let id = useParams().id;
   const [appID, setAppId] = useState(null);
   const [appInfo, setAppInfo] = useState([]);
@@ -35,9 +35,11 @@ function GamesInfo() {
   const [news, setNews] = useState([]);
   const [comment, setComment] = useState([]);
   const [name, setName] = useState(localStorage.nome);
+  const [color, setColor] = useState(null);
+  const [url, setUrl] = useState("https://i.imgur.com/DzapWf3b.jpg");
+
 
   useEffect(() => {
-    // News API
     AOS.init({
       duration: 3000
     });
@@ -58,15 +60,17 @@ function GamesInfo() {
         microsoft,
         playStore,
         appStore,
-        epic
+        epic,
       });
       setImgGame(imagem);
       setAppId(steam);
       setAppInfo(data);
+      setUrl("https://cors-anywhere.herokuapp.com/" + imagem)
 
-      if (steam === "undefined") {
+      if (steam === "") {
         setNewsNotFound(true);
       } else {
+        // News API
         api.get("/steam/game/" + steam + "/news")
           .then(res => {
             setNews(res.data.appnews.newsitems);
@@ -76,31 +80,63 @@ function GamesInfo() {
     })
   }, []);
 
-
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data, e) => {
+  const onSubmit = data=> {
     console.log(data);
-    e.target.reset();
     setComment([...comment, data])
   };
+
 
   let date = new Date();
   let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
 
+  const CommentsStyle = styled.form`
+  input:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid ${color};
+  box-shadow: 0 1px 0 0  ${color};
+  };
+
+  i{
+    color: ${color};
+  };
+
+  label {
+  color: ${color};
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  cursor: text;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+  transform-origin: 0% 100%;
+  text-align: initial;
+  transform: translateY(12px);
+}
+  
+`;
+
+
   return (
     <div className="App">
+      <Palette src={url} crossOrigin="anonymous" format="hex" colorCount={4}>
+        {({ data, loading }) => {
+          if (loading) return "";
+          return <div>{data.map((color, index) => setColor(color))}</div>;
+        }}
+      </Palette>
       <Color src={img} crossOrigin="null" format="hex">
         {({ data, loading }) => {
+          if (loading) return <Loading />;
           return (
-            <div key={"1"} data-aos='fade-right' style={{ backgroundColor: data }} className='container gameInfoBlock'>
+            <div data-aos='fade-right' style={{ backgroundColor: data }} className='container gameInfoBlock'>
               {appInfo.map(info => {
                 return (
                   <>
                     <div className="col s12 m12 l12 descriptionGameBlock" key={id}>
-                      <img src={imgGame} alt="" />
-                      <h1 className="white-text">{info.name}</h1>
-                      <p>
+                      <img src={imgGame} alt={info.name} className="responsive-img" />
+                      <h1 style={{ color: color }}>{info.name}</h1>
+                      <p style={{ color: color }}>
                         {info.desc}
                       </p>
                     </div>
@@ -108,31 +144,31 @@ function GamesInfo() {
 
                     {/* Links */}
                     <div data-aos='fade-right' className="linksBlock container">
-                      {info.steam !== "undefined" && (
-                        <a href={`https://store.steampowered.com/app/${info.steam}`} >
+                      {info.steam !== "" && (
+                        <a href={`https://store.steampowered.com/app/${info.steam}`} target="_blank" rel="noopener noreferrer" >
                           <img src={Steam} alt="Comprar na Steam" width="50" />
                         </a>
                       )}
 
-                      {info.microsoft !== "undefined" && (
-                        <a href={info.microsoft}>
+                      {info.microsoft !== "" && (
+                        <a href={info.microsoft} target="_blank" rel="noopener noreferrer">
                           <img src={Microsoft} alt="Comprar na Microsoft Store" width="50" />
                         </a>
                       )}
 
-                      {info.epic !== "undefined" && (
-                        <a href={info.epic}>
+                      {info.epic !== "" && (
+                        <a href={info.epic} target="_blank" rel="noopener noreferrer">
                           <img src={Epic} alt="Comprar na Steam Games" width="50" />
                         </a>
                       )}
-                      {info.playStore !== "undefined" && (
-                        <a href={info.playStore}>
+                      {info.playStore !== "" && (
+                        <a href={info.playStore} target="_blank" rel="noopener noreferrer">
                           <img src={Play} alt="Comprar na Play Store" width="50" />
                         </a>
                       )}
 
-                      {info.appStore !== "undefined" && (
-                        <a href={info.appStore}>
+                      {info.appStore !== "" && (
+                        <a href={info.appStore} target="_blank" rel="noopener noreferrer">
                           <img src={App} alt="Comprar na App Store" width="50" />
                         </a>
                       )}
@@ -146,7 +182,7 @@ function GamesInfo() {
               {newsNotFound ? "" :
                 <>
                   <div data-aos='fade-right' className="col s12 m12 l12 news container">
-                    <h3 className="left-align white-text">
+                    <h3 style={{ color: color }} className="left-align">
                       Notícias
                   </h3>
 
@@ -157,7 +193,7 @@ function GamesInfo() {
                             <CollapsibleItem
                               expanded={false}
                               header={n.title}
-                              icon={<Icon>dvr</Icon>}
+                              icon={<Icon >dvr</Icon>}
                               node="div"
                               key={n.gid}
                             >
@@ -171,6 +207,7 @@ function GamesInfo() {
                                 waves="light"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                style={{ backgroundColor: color }}
                               >
                                 Ver a matéria completa
                           </Button>
@@ -195,10 +232,10 @@ function GamesInfo() {
               {/* Comments  */}
               <div data-aos='fade-right' className="commentsBlock">
                 {comment.length === 0 ?
-                  <h4 className='white-text'>
+                  <h4 style={{ color: color }}>
                     Adicione um comentário
                   </h4> :
-                  <h4 className='white-text'>
+                  <h4 style={{ color: color }}>
                     Comentários
                   </h4>
                 }
@@ -238,56 +275,58 @@ function GamesInfo() {
                       </Alert>
                     ) : ''}
                   </div>
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <TextInput
-                      id="name"
-                      name="name"
-                      type="hidden"
-                      validate
-                      value={name}
-                      ref={register()}
-                    />
-                    <TextInput
-                      icon={<Icon>chat</Icon>}
-                      id="comment"
-                      name="comment"
-                      label="Comentário"
-                      type="text"
-                      validate
-                      ref={register({ minLength: 2, required: true })}
-                    />
-                    <TextInput
-                      icon={<Icon>grade</Icon>}
-                      id="note"
-                      name="note"
-                      label="Nota"
-                      type="number"
-                      min="1"
-                      max="5"
-                      validate
-                      ref={register({ maxLength: 1, required: true })}
-                    />
-                    <TextInput
-                      id="date"
-                      name="date"
-                      type="hidden"
-                      validate
-                      value={date.toLocaleDateString()}
-                      ref={register()}
-                    />
-                    <TextInput
-                      id="id"
-                      name="id"
-                      type="hidden"
-                      validate
-                      value={Math.random()}
-                      ref={register()}
-                    />
+                  <CommentsStyle color>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                      <TextInput
+                        id="name"
+                        name="name"
+                        type="hidden"
+                        validate
+                        value={name}
+                        ref={register()}
+                      />
+                      <TextInput
+                        icon={<Icon style={{ backgroundColor: "#000" }}>chat</Icon>}
+                        id="comment"
+                        name="comment"
+                        label="Comentário"
+                        type="text"
+                        validate
+                        ref={register({ minLength: 2, required: true })}
+                      />
+                      <TextInput
+                        icon={<Icon>grade</Icon>}
+                        id="note"
+                        name="note"
+                        label="Nota"
+                        type="number"
+                        min="1"
+                        max="5"
+                        validate
+                        ref={register({ maxLength: 1, required: true })}
+                      />
+                      <TextInput
+                        id="date"
+                        name="date"
+                        type="hidden"
+                        validate
+                        value={date.toLocaleDateString()}
+                        ref={register()}
+                      />
+                      <TextInput
+                        id="id"
+                        name="id"
+                        type="hidden"
+                        validate
+                        value={Math.random()}
+                        ref={register()}
+                      />
+                      <Store>
+                        <Submit color={color} />
+                      </Store>
 
-                    <Store>
-                      <Submit />
-                    </Store>
-                  </form>
+                    </form>
+                  </CommentsStyle>
                 </div>
               </div>
 
@@ -296,8 +335,5 @@ function GamesInfo() {
         }}
       </Color>
     </div>
-  )
+  );
 }
-
-
-export default GamesInfo;

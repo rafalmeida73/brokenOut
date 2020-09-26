@@ -40,7 +40,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="white-text text-lighten-3" to="jogos">
+                  <Link className="white-text text-lighten-3" to="/jogos">
                     Jogos
                   </Link>
                 </li>
