@@ -26,8 +26,9 @@ function NewGame() {
 
   const { register, handleSubmit, errors, control } = useForm();
 
-  const onSubmit = async (data, e) => {
-    let { name, desc, note, steam, microsoft, epic, play, app, category } = data;
+  // Cadastro no jogo
+  const onSubmit = async data => {
+    let { name, desc, note, steam, microsoft, epic, play, app, buy, category } = data;
 
     let games = firebase.app.ref('games');
     let key = games.push().key;
@@ -41,12 +42,14 @@ function NewGame() {
       playStore: play,
       appStore: app,
       nota: note,
+      valor: buy,
       categoria: category
     });
 
     setSucess(true);
   };
 
+  //Gerar Url da imagem
   const handleFile = async (e) => {
 
     if (e.target.files[0]) {
@@ -93,7 +96,9 @@ function NewGame() {
             {errors.name ||
               errors.category ||
               errors.desc ||
-              errors.image
+              errors.image ||
+              errors.note ||
+              errors.buy
               ? (
                 <Alert variant="filled" severity="warning">
                   Por favor, preencha todos os campos com *
@@ -147,7 +152,7 @@ function NewGame() {
               icon={<Icon>description</Icon>}
               id="note"
               name="note"
-              label="Nota inicial"
+              label="Nota inicial *"
               type="number"
               min="1"
               max="5"
@@ -199,6 +204,51 @@ function NewGame() {
               label="Link do jogo na App Store"
               validate
               ref={register}
+            />
+
+<Controller
+              as={
+                <Select
+                  icon={<Icon>apps</Icon>}
+                  id="Select-9"
+                  multiple={false}
+                  options={{
+                    classes: '',
+                    dropdownOptions: {
+                      alignment: 'left',
+                      autoTrigger: true,
+                      closeOnClick: true,
+                      constrainWidth: true,
+                      coverTrigger: true,
+                      hover: false,
+                      inDuration: 150,
+                      onCloseEnd: null,
+                      onCloseStart: null,
+                      onOpenEnd: null,
+                      onOpenStart: null,
+                      outDuration: 250
+                    }
+                  }}
+                  value=""
+                >
+                  <option
+                    disabled
+                    value=""
+                  >
+                    Grátis ou pago? *
+       </option>
+                  <option value="paid">
+                    Pago
+       </option>
+                  <option value="free">
+                    Grátis
+       </option>
+                </Select>
+              }
+              name="buy"
+              rules={{ required: "this is required" }}
+              control={control}
+              defaultValue=""
             />
 
 

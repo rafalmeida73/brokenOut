@@ -3,7 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import { Collapsible, CollapsibleItem, Icon, Button, Row, TextInput } from 'react-materialize';
 import './styles.css';
-import Color from 'color-thief-react';
+import Color from "color-thief-react";
 import ReactHtmlParser from 'react-html-parser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -11,6 +11,7 @@ import api from "../../Services/api";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Alert from '@material-ui/lab/Alert';
+import 'firebase/storage';
 
 import Steam from '../../assets/img/steam.png';
 import Epic from '../../assets/img/epic.png';
@@ -27,23 +28,16 @@ import Store from '../../components/Store'
 
 function GamesInfo() {
   let id = useParams().id;
-  const [appID] = useState(id);
+  const [appID, setAppId] = useState(null);
+  const [appInfo, setAppInfo] = useState([]);
   const [newsNotFound, setNewsNotFound] = useState(false);
+  const [imgGame, setImgGame] = useState(null);
   const [news, setNews] = useState([]);
   const [comment, setComment] = useState([]);
   const [name, setName] = useState(localStorage.nome);
 
   useEffect(() => {
-    //News API
-    api.get("/steam/game/" + id + "/news")
-      .then(res => {
-        if (res.data.appnews.newsitems.length !== 0) {
-          setNews(res.data.appnews.newsitems);
-        } else {
-          setNewsNotFound(true);
-        }
-      });
-
+    // News API
     AOS.init({
       duration: 3000
     });
@@ -53,6 +47,33 @@ function GamesInfo() {
       setName(localStorage.nome)
     })
 
+    firebase.getGame(id, (info) => {
+      let { appStore, descricao, epic, imagem, microsoft, nome, playStore, steam } = info.val();
+      let data = [];
+      data.push({
+        name: nome,
+        img: imagem,
+        desc: descricao,
+        steam,
+        microsoft,
+        playStore,
+        appStore,
+        epic
+      });
+      setImgGame(imagem);
+      setAppId(steam);
+      setAppInfo(data);
+
+      if (steam === "undefined") {
+        setNewsNotFound(true);
+      } else {
+        api.get("/steam/game/" + steam + "/news")
+          .then(res => {
+            setNews(res.data.appnews.newsitems);
+          });
+      };
+
+    })
   }, []);
 
 
@@ -64,89 +85,112 @@ function GamesInfo() {
     setComment([...comment, data])
   };
 
-  const imgSrc = "https://cdn.cloudflare.steamstatic.com/steam/apps/" + appID + "/header.jpg?t=1599726221";
   let date = new Date();
+  let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
 
   return (
     <div className="App">
-      <Color src={imgSrc} crossOrigin="anonymous" format="hex">
+      <Color src={img} crossOrigin="null" format="hex">
         {({ data, loading }) => {
           return (
-            <div data-aos='fade-right' style={{ backgroundColor: data }} className='container gameInfoBlock'>
-              <div className="col s12 m12 l12 descriptionGameBlock">
-                <img src={imgSrc} alt="" />
-                <h1 className="white-text"> Lorem ipsum dolor</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. At sit enim imperdiet blandit ultrices fermentum gravida pellentesque. Amet scelerisque mi id enim etiam adipiscing velit proin aliquet. Amet condimentum nibh amet semper ut integer sed facilisis. Lacus lorem nisl, tellus, dui convallis. In sit ut elementum at. Amet, orci nibh dignissim eget semper ac ullamcorper elit.
-                </p>
-              </div>
+            <div key={"1"} data-aos='fade-right' style={{ backgroundColor: data }} className='container gameInfoBlock'>
+              {appInfo.map(info => {
+                return (
+                  <>
+                    <div className="col s12 m12 l12 descriptionGameBlock" key={id}>
+                      <img src={imgGame} alt="" />
+                      <h1 className="white-text">{info.name}</h1>
+                      <p>
+                        {info.desc}
+                      </p>
+                    </div>
 
 
-              {/* Links */}
-              <div data-aos='fade-right' className="linksBlock container">
-                <a href="/#">
-                  <img src={Steam} alt="Comprar na Steam" width="50" />
-                </a>
-                <a href="/#">
-                  <img src={Microsoft} alt="Comprar na Microsoft Store" width="50" />
-                </a>
-                <a href="/#">
-                  <img src={Epic} alt="Comprar na Steam Games" width="50" />
-                </a>
-                <a href="/#">
-                  <img src={Play} alt="Comprar na Play Store" width="50" />
-                </a>
-                <a href="/#">
-                  <img src={App} alt="Comprar na App Store" width="50" />
-                </a>
-              </div>
+                    {/* Links */}
+                    <div data-aos='fade-right' className="linksBlock container">
+                      {info.steam !== "undefined" && (
+                        <a href={`https://store.steampowered.com/app/${info.steam}`} >
+                          <img src={Steam} alt="Comprar na Steam" width="50" />
+                        </a>
+                      )}
+
+                      {info.microsoft !== "undefined" && (
+                        <a href={info.microsoft}>
+                          <img src={Microsoft} alt="Comprar na Microsoft Store" width="50" />
+                        </a>
+                      )}
+
+                      {info.epic !== "undefined" && (
+                        <a href={info.epic}>
+                          <img src={Epic} alt="Comprar na Steam Games" width="50" />
+                        </a>
+                      )}
+                      {info.playStore !== "undefined" && (
+                        <a href={info.playStore}>
+                          <img src={Play} alt="Comprar na Play Store" width="50" />
+                        </a>
+                      )}
+
+                      {info.appStore !== "undefined" && (
+                        <a href={info.appStore}>
+                          <img src={App} alt="Comprar na App Store" width="50" />
+                        </a>
+                      )}
+
+                    </div>
+                  </>
+                )
+              })}
 
               {/* News */}
               {newsNotFound ? "" :
-                <div data-aos='fade-right' className="col s12 m12 l12 news container">
-                  <h3 className='left-align white-text'>
-                    Notícias
+                <>
+                  <div data-aos='fade-right' className="col s12 m12 l12 news container">
+                    <h3 className="left-align white-text">
+                      Notícias
                   </h3>
 
-                  <div>
-                    <Collapsible accordion popout>
-                      {news.map((n) => {
-                        return (
-                          <CollapsibleItem
-                            expanded={false}
-                            header={n.title}
-                            icon={<Icon>dvr</Icon>}
-                            node="div"
-                            key={n.gid}
-                          >
-                            <p>
-                              {ReactHtmlParser(n.contents)}
-                            </p>
-
-                            <Button
-                              href={n.url}
-                              node="a"
-                              waves="light"
-                              target="_blank"
-                              rel="noopener noreferrer"
+                    <div>
+                      <Collapsible accordion popout>
+                        {news.map((n) => {
+                          return (
+                            <CollapsibleItem
+                              expanded={false}
+                              header={n.title}
+                              icon={<Icon>dvr</Icon>}
+                              node="div"
+                              key={n.gid}
                             >
-                              Ver a matéria completa
+                              <p>
+                                {ReactHtmlParser(n.contents)}
+                              </p>
+
+                              <Button
+                                href={n.url}
+                                node="a"
+                                waves="light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Ver a matéria completa
                           </Button>
-                          </CollapsibleItem>
-                        )
-                      })}
-                    </Collapsible>
+                            </CollapsibleItem>
+                          )
+                        })}
+                      </Collapsible>
+                    </div>
                   </div>
-                </div>
+
+
+
+                  {/* iframe */}
+                  <div data-aos='fade-right' className='iframeGame'>
+                    <iframe title="Concurrent players" src={"https://steamdb.info/embed/?appid=" + appID} height="389"
+                      style={{ border: 0, overflow: "hidden" }}></iframe>
+                  </div>
+
+                </>
               }
-
-
-              {/* iframe */}
-
-              <div data-aos='fade-right' className='iframeGame'>
-                <iframe title="Concurrent players" src={"https://steamdb.info/embed/?appid=" + appID} height="389"
-                  style={{ border: 0, overflow: "hidden" }}></iframe>
-              </div>
 
               {/* Comments  */}
               <div data-aos='fade-right' className="commentsBlock">
