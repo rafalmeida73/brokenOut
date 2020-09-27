@@ -28,7 +28,8 @@ function NewGame() {
 
   // Cadastro no jogo
   const onSubmit = async data => {
-    let { name, desc, note, steam, microsoft, epic, play, app, buy, category } = data;
+    let { name, desc, note, steam, microsoft, epic, play, app, buy, category, playstation } = data;
+    const currentUid = firebase.getCurrentUid();
 
     let games = firebase.app.ref('games');
     let key = games.push().key;
@@ -43,7 +44,9 @@ function NewGame() {
       appStore: app,
       nota: note,
       valor: buy,
-      categoria: category
+      categoria: category,
+      playstation,
+      autor: currentUid
     });
 
     setSucess(true);
@@ -180,6 +183,15 @@ function NewGame() {
             />
 
             <TextInput
+              icon={<Icon>loyalty</Icon>}
+              id="playstation"
+              name="playstation"
+              label="Link do jogo na Playstation Store"
+              validate
+              ref={register}
+            />
+
+            <TextInput
               icon={<Icon>link</Icon>}
               id="epic"
               name="epic"
@@ -206,7 +218,7 @@ function NewGame() {
               ref={register}
             />
 
-<Controller
+            <Controller
               as={
                 <Select
                   icon={<Icon>apps</Icon>}

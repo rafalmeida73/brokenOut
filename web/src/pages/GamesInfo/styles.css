@@ -161,18 +161,17 @@ iframe {
   color: #fff;
 }
 
-.commentsForm button,
-.commentsForm a {
-  margin: 20px 0;
-  background-color: var(--primary);
-  float: right;
-}
 
 .commentsForm button:hover,
-.commentsForm button:focus,
-.commentsForm a,
-.commentsForm a:focus {
-  background-color: var(--primary-dark);
+.commentsForm button:focus {
+  background-color: transparent !important;
+  color: var(--primary) !important;
+  box-shadow: none;
+}
+
+.commentsForm button:hover i,
+.commentsForm button:focus i{
+  color: var(--primary) !important;
 }
 
 .note i {

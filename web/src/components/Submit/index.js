@@ -12,14 +12,14 @@ const IsLogeed = (props) => {
    return (
       <>
          {state ?
-            <Button style={{ backgroundColor: props.color }} node="button" type="submit" waves="light">
+            <Button style={{ backgroundColor: props.color, color: props.pcolor, fontWeight: "bold" }} node="button" type="submit" waves="light">
                Comentar
-                      <Icon right className="white-text">
+                      <Icon style={{ color: props.pcolor}} right>
                   send
                       </Icon>
             </Button>
             :
-            <Link style={{ backgroundColor: props.color }} className="waves-effect waves-light btn" to="/login">
+            <Link style={{ backgroundColor: props.color, color: props.pcolor, fontWeight: "bold" }} className="waves-effect waves-light btn" to="/login">
                Fazer login
                    </Link>
          }

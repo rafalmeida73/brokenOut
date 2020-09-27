@@ -18,6 +18,7 @@ import Epic from '../../assets/img/epic.png';
 import Play from '../../assets/img/play.png';
 import App from '../../assets/img/apple.png';
 import Microsoft from '../../assets/img/microsoft.svg';
+import Playstation from '../../assets/img/ps4.png';
 
 import firebase from '../../fireConnection';
 import Submit from '../../components/Submit';
@@ -35,6 +36,7 @@ export default function GameInfo() {
   const [news, setNews] = useState([]);
   const [comment, setComment] = useState([]);
   const [name, setName] = useState(localStorage.nome);
+  const [pColor, setpColor] = useState(null);
   const [color, setColor] = useState(null);
   const [url, setUrl] = useState("https://i.imgur.com/DzapWf3b.jpg");
 
@@ -50,7 +52,7 @@ export default function GameInfo() {
     })
 
     firebase.getGame(id, (info) => {
-      let { appStore, descricao, epic, imagem, microsoft, nome, playStore, steam } = info.val();
+      let { appStore, descricao, epic, imagem, microsoft, nome, playStore, steam, playstation } = info.val();
       let data = [];
       data.push({
         name: nome,
@@ -61,6 +63,7 @@ export default function GameInfo() {
         playStore,
         appStore,
         epic,
+        playstation,
       });
       setImgGame(imagem);
       setAppId(steam);
@@ -77,14 +80,42 @@ export default function GameInfo() {
           });
       };
 
+    });
+
+    //comentarios
+    firebase.app.ref('comentarios').child(id).on('value', (snapshot) => {
+      let comments = [];
+      snapshot.forEach((childItem) => {
+
+        comments.push({
+          key: childItem.key,
+          comment: childItem.val().comentario,
+          date: childItem.val().data,
+          name: childItem.val().nome,
+          note: childItem.val().nota,
+        })
+      });
+
+      setComment(comments);
     })
   }, []);
 
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = data=> {
-    console.log(data);
-    setComment([...comment, data])
+  const onSubmit = async data => {
+    let { name, comment, note, date } = data;
+    const currentUid = firebase.getCurrentUid();
+
+    let comments = firebase.app.ref('comentarios');
+    let key = comments.push().key;
+    let idKey = id;
+    await comments.child(idKey).child(key).set({
+      nome: name,
+      comentario: comment,
+      nota: note,
+      data: date,
+      autor: currentUid
+    });
   };
 
 
@@ -92,6 +123,7 @@ export default function GameInfo() {
   let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
 
   const CommentsStyle = styled.form`
+
   input:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px solid ${color};
   box-shadow: 0 1px 0 0  ${color};
@@ -113,7 +145,11 @@ export default function GameInfo() {
   text-align: initial;
   transform: translateY(12px);
 }
-  
+
+button i{
+    color: ${pColor};
+  };
+
 `;
 
 
@@ -128,8 +164,9 @@ export default function GameInfo() {
       <Color src={img} crossOrigin="null" format="hex">
         {({ data, loading }) => {
           if (loading) return <Loading />;
+          setpColor(data);
           return (
-            <div data-aos='fade-right' style={{ backgroundColor: data }} className='container gameInfoBlock'>
+            <div key={"notKey"} data-aos='fade-right' style={{ backgroundColor: data }} className='container gameInfoBlock'>
               {appInfo.map(info => {
                 return (
                   <>
@@ -170,6 +207,12 @@ export default function GameInfo() {
                       {info.appStore !== "" && (
                         <a href={info.appStore} target="_blank" rel="noopener noreferrer">
                           <img src={App} alt="Comprar na App Store" width="50" />
+                        </a>
+                      )}
+
+                      {info.playstation !== "" && (
+                        <a href={info.playstation} target="_blank" rel="noopener noreferrer">
+                          <img src={Playstation} alt="Comprar na Playstation Store" width="50" />
                         </a>
                       )}
 
@@ -242,7 +285,7 @@ export default function GameInfo() {
                 <div className="comments white">
                   {comment.map((c) => {
                     return (
-                      <div key={c.id} className="left-align">
+                      <div key={c.key} className="left-align">
                         <Row>
                           <div className="col s10 m6 l6">
                             <h3>{c.name}</h3>
@@ -313,16 +356,8 @@ export default function GameInfo() {
                         value={date.toLocaleDateString()}
                         ref={register()}
                       />
-                      <TextInput
-                        id="id"
-                        name="id"
-                        type="hidden"
-                        validate
-                        value={Math.random()}
-                        ref={register()}
-                      />
                       <Store>
-                        <Submit color={color} />
+                        <Submit color={color} pcolor={pColor} />
                       </Store>
 
                     </form>
