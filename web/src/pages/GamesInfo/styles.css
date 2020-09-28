@@ -5,8 +5,6 @@
 }
 
 .gameInfoBlock h1 {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000;
   color: #fff;
   font-weight: bold;
 }
@@ -161,7 +159,6 @@ iframe {
   color: #fff;
 }
 
-
 .commentsForm button:hover,
 .commentsForm button:focus {
   background-color: transparent !important;
@@ -170,7 +167,7 @@ iframe {
 }
 
 .commentsForm button:hover i,
-.commentsForm button:focus i{
+.commentsForm button:focus i {
   color: var(--primary) !important;
 }
 
@@ -207,4 +204,86 @@ iframe {
   .news .collapsible-body img {
     max-height: 400px;
   }
+}
+
+/* FONTS */
+@font-face {
+  font-family: "Minecrafter";
+  src: url("../../assets/fonts/Minecrafter.Reg.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Counter-Strike";
+  src: url("../../assets/fonts/cs_regular.ttf");
+}
+@font-face {
+  font-family: "Farcry";
+  src: url("../../assets/fonts/FARCRY.TTF");
+}
+@font-face {
+  font-family: "GodofWar";
+  src: url("../../assets/fonts/GODOFWAR.TTF");
+}
+@font-face {
+  font-family: "Gta";
+  src: url("../../assets/fonts/gta.ttf");
+}
+@font-face {
+  font-family: "Sf";
+  src: url("../../assets/fonts/SSF.ttf");
+}
+@font-face {
+  font-family: "Mk";
+  src: url("../../assets/fonts/MK4.TTF");
+}
+@font-face {
+  font-family: "Halo";
+  src: url("../../assets/fonts/Halo.ttf");
+}
+@font-face {
+  font-family: "Mario";
+  src: url("../../assets/fonts/SuperMario256.ttf");
+}
+@font-face {
+  font-family: "Nfs";
+  src: url("../../assets/fonts/NFS_by_JLTV.ttf");
+}
+
+.mine {
+  font-family: "Minecrafter";
+}
+
+.cs {
+  font-family: "Counter-Strike";
+}
+
+.farcry {
+  font-family: "Farcry";
+}
+
+.god {
+  font-family: "GodofWar";
+}
+
+.gta {
+  font-family: "Gta";
+}
+
+.sf {
+  font-family: "Sf";
+}
+
+.mk {
+  font-family: "Mk";
+}
+
+.halo {
+  font-family: "Halo";
+}
+
+.mario {
+  font-family: "Mario";
+}
+
+.nfs{
+  font-family: "Nfs";
 }

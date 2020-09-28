@@ -53,6 +53,8 @@ export default function GameInfo() {
 
     firebase.getGame(id, (info) => {
       let { appStore, descricao, epic, imagem, microsoft, nome, playStore, steam, playstation } = info.val();
+      setImgGame(imagem);
+      setAppId(steam);
       let data = [];
       data.push({
         name: nome,
@@ -65,11 +67,7 @@ export default function GameInfo() {
         epic,
         playstation,
       });
-      setImgGame(imagem);
-      setAppId(steam);
-      setAppInfo(data);
-      setUrl("https://cors-anywhere.herokuapp.com/" + imagem)
-
+     
       if (steam === "") {
         setNewsNotFound(true);
       } else {
@@ -79,6 +77,8 @@ export default function GameInfo() {
             setNews(res.data.appnews.newsitems);
           });
       };
+      setAppInfo(data);
+      setUrl("https://cors-anywhere.herokuapp.com/" + imagem)
 
     });
 
@@ -172,7 +172,24 @@ button i{
                   <>
                     <div className="col s12 m12 l12 descriptionGameBlock" key={id}>
                       <img src={imgGame} alt={info.name} className="responsive-img" />
-                      <h1 style={{ color: color }}>{info.name}</h1>
+                      <h1 style={{ color: color }}
+                       className={
+                         `${
+                          info.name.includes('Minecraft') ? "mine" :
+                          info.name.includes('Counter-Strike') ? "cs" :
+                          info.name.includes("Farcry") ? "farcry" :
+                          info.name.includes("God Of War") ? "god" :
+                          info.name.includes("Grand Theft Auto") || info.name.includes("gta") ? "gta" :
+                          info.name.includes("Street Fighter") ? "sf" :
+                          info.name.includes("Mortal Kombat") ? "mk" :
+                          info.name.includes("Halo") ? "halo" :
+                          info.name.includes("Mario") ? "mario" :
+                          info.name.includes("Need for Speed") ? "nfs" :
+                          ""
+                        }`
+                         }>
+                           {info.name}
+                      </h1>
                       <p style={{ color: color }}>
                         {info.desc}
                       </p>

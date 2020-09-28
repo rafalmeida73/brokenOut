@@ -3,7 +3,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import './styles.css';
 import { Link } from 'react-router-dom';
-import { Icon } from 'react-materialize';
 import firebase from '../../fireConnection';
 import { useState } from 'react';
 
