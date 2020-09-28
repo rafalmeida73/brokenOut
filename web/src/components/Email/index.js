@@ -8,10 +8,11 @@ import { useForm } from "react-hook-form";
 function SendEmail() {
 
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data, e) => {
-    console.log(data);
+  const onSubmit =  (data, e) => {
+    let {name, email, message} = data;
     e.target.reset();
   };
+
 
   return (
     <div className="container emailForm">
@@ -53,16 +54,6 @@ function SendEmail() {
           ref={register({ required: true })}
         />
         {errors.message && <p className="right-align">Este campo é obrigatório.</p>}
-
-        <div className="file-field input-field">
-          <div className="btn black grey-text">
-            <span>Anexo</span>
-            <input type="file" accept="application/pdf" />
-          </div>
-          <div className="file-path-wrapper">
-            <input className="file-path validate" type="text" />
-          </div>
-        </div>
 
         <Button node="button" type="submit" waves="light">
           Enviar
