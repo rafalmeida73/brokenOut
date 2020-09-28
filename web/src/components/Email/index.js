@@ -4,12 +4,22 @@ import './styles.css';
 import 'materialize-css';
 import { TextInput, Icon, Button } from 'react-materialize';
 import { useForm } from "react-hook-form";
+import api from "../../Services/api";
+
 
 function SendEmail() {
 
   const { register, handleSubmit, errors } = useForm();
   const onSubmit =  (data, e) => {
     let {name, email, message} = data;
+
+    const dataToSubmit = {
+      name,
+      email,
+      message
+    }
+
+    api.post("/api/sendMail", dataToSubmit);
     e.target.reset();
   };
 

@@ -35,6 +35,10 @@
  color: #fff;
 }
 
+.emailForm .btn:first-of-type{
+ background-color: var(--primary);
+}
+
 .emailForm button {
  margin: 20px 0;
  background-color: var(--primary);
