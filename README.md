@@ -23,6 +23,8 @@
 - React Materialize
 - CSS
 - PWA
+- Steam Web Api
+- Color Thief
 
 
 ------------
