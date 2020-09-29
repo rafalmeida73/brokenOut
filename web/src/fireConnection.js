@@ -70,9 +70,10 @@ class Firebase {
 
   async getGame(id, callback) {
     await app.database().ref('games').child(id)
-      .once('value').then(callback);
+      .once('value').then(callback).catch(error => {
+        return null
+    });
   }
-
 }
 
 export default new Firebase();

@@ -250,6 +250,8 @@ iframe {
 
 .mine {
   font-family: "Minecrafter";
+  -webkit-text-stroke-width: 0.5px;
+-webkit-text-stroke-color: #000;
 }
 
 .cs {

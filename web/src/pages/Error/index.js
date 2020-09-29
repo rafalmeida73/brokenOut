@@ -32,7 +32,7 @@ function Error() {
           <Lottie className='404'
             options={defaultOptions}
           />
-          <h2>PÁGINA NÃO ENCONTRADA</h2>
+          <h2>Página não encontrada!</h2>
 
         </div>
       </header>
