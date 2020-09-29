@@ -5,13 +5,14 @@ import 'materialize-css';
 import { TextInput, Icon, Button } from 'react-materialize';
 import { useForm } from "react-hook-form";
 import api from "../../Services/api";
+import Alert from '@material-ui/lab/Alert';
+
 
 
 function SendEmail() {
-
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit =  (data, e) => {
-    let {name, email, message} = data;
+  const onSubmit = (data, e) => {
+    let { name, email, message } = data;
 
     const dataToSubmit = {
       name,
@@ -26,6 +27,16 @@ function SendEmail() {
 
   return (
     <div className="container emailForm">
+      <div className="errorBlock container">
+        {errors.name ||
+          errors.email ||
+          errors.message
+          ? (
+            <Alert variant="filled" severity="warning">
+              Por favor, preencha todos os campos!
+            </Alert>
+          ) : ''}
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
 
         <TextInput
@@ -36,7 +47,6 @@ function SendEmail() {
           validate
           ref={register({ required: true })}
         />
-        {errors.name && <p className="right-align">Este campo é obrigatório.</p>}
 
         <TextInput
           icon={<Icon>email</Icon>}
@@ -52,7 +62,6 @@ function SendEmail() {
             },
           })}
         />
-        {errors.email && <p className="right-align">Por favor, forneça um endereço de email válido.</p>}
 
         <TextInput
           data-length={500}
@@ -63,7 +72,6 @@ function SendEmail() {
           validate
           ref={register({ required: true })}
         />
-        {errors.message && <p className="right-align">Este campo é obrigatório.</p>}
 
         <Button node="button" type="submit" waves="light">
           Enviar

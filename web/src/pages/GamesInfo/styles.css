@@ -159,18 +159,6 @@ iframe {
   color: #fff;
 }
 
-.commentsForm button:hover,
-.commentsForm button:focus {
-  background-color: transparent !important;
-  color: var(--primary) !important;
-  box-shadow: none;
-}
-
-.commentsForm button:hover i,
-.commentsForm button:focus i {
-  color: var(--primary) !important;
-}
-
 .note i {
   float: right;
   font-size: 4rem;
@@ -251,7 +239,7 @@ iframe {
 .mine {
   font-family: "Minecrafter";
   -webkit-text-stroke-width: 0.5px;
--webkit-text-stroke-color: #000;
+  -webkit-text-stroke-color: #000;
 }
 
 .cs {
@@ -286,6 +274,6 @@ iframe {
   font-family: "Mario";
 }
 
-.nfs{
+.nfs {
   font-family: "Nfs";
 }

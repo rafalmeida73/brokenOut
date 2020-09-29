@@ -54,7 +54,6 @@
  color: #fff;
 }
 
-.emailForm p {
- color: #f44336;
- font-size: 13px;
+.emailForm .errorBlock{
+ width: 100%;
 }
