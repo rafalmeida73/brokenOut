@@ -28,7 +28,7 @@ function NewGame() {
 
   // Cadastro no jogo
   const onSubmit = async data => {
-    let { name, desc, note, steam, microsoft, epic, play, app, buy, category, playstation } = data;
+    let { name, desc, steam, microsoft, epic, play, app, category, playstation } = data;
     const currentUid = firebase.getCurrentUid();
 
     let games = firebase.app.ref('games');
@@ -42,8 +42,6 @@ function NewGame() {
       epic: epic,
       playStore: play,
       appStore: app,
-      nota: note,
-      valor: buy,
       categoria: category,
       playstation,
       autor: currentUid
@@ -152,18 +150,6 @@ function NewGame() {
             />
 
             <TextInput
-              icon={<Icon>description</Icon>}
-              id="note"
-              name="note"
-              label="Nota inicial *"
-              type="number"
-              min="1"
-              max="5"
-              validate
-              ref={register({ required: true })}
-            />
-
-            <TextInput
               icon={<Icon>loyalty</Icon>}
               id="steam"
               name="steam"
@@ -217,52 +203,6 @@ function NewGame() {
               validate
               ref={register}
             />
-
-            <Controller
-              as={
-                <Select
-                  icon={<Icon>apps</Icon>}
-                  id="Select-9"
-                  multiple={false}
-                  options={{
-                    classes: '',
-                    dropdownOptions: {
-                      alignment: 'left',
-                      autoTrigger: true,
-                      closeOnClick: true,
-                      constrainWidth: true,
-                      coverTrigger: true,
-                      hover: false,
-                      inDuration: 150,
-                      onCloseEnd: null,
-                      onCloseStart: null,
-                      onOpenEnd: null,
-                      onOpenStart: null,
-                      outDuration: 250
-                    }
-                  }}
-                  value=""
-                >
-                  <option
-                    disabled
-                    value=""
-                  >
-                    Grátis ou pago? *
-       </option>
-                  <option value="paid">
-                    Pago
-       </option>
-                  <option value="free">
-                    Grátis
-       </option>
-                </Select>
-              }
-              name="buy"
-              rules={{ required: "this is required" }}
-              control={control}
-              defaultValue=""
-            />
-
 
             <Controller
               as={
