@@ -28,7 +28,6 @@ function Games() {
           category: childItem.val().categoria,
           img: childItem.val().imagem,
           name: childItem.val().nome,
-          note: childItem.val().nota,
         })
       });
 
@@ -48,7 +47,6 @@ function Games() {
           category: childItem.val().categoria,
           img: childItem.val().imagem,
           name: childItem.val().nome,
-          note: childItem.val().nota,
         })
       });
 
@@ -67,7 +65,6 @@ function Games() {
           category: childItem.val().categoria,
           img: childItem.val().imagem,
           name: childItem.val().nome,
-          note: childItem.val().nota,
         })
       });
 
@@ -92,7 +89,6 @@ function Games() {
           category: childItem.val().categoria,
           img: childItem.val().imagem,
           name: childItem.val().nome,
-          note: childItem.val().nota,
         })
       });
 

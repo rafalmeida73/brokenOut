@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import './styles.css';
 import 'materialize-css';
@@ -10,7 +10,9 @@ import Alert from '@material-ui/lab/Alert';
 
 
 function SendEmail() {
+  const [sucess, setSucess] = useState(false);
   const { register, handleSubmit, errors } = useForm();
+  
   const onSubmit = (data, e) => {
     let { name, email, message } = data;
 
@@ -21,6 +23,7 @@ function SendEmail() {
     }
 
     api.post("/api/sendMail", dataToSubmit);
+    setSucess(true)
     e.target.reset();
   };
 
@@ -36,6 +39,12 @@ function SendEmail() {
               Por favor, preencha todos os campos!
             </Alert>
           ) : ''}
+
+        {sucess && (
+          <Alert variant="filled" severity="success">
+            Enviado com sucesso!
+          </Alert>
+        )}
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
 

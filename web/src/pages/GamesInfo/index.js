@@ -363,7 +363,7 @@ button i{
                             icon={<Icon>grade</Icon>}
                             id="note"
                             name="note"
-                            label="Nota"
+                            label="Nota de 1 a 5"
                             type="number"
                             min="1"
                             max="5"
