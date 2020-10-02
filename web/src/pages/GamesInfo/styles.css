@@ -30,8 +30,11 @@
   width: 90%;
 }
 
-.descriptionGameBlock img {
+.descriptionGameBlock .material-placeholder {
   width: 90%;
+}
+
+.descriptionGameBlock img {
   border-radius: 15px;
   padding-top: 10%;
 }
@@ -148,7 +151,8 @@ iframe {
 .commentsForm
   .input-field
   input:not(.browser-default):focus:not([readonly])
-  + label {
+  + label,
+.commentsForm textarea:not(.browser-default):focus:not([readonly]) + label {
   color: #fff;
 }
 
@@ -161,7 +165,6 @@ iframe {
 
 .note i {
   float: right;
-  font-size: 4rem;
 }
 
 .good {
@@ -174,6 +177,20 @@ iframe {
 
 .bad {
   color: var(--bad);
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-content li a {
+  color: #000;
+}
+
+.modal-content p {
+  color: #000;
 }
 
 @media (min-width: 1100px) {

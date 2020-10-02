@@ -74,6 +74,10 @@ class Firebase {
         return null
     });
   }
+
+  async deleteComment(id, commentId) {
+    await app.database().ref('comentarios').child(id).child(commentId).remove();
+  }
 }
 
 export default new Firebase();

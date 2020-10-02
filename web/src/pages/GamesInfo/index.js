@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
-import { Collapsible, CollapsibleItem, Icon, Button, Row, TextInput } from 'react-materialize';
+import { Collapsible, CollapsibleItem, Icon, Button, Row, TextInput, Dropdown, Divider, Modal, MediaBox } from 'react-materialize';
 import './styles.css';
 import Color, { Palette } from "color-thief-react";
 import ReactHtmlParser from 'react-html-parser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import api from "../../Services/api";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams, Redirect, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Alert from '@material-ui/lab/Alert';
 import 'firebase/storage';
@@ -97,6 +97,7 @@ export default function GameInfo() {
           date: childItem.val().data,
           name: childItem.val().nome,
           note: childItem.val().nota,
+          autor: childItem.val().autor,
         })
       });
 
@@ -123,6 +124,13 @@ export default function GameInfo() {
   };
 
 
+  function deleteComments(commentId) {
+    firebase.deleteComment(id, commentId);
+  }
+
+
+  //form tools
+
   let date = new Date();
   let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
 
@@ -132,6 +140,11 @@ export default function GameInfo() {
   border-bottom: 1px solid ${color};
   box-shadow: 0 1px 0 0  ${color};
   };
+
+  textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid ${color};
+  box-shadow: 0 1px 0 0  ${color};
+  }
 
   i{
     color: ${color};
@@ -161,6 +174,42 @@ button i{
     <div className="App">
       {!gameNotFound ?
         <>
+          <Button
+            className="red"
+            fab={{
+              direction: 'top',
+              toolbarEnabled: true
+            }}
+            floating
+            large
+            node="button"
+          >
+            <Button
+              className="btn-large red"
+              floating
+              icon={<Icon>insert_chart</Icon>}
+              node="button"
+            />
+            <Button
+              className="btn-large red"
+              floating
+              icon={<Icon>format_quote</Icon>}
+              node="button"
+            />
+            <Button
+              className="btn-large red"
+              floating
+              icon={<Icon>publish</Icon>}
+              node="button"
+            />
+            <Button
+              className="btn-large red"
+              floating
+              icon={<Icon>attach_file</Icon>}
+              node="button"
+            />
+          </Button>
+          
           <Palette src={url} crossOrigin="anonymous" format="hex" colorCount={4}>
             {({ data, loading }) => {
               if (loading) return "";
@@ -177,7 +226,23 @@ button i{
                     return (
                       <>
                         <div className="col s12 m12 l12 descriptionGameBlock" key={id}>
-                          <img src={imgGame} alt={info.name} className="responsive-img" />
+                          <MediaBox
+                            id="MediaBox_7"
+                            options={{
+                              inDuration: 275,
+                              onCloseEnd: null,
+                              onCloseStart: null,
+                              onOpenEnd: null,
+                              onOpenStart: null,
+                              outDuration: 200
+                            }}
+                          >
+                            <img
+                              alt=""
+                              src={imgGame}
+                              width="100%"
+                            />
+                          </MediaBox>
                           <h1 style={{ color: color }}
                             className={
                               `${info.name.includes('Minecraft') ? "mine" :
@@ -307,19 +372,73 @@ button i{
                     <div className="comments white">
                       {comment.map((c) => {
                         return (
+
                           <div key={c.key} className="left-align">
                             <Row>
                               <div className="col s10 m6 l6">
-                                <h3>{c.name}</h3>
-                                <span>{c.date}</span>
-                              </div>
-                              <div className="col s2 m6 l6 note">
-                                {c.note === "1" ? <Icon className="bad">looks_one</Icon> :
+                                <h3>{c.name} {c.note === "1" ? <Icon className="bad">looks_one</Icon> :
                                   c.note === "2" ? <Icon className="reasonable">looks_two</Icon> :
                                     c.note === "3" ? <Icon className="reasonable">looks_3</Icon> :
                                       c.note === "4" ? <Icon className="reasonable">looks_4</Icon> :
                                         c.note === "5" ? <Icon className="good">looks_5</Icon> : ""
-                                }
+                                }</h3>
+                                <span>{c.date}</span>
+                              </div>
+                              <div className="col s2 m6 l6 note">
+
+                                {c.autor === firebase.getCurrentUid() && (
+                                  <Dropdown
+                                    id={`Dropdown${c.key}`}
+                                    options={{
+                                      alignment: 'left',
+                                      autoTrigger: true,
+                                      closeOnClick: true,
+                                      constrainWidth: true,
+                                      container: null,
+                                      coverTrigger: true,
+                                      hover: false,
+                                      onCloseStart: null,
+                                      onOpenEnd: null,
+                                      onOpenStart: null,
+                                    }}
+                                    trigger={<div>
+                                      <Icon>more_horiz</Icon>
+                                    </div>}
+                                  >
+                                    <Modal
+                                      actions={[
+                                        <Button flat modal="close" node="button" waves="red" className="red-text">Cancelar</Button>,
+                                        <Button flat onClick={() => deleteComments(c.key)} node="button" waves="green" className="green-text">Confirmar</Button>
+                                      ]}
+                                      bottomSheet={false}
+                                      fixedFooter
+                                      id="Modal-0"
+                                      open={false}
+                                      options={{
+                                        dismissible: true,
+                                        endingTop: '10%',
+                                        inDuration: 250,
+                                        onCloseEnd: null,
+                                        onCloseStart: null,
+                                        onOpenEnd: null,
+                                        onOpenStart: null,
+                                        opacity: 0.5,
+                                        outDuration: 250,
+                                        preventScrolling: true,
+                                        startingTop: '4%'
+                                      }}
+                                      trigger={
+                                        <Link to="#">
+                                          Apagar
+                                      </Link>}
+                                    >
+                                      <p>
+                                        Tem certeza que deseja excluir esse comentário?
+                                      </p>
+                                    </Modal>
+                                    <Divider />
+                                  </Dropdown>
+                                )}
                               </div>
                             </Row>
 
@@ -350,15 +469,14 @@ button i{
                             value={name}
                             ref={register()}
                           />
-                          <TextInput
-                            icon={<Icon style={{ backgroundColor: "#000" }}>chat</Icon>}
-                            id="comment"
-                            name="comment"
-                            label="Comentário"
-                            type="text"
-                            validate
-                            ref={register({ minLength: 2, required: true })}
-                          />
+
+                          <div class="input-field col s12">
+                            <i class="material-icons prefix">chat</i>
+                            <textarea ref={register({ required: true })} name="comment" id="comment" class="materialize-textarea"></textarea>
+                            <label for="comment">Comentário</label>
+                          </div>
+
+
                           <TextInput
                             icon={<Icon>grade</Icon>}
                             id="note"
@@ -375,7 +493,7 @@ button i{
                             name="date"
                             type="hidden"
                             validate
-                            value={date.toLocaleDateString()}
+                            value={`${date.toLocaleDateString()} às ${date.getHours()}:${date.getMinutes()}`}
                             ref={register()}
                           />
                           <Store>
