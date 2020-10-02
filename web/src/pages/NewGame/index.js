@@ -9,8 +9,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import firebase from '../../fireConnection';
 
-
-
 function NewGame() {
   const [sucess, setSucess] = useState(false);
   const [imageType, setImageType] = useState(false);
@@ -139,15 +137,11 @@ function NewGame() {
               ref={register({ required: true })}
             />
 
-
-            <TextInput
-              icon={<Icon>description</Icon>}
-              id="desc"
-              name="desc"
-              label="Descrição *"
-              validate
-              ref={register({ required: true })}
-            />
+            <div class="input-field col s12">
+              <i class="material-icons prefix">chat</i>
+              <textarea ref={register({ required: true })} name="desc" id="desc" class="materialize-textarea"></textarea>
+              <label for="desc">Descrição *</label>
+            </div>
 
             <TextInput
               icon={<Icon>loyalty</Icon>}

@@ -28,7 +28,10 @@
 .newGameBlock
   header
   .input-field
-  input:not(.browser-default):focus:not([readonly]),
+  input:not(.browser-default):focus:not([readonly]), 
+  .newGameBlock
+  header
+ textarea:not(.browser-default):focus:not([readonly]),
 .newGameBlock header .select-wrapper input.select-dropdown:focus {
   border-bottom: 1px solid var(--primary);
   box-shadow: 0 1px 0 0 var(--primary);
@@ -51,6 +54,9 @@
   header
   .input-field
   input:not(.browser-default):focus:not([readonly])
+  + label, .newGameBlock
+  header
+  textarea:not(.browser-default):focus:not([readonly])
   + label {
   color: #000;
 }

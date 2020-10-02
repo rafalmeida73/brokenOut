@@ -78,6 +78,14 @@ class Firebase {
   async deleteComment(id, commentId) {
     await app.database().ref('comentarios').child(id).child(commentId).remove();
   }
+
+  async deleteGame(id) {
+    await app.database().ref('comentarios').child(id).remove();
+  }
+
+  async editGame(id, data) {
+    await app.database().ref('games').child(id).set(data);
+  }
 }
 
 export default new Firebase();

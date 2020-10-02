@@ -1,3 +1,6 @@
+.rtf--mb{
+  background-color: var(--primary) !important;
+}
 .gameInfoBlock {
   border-radius: 30px;
   margin-top: 50px;

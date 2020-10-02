@@ -25,6 +25,8 @@ import Submit from '../../components/Submit';
 import Store from '../../components/Store'
 import Load from '../../components/Loading'
 import styled from 'styled-components';
+import { Fab, Action } from 'react-tiny-fab';
+import 'react-tiny-fab/dist/styles.css';
 
 const Loading = () => <div style={{ height: "100vh" }}><Load /></div>;
 export default function GameInfo() {
@@ -40,6 +42,7 @@ export default function GameInfo() {
   const [pColor, setpColor] = useState(null);
   const [color, setColor] = useState(null);
   const [url, setUrl] = useState("https://i.imgur.com/DzapWf3b.jpg");
+  const [autor, setAutor] = useState(null);
 
 
   useEffect(() => {
@@ -56,7 +59,8 @@ export default function GameInfo() {
       if (info.val() === null) {
         setgameNotFound(true);
       } else {
-        let { appStore, descricao, epic, imagem, microsoft, nome, playStore, steam, playstation } = info.val();
+        let { appStore, descricao, epic, imagem, microsoft, nome, playStore, steam, playstation, autor } = info.val();
+        setAutor(autor)
         setImgGame(imagem);
         setAppId(steam);
         let data = [];
@@ -86,6 +90,7 @@ export default function GameInfo() {
       }
     });
 
+
     //comentarios
     firebase.app.ref('comentarios').child(id).on('value', (snapshot) => {
       let comments = [];
@@ -105,6 +110,8 @@ export default function GameInfo() {
     })
   }, []);
 
+
+  //Form comments submit
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async data => {
@@ -128,11 +135,19 @@ export default function GameInfo() {
     firebase.deleteComment(id, commentId);
   }
 
+  //Game delete
+  function deleteGame() {
+    firebase.deleteGame(id);
+  }
 
   //form tools
 
+
+
   let date = new Date();
   let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
+  console.log(comment)
+
 
   const CommentsStyle = styled.form`
 
@@ -174,42 +189,30 @@ button i{
     <div className="App">
       {!gameNotFound ?
         <>
-          <Button
-            className="red"
-            fab={{
-              direction: 'top',
-              toolbarEnabled: true
-            }}
-            floating
-            large
-            node="button"
-          >
-            <Button
-              className="btn-large red"
-              floating
-              icon={<Icon>insert_chart</Icon>}
-              node="button"
-            />
-            <Button
-              className="btn-large red"
-              floating
-              icon={<Icon>format_quote</Icon>}
-              node="button"
-            />
-            <Button
-              className="btn-large red"
-              floating
-              icon={<Icon>publish</Icon>}
-              node="button"
-            />
-            <Button
-              className="btn-large red"
-              floating
-              icon={<Icon>attach_file</Icon>}
-              node="button"
-            />
-          </Button>
-          
+          {autor === firebase.getCurrentUid() && (
+            <Fab
+              icon={<Icon>add</Icon>}
+              event="hover"
+              alwaysShowTitle={true}
+            >
+              <Action
+                text="Editar"
+              >
+                <Link to={`/gameEdit/${id}`}>
+                  <Icon className="white-text">edit</Icon>
+                </Link>
+              </Action>
+              <Action
+                text="Deletar"
+              >
+                <div onClick={() => deleteGame()}>
+                  <Icon className="white-text">delete</Icon>
+                </div>
+              </Action>
+            </Fab>
+          )}
+
+
           <Palette src={url} crossOrigin="anonymous" format="hex" colorCount={4}>
             {({ data, loading }) => {
               if (loading) return "";

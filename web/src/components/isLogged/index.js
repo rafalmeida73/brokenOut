@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { Context } from '../Store';
-import { Link } from 'react-router-dom';
+import { Link, useHistory  } from 'react-router-dom';
 import firebase from '../../fireConnection';
 
 const IsLogeed = () => {
     const [state] = useContext(Context);
-
+    let history = useHistory();
     function handleClick() {
         firebase.logout();
+        localStorage.removeItem("nome");
+        history.push("/login");
     }
 
     return (
