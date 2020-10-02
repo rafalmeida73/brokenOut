@@ -50,6 +50,10 @@
   margin-bottom: 10px;
 }
 
+.MuiPaper-root{
+  margin: 10px 0;
+}
+
 .errorBlock .MuiPaper-root a {
   color: var(--primary);
   margin-left: 5px;

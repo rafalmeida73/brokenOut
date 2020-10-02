@@ -8,7 +8,7 @@ import ReactHtmlParser from 'react-html-parser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import api from "../../Services/api";
-import { useParams, Redirect, Link } from "react-router-dom";
+import { useParams, Redirect, Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Alert from '@material-ui/lab/Alert';
 import 'firebase/storage';
@@ -27,9 +27,21 @@ import Load from '../../components/Loading'
 import styled from 'styled-components';
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
+import Lottie from 'react-lottie';
+import Delete from '../../lotties/delete.json';
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: Delete,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  }
+};
 
 const Loading = () => <div style={{ height: "100vh" }}><Load /></div>;
 export default function GameInfo() {
+  let history = useHistory();
   let id = useParams().id;
   const [appID, setAppId] = useState(null);
   const [appInfo, setAppInfo] = useState([]);
@@ -42,7 +54,7 @@ export default function GameInfo() {
   const [pColor, setpColor] = useState(null);
   const [color, setColor] = useState(null);
   const [url, setUrl] = useState("https://i.imgur.com/DzapWf3b.jpg");
-  const [autor, setAutor] = useState(null);
+  const [autor, setAutor] = useState(firebase.getCurrentUid());
 
 
   useEffect(() => {
@@ -138,6 +150,7 @@ export default function GameInfo() {
   //Game delete
   function deleteGame() {
     firebase.deleteGame(id);
+    history.push("/jogos");
   }
 
   //form tools
@@ -205,9 +218,41 @@ button i{
               <Action
                 text="Deletar"
               >
-                <div onClick={() => deleteGame()}>
-                  <Icon className="white-text">delete</Icon>
-                </div>
+                <Modal
+                  actions={[
+                    <Button flat modal="close" node="button" waves="red" className="red-text">Cancelar</Button>,
+                    <Button flat modal="close" onClick={() => deleteGame(id)} node="button" waves="green" className="green-text">Confirmar</Button>
+                  ]}
+                  bottomSheet={false}
+                  fixedFooter
+                  id="Modal-1"
+                  open={false}
+                  options={{
+                    dismissible: true,
+                    endingTop: '10%',
+                    inDuration: 250,
+                    onCloseEnd: null,
+                    onCloseStart: null,
+                    onOpenEnd: null,
+                    onOpenStart: null,
+                    opacity: 0.5,
+                    outDuration: 250,
+                    preventScrolling: true,
+                    startingTop: '4%'
+                  }}
+                  trigger={
+                    <div>
+                      <Icon className="white-text">delete</Icon>
+                    </div>
+                  }
+                >
+                    <Lottie
+                      options={defaultOptions}
+                    />
+                  <p>
+                    Ao clicar em <b className="green-text">Confirmar</b> o jogo será deletado!
+                  </p>
+                </Modal>
               </Action>
             </Fab>
           )}
@@ -411,7 +456,7 @@ button i{
                                     <Modal
                                       actions={[
                                         <Button flat modal="close" node="button" waves="red" className="red-text">Cancelar</Button>,
-                                        <Button flat onClick={() => deleteComments(c.key)} node="button" waves="green" className="green-text">Confirmar</Button>
+                                        <Button flat modal="close" onClick={() => deleteComments(c.key)} node="button" waves="green" className="green-text">Confirmar</Button>
                                       ]}
                                       bottomSheet={false}
                                       fixedFooter
@@ -435,8 +480,11 @@ button i{
                                           Apagar
                                       </Link>}
                                     >
+                                        <Lottie
+                                          options={defaultOptions}
+                                        />
                                       <p>
-                                        Tem certeza que deseja excluir esse comentário?
+                                        Ao clicar em <b className="green-text">Confirmar</b> o comentário será deletado!
                                       </p>
                                     </Modal>
                                     <Divider />

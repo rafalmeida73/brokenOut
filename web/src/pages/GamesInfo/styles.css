@@ -186,6 +186,7 @@ iframe {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .dropdown-content li a {
@@ -196,9 +197,13 @@ iframe {
   color: #000;
 }
 
+.rtf--ab__c button:focus{
+  background-color: #aaa;
+}
+
 @media (min-width: 1100px) {
   .descriptionGameBlock {
-    height: 100vh;
+    padding-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;

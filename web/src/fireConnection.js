@@ -80,7 +80,7 @@ class Firebase {
   }
 
   async deleteGame(id) {
-    await app.database().ref('comentarios').child(id).remove();
+    await app.database().ref('games').child(id).remove();
   }
 
   async editGame(id, data) {

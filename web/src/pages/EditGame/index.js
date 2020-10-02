@@ -163,8 +163,8 @@ function NewGame() {
           icon={<Icon>account_circle</Icon>}
           id="name"
           name="name"
-          label="Nome do jogo *"
-          value={app.name}
+          label="Nome do jogo"
+          defaultValue={app.name}
           validate
           ref={register()}
          />
@@ -172,7 +172,7 @@ function NewGame() {
          <div class="input-field col s12">
           <i class="material-icons prefix">chat</i>
           <textarea ref={register()} name="desc" id="desc" class="materialize-textarea" value={app.desc}></textarea>
-          <label for="desc">Descrição *</label>
+          <label for="desc">Descrição</label>
          </div>
 
          <TextInput
@@ -183,7 +183,7 @@ function NewGame() {
           type="number"
           validate
           ref={register}
-          value={app.steam}
+          defaultValue={app.steam}
          />
 
          <TextInput
@@ -193,7 +193,7 @@ function NewGame() {
           label="Link do jogo na Microsoft Store"
           validate
           ref={register}
-          value={app.microsoft}
+          defaultValue={app.microsoft}
          />
 
          <TextInput
@@ -203,7 +203,7 @@ function NewGame() {
           label="Link do jogo na Playstation Store"
           validate
           ref={register}
-          value={app.playstation}
+          defaultValue={app.playstation}
          />
 
          <TextInput
@@ -213,7 +213,7 @@ function NewGame() {
           label="Link do jogo na Epic games"
           validate
           ref={register}
-          value={app.epic}
+          defaultValue={app.epic}
          />
 
          <TextInput
@@ -223,7 +223,7 @@ function NewGame() {
           label="Link do jogo na Play Store"
           validate
           ref={register}
-          value={app.playStore}
+          defaultValue={app.playStore}
          />
 
          <TextInput
@@ -233,7 +233,7 @@ function NewGame() {
           label="Link do jogo na App Store"
           validate
           ref={register}
-          value={app.appStore}
+          defaultValue={app.appStore}
          />
 
          <Controller
