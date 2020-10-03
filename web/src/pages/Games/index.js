@@ -137,7 +137,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => allGames()}>Todos os jogos</Link>}
+            title={<Link to="#" onClick={() => allGames()}>Todos os jogos</Link>}
           >
           </Tab>
           <Tab
@@ -148,7 +148,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("action")}>Ação</Link>}
+            title={<Link to="#" onClick={() => filterItems("action")}>Ação</Link>}
           >
           </Tab>
           <Tab
@@ -159,7 +159,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("strategy")}>Estratégia</Link>}
+            title={<Link to="#" onClick={() => filterItems("strategy")}>Estratégia</Link>}
           >
           </Tab>
           <Tab
@@ -169,7 +169,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("fight")}>Luta</Link>}
+            title={<Link to="#" onClick={() => filterItems("fight")}>Luta</Link>}
           >
           </Tab>
           <Tab
@@ -179,7 +179,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("running")}>Corrida</Link>}
+            title={<Link to="#" onClick={() => filterItems("running")}>Corrida</Link>}
           >
           </Tab>
           <Tab
@@ -189,7 +189,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("rpg")}>RPG</Link>}
+            title={<Link to="#" onClick={() => filterItems("rpg")}>RPG</Link>}
           >
           </Tab>
           <Tab
@@ -199,7 +199,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("construction")}>Construção</Link>}
+            title={<Link to="#" onClick={() => filterItems("construction")}>Construção</Link>}
           >
           </Tab>
           <Tab
@@ -209,7 +209,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("real_life")}>VR</Link>}
+            title={<Link to="#" onClick={() => filterItems("vr")}>VR</Link>}
           >
           </Tab>
           <Tab
@@ -219,7 +219,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("music")}>Música</Link>}
+            title={<Link to="#" onClick={() => filterItems("music")}>Música</Link>}
           >
           </Tab>
           <Tab
@@ -229,7 +229,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link onClick={() => filterItems("sports")}>Esportes</Link>}
+            title={<Link to="#" onClick={() => filterItems("sports")}>Esportes</Link>}
           >
           </Tab>
         </Tabs>
@@ -273,51 +273,51 @@ function Games() {
             }}
             trigger={<Button node="button">Filtrar</Button>}
           >
-            <Link className="all" onClick={() => allGames()}>
+            <Link to="#" className="all" onClick={() => allGames()}>
               Todos os jogos
             </Link>
-            <Link className="action" onClick={() => filterItems("action")}>
+            <Link to="#" className="action" onClick={() => filterItems("action")}>
               Ação/ Aventura
             </Link>
 
             <Divider />
 
-            <Link className="strategy" onClick={() => filterItems("strategy")}>
+            <Link to="#" className="strategy" onClick={() => filterItems("strategy")}>
               Estratégia
             </Link>
 
             <Divider />
-            <Link className="fight" onClick={() => filterItems("fight")}>
+            <Link to="#" className="fight" onClick={() => filterItems("fight")}>
               Luta
             </Link>
 
             <Divider />
-            <Link className="running" onClick={() => filterItems("running")}>
+            <Link to="#" className="running" onClick={() => filterItems("running")}>
               Corrida
             </Link>
 
             <Divider />
-            <Link className="rpg" onClick={() => filterItems("rpg")}>
+            <Link to="#" className="rpg" onClick={() => filterItems("rpg")}>
               RPG
             </Link>
 
             <Divider />
-            <Link className="construction" onClick={() => filterItems("construction")}>
+            <Link to="#" className="construction" onClick={() => filterItems("construction")}>
               Construção
             </Link>
 
             <Divider />
-            <Link className="vr" onClick={() => filterItems("real_life")}>
+            <Link to="#" className="vr" onClick={() => filterItems("vr")}>
               VR
             </Link>
 
             <Divider />
-            <Link className="music" onClick={() => filterItems("music")}>
+            <Link to="#" className="music" onClick={() => filterItems("music")}>
               Música
             </Link>
 
             <Divider />
-            <Link className="sports" onClick={() => filterItems("sports")}>
+            <Link to="#" className="sports" onClick={() => filterItems("sports")}>
               Esportes
             </Link>
 

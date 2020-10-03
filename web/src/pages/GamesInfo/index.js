@@ -45,7 +45,6 @@ export default function GameInfo() {
   let id = useParams().id;
   const [appID, setAppId] = useState(null);
   const [appInfo, setAppInfo] = useState([]);
-  const [newsNotFound, setNewsNotFound] = useState(false);
   const [gameNotFound, setgameNotFound] = useState(false);
   const [imgGame, setImgGame] = useState(null);
   const [news, setNews] = useState([]);
@@ -89,17 +88,15 @@ export default function GameInfo() {
           playstation,
         });
 
-        if (steam === "") {
-          setNewsNotFound(true);
-        } else {
-          // News API
-          api.get("/steam/game/" + steam + "/news")
-            .then(res => {
-              setNews(res.data.appnews.newsitems);
-            });
-        };
+        // News API
+        api.get("/steam/game/" + steam + "/news")
+          .then(res => {
+            setNews(res.data.appnews.newsitems);
+          });
+
         setAppInfo(data);
         setUrl("https://cors-anywhere.herokuapp.com/" + imagem)
+        // setUrl(imagem)build
       }
     });
 
@@ -162,6 +159,7 @@ export default function GameInfo() {
 
   let date = new Date();
   let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
+  // let img = `${imgGame}`build;
 
   const CommentsStyle = styled.form`
 
@@ -198,7 +196,7 @@ button i{
 
 `;
 
-
+  console.log(news)
   return (
     <div className="App">
       {!gameNotFound ?
@@ -267,8 +265,8 @@ button i{
                     options={defaultOptions}
                   />
                   <p>
-                    Ao clicar em 
-                     <b className="green-text"> Confirmar </b> 
+                    Ao clicar em
+                     <b className="green-text"> Confirmar </b>
                      o jogo será deletado!
                   </p>
                 </Modal>
@@ -376,7 +374,7 @@ button i{
                   })}
 
                   {/* News */}
-                  {newsNotFound ? "" :
+                  {news.length === 0 ? "" :
                     <>
                       <div data-aos='fade-right' className="col s12 m12 l12 news container">
                         <h3 style={{ color: color }} className="left-align">

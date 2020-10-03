@@ -14,6 +14,7 @@ const IsLogeed = () => {
 
     return (
         <>
+        <ul>
             {!state && (
                 <li>
                     <Link className="white-text" to='/login'>
@@ -34,11 +35,12 @@ const IsLogeed = () => {
 
             {state && (
                 <li>
-                    <Link className="white-text" onClick={handleClick}>
+                    <Link to="#" className="white-text" onClick={handleClick}>
                         Sair
                     </Link>
                 </li>
             )}
+            </ul>
         </>
     )
 
