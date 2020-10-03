@@ -268,7 +268,7 @@ button i{
                   />
                   <p>
                     Ao clicar em 
-                    <b className="green-text">Confirmar</b>
+                     <b className="green-text"> Confirmar </b> 
                      o jogo será deletado!
                   </p>
                 </Modal>
@@ -504,7 +504,7 @@ button i{
                                       />
                                       <p>
                                         Ao clicar em
-                                         <b className="green-text">Confirmar</b> o comentário será deletado!
+                                         <b className="green-text"> Confirmar </b> o comentário será deletado!
                                       </p>
                                     </Modal>
                                     <Divider />
