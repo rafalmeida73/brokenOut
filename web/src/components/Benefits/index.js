@@ -18,8 +18,8 @@ function Benefits() {
                     </g>
                 </svg>
 
-                <h4>TITULO</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</p>
+                <h4>Jogos</h4>
+                <p>Centenas de jogos no site, uma vasta coleção, multiplataforma, online, offline, produtos de diversos gostos!</p>
             </div>
             <div className="col s12 m4 l4 benefitSBlock">
                 <svg width="197" height="197" viewBox="0 0 197 197" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,8 +31,8 @@ function Benefits() {
                         <path id="iconC" fill-rule="evenodd" clip-rule="evenodd" d="M73.8298 55.0139H91.8982L108.174 84.6165C108.523 85.2441 109.032 85.7392 109.611 86.053H85.3152L73.8298 55V55.0139ZM98 90.6973C111.808 90.6973 123 101.89 123 115.697C123 129.505 111.808 140.697 98 140.697C84.1925 140.69 73 129.498 73 115.69C73 101.883 84.1925 90.6973 98 90.6973ZM98 101.262L102.177 111.457L113.174 112.287L104.757 119.428L107.372 130.126L98 124.317L88.6276 130.126L91.2427 119.428L82.8187 112.28L93.8159 111.45L98 101.262ZM100.218 55.0139H121.361L112.854 78.0126L100.218 55.0139Z" fill="black" />
                     </g>
                 </svg>
-                <h4>TITULO</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</p>
+                <h4>Avaliação</h4>
+                <p>Você pode avaliar o jogo com uma nota de 1 a 5. Onde o 1 significa um jogo ruim e o 5 um jogo fenomenal!</p>
             </div>
             <div className="col s12 m4 l4 benefitSBlock">
                 <svg width="197" height="197" viewBox="0 0 197 197" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,8 +45,8 @@ function Benefits() {
                     </g>
                 </svg>
 
-                <h4>TITULO</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</p>
+                <h4>Comentários</h4>
+                <p>Adicionar um comentários a um determinado jogo e vizualize o que outros usuários estão falando sobre esses jogos!</p>
             </div>
         </div>
     )

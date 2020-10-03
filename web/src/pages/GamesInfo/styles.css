@@ -166,6 +166,10 @@ iframe {
   color: #fff;
 }
 
+.commentsForm .errorBlock a{
+  margin: 0;
+}
+
 .note i {
   float: right;
 }

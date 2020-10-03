@@ -51,6 +51,7 @@ export default function GameInfo() {
   const [news, setNews] = useState([]);
   const [comment, setComment] = useState([]);
   const [name, setName] = useState(localStorage.nome);
+  const [makeLogin, setMakeLogin] = useState(false);
   const [pColor, setpColor] = useState(null);
   const [color, setColor] = useState(null);
   const [url, setUrl] = useState("https://i.imgur.com/DzapWf3b.jpg");
@@ -128,6 +129,11 @@ export default function GameInfo() {
 
   const onSubmit = async data => {
     let { name, comment, note, date } = data;
+    if (firebase.getCurrentUid() === null) {
+      setMakeLogin(true)
+      return null
+    }
+
     const currentUid = firebase.getCurrentUid();
 
     let comments = firebase.app.ref('comentarios');
@@ -142,7 +148,6 @@ export default function GameInfo() {
     });
   };
 
-
   function deleteComments(commentId) {
     firebase.deleteComment(id, commentId);
   }
@@ -155,12 +160,8 @@ export default function GameInfo() {
 
   //form tools
 
-
-
   let date = new Date();
   let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
-  console.log(comment)
-
 
   const CommentsStyle = styled.form`
 
@@ -220,8 +221,24 @@ button i{
               >
                 <Modal
                   actions={[
-                    <Button flat modal="close" node="button" waves="red" className="red-text">Cancelar</Button>,
-                    <Button flat modal="close" onClick={() => deleteGame(id)} node="button" waves="green" className="green-text">Confirmar</Button>
+                    <Button
+                      flat modal="close"
+                      node="button"
+                      waves="red"
+                      className="red-text"
+                    >
+                      Cancelar
+                    </Button>,
+                    <Button
+                      flat
+                      modal="close"
+                      onClick={() => deleteGame(id)}
+                      node="button"
+                      waves="green"
+                      className="green-text"
+                    >
+                      Confirmar
+                    </Button>
                   ]}
                   bottomSheet={false}
                   fixedFooter
@@ -246,11 +263,13 @@ button i{
                     </div>
                   }
                 >
-                    <Lottie
-                      options={defaultOptions}
-                    />
+                  <Lottie
+                    options={defaultOptions}
+                  />
                   <p>
-                    Ao clicar em <b className="green-text">Confirmar</b> o jogo será deletado!
+                    Ao clicar em 
+                    <b className="green-text">Confirmar</b>
+                     o jogo será deletado!
                   </p>
                 </Modal>
               </Action>
@@ -480,11 +499,12 @@ button i{
                                           Apagar
                                       </Link>}
                                     >
-                                        <Lottie
-                                          options={defaultOptions}
-                                        />
+                                      <Lottie
+                                        options={defaultOptions}
+                                      />
                                       <p>
-                                        Ao clicar em <b className="green-text">Confirmar</b> o comentário será deletado!
+                                        Ao clicar em
+                                         <b className="green-text">Confirmar</b> o comentário será deletado!
                                       </p>
                                     </Modal>
                                     <Divider />
@@ -508,7 +528,13 @@ button i{
                           <Alert variant="filled" severity="warning">
                             Por favor, preencha todos os campos!
                           </Alert>
-                        ) : ''}
+                        ) : ''};
+
+                        {makeLogin && (
+                          <Alert variant="filled" severity="warning">
+                            Para comentar é necessário fazer <Link to="/login"><b>login!</b></Link>
+                          </Alert>
+                        )}
                       </div>
                       <CommentsStyle color>
                         <form onSubmit={handleSubmit(onSubmit)}>

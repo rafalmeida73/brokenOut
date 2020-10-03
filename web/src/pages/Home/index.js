@@ -44,15 +44,14 @@ function Home() {
                   </div>
 
                   <div className="col s12 m12 l6">
-                     <div className="sla">
                         <p>
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. At sit enim imperdiet blandit ultrices fermentum gravida pellentesque. Amet scelerisque mi id enim etiam adipiscing velit proin aliquet. Amet condimentum nibh amet semper ut integer sed facilisis. Lacus lorem nisl, tellus, dui convallis. In sit ut elementum at. Amet, orci nibh dignissim eget semper ac ullamcorper elit.
+                           O Broken Out é um site que visa facilitar o acesso a informações de jogos, seja do celular, console ou desktop.
+                           Disponibilizamos uma imensa variedade de jogos cadastrados. Contudo, você pode adicionar qualquer jogo que não esteja cadastrado. Ajudando assim, outros usuários a encontrar o jogo desejado no site.
                         </p>
 
                         <Link to='/jogos' className="waves-effect waves-light btn">
                            Ver os jogos
                         </Link>
-                     </div>
                   </div>
                </Row>
             </header>
