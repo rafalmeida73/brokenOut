@@ -8,10 +8,13 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useForm } from "react-hook-form";
 import firebase from '../../fireConnection';
+import Pagination from '../../components/Pagination';
 
 
 function Games() {
   const [games, setGames] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(12);
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -102,6 +105,14 @@ function Games() {
     e.target.reset()
   }
 
+  //Get games
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPost = games.slice(indexOfFirstPost, indexOfLastPost);
+
+  //Change page
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   return (
     <div style={{ minHeight: "100vh" }}>
       <Row data-aos='fade-right' className=" titleBlock">
@@ -128,7 +139,7 @@ function Games() {
       {/* TABELA DE FILTROS */}
 
       <div data-aos='fade-right' className="col s12 m12 l12 container tabsFilters">
-        <Tabs className="tab-demo z-depth-1 tabs-fixed-width">
+        <Tabs  className="tab-demo z-depth-1 tabs-fixed-width">
           <Tab
             active
             options={{
@@ -253,7 +264,7 @@ function Games() {
 
         {/* DROPDOWN DE FILTROS */}
 
-        <div className="col s4 m4 l2">
+        <div data-aos='fade-right' className="col s4 m4 l2">
           <Dropdown
             id="Dropdown_6"
             options={{
@@ -326,13 +337,13 @@ function Games() {
         </div>
       </Row>
 
-      <Row data-aos='fade-right' className='container catalog'>
+      <Row className='container catalog'>
         <div>
-          {games.map(game => {
+          {currentPost.map(game => {
             return (
               <div key={game.key}>
                 <Link to={`/jogos/${game.key}`}>
-                  <div className={"col s12 m6 l4 iconsNote"}>
+                  <div data-aos='fade-down' data-aos-duration="1900" className={"col s12 m6 l4 iconsNote"}>
 
                     <div className={`cardGame ${game.category === "action" ? "action" :
                       game.category === "strategy" ? "strategy" :
@@ -346,7 +357,7 @@ function Games() {
                                       ""
                       }`}>
 
-                      <img className="responsive-img" src={game.img} alt={game.name} />
+                      <img className="responsive-img" src={game.img} alt={game.name}/>
                       <h4 className="center-align">{game.name}</h4>
 
                     </div>
@@ -357,6 +368,7 @@ function Games() {
           })}
         </div>
       </Row>
+      <Pagination postsPerPage={postsPerPage} totalPosts={games.length} paginate={paginate} />
     </div>
   )
 }

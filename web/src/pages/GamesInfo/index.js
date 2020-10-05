@@ -59,7 +59,7 @@ export default function GameInfo() {
 
   useEffect(() => {
     AOS.init({
-      duration: 3000
+      duration: 0
     });
 
     firebase.getUserName((info) => {
