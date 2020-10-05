@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
-import { Row, TextInput, Icon, Button, Dropdown, Divider, Tabs, Tab } from 'react-materialize';
+import { Row, TextInput, Icon, Button, Tabs, Tab } from 'react-materialize';
 import './styles.css';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
@@ -136,23 +136,51 @@ function Games() {
         </div>
       </Row>
 
-      {/* TABELA DE FILTROS */}
+      {/* FORM PESQUISAR JOGO */}
 
-      <div data-aos='fade-right' className="col s12 m12 l12 container tabsFilters">
-        <Tabs  className="tab-demo z-depth-1 tabs-fixed-width">
+      <Row data-aos='fade-right' className="center-align filtersBlock">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="col s12 m10 l10 ">
+            <TextInput
+              icon={<Icon>search</Icon>}
+              id="TextInput-4"
+              label="Procurar jogo desejado"
+              name="game"
+              ref={register({ required: true })}
+              className="white-text"
+            />
+          </div>
+          <div data-aos='fade-right' className="col s2 m2 l2">
+            <Button
+              node="button"
+              style={{
+                marginRight: '5px'
+              }}
+              waves="light"
+              type="submit"
+            >
+              Pesquisar
+            </Button>
+          </div>
+        </form>
+
+      </Row>
+
+       {/* TABELA DE FILTROS */}
+
+       <div data-aos='fade-right' className="col s12 m12 l12 container tabsFilters">
+        <Tabs className="tab-demo z-depth-1 tabs-fixed-width">
           <Tab
-            active
             options={{
               duration: 300,
               onShow: null,
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => allGames()}>Todos os jogos</Link>}
+            title={<Link to="#" onClick={() => allGames()}>Todos</Link>}
           >
           </Tab>
           <Tab
-            active
             options={{
               duration: 300,
               onShow: null,
@@ -163,7 +191,6 @@ function Games() {
           >
           </Tab>
           <Tab
-            disabled
             options={{
               duration: 300,
               onShow: null,
@@ -246,97 +273,6 @@ function Games() {
         </Tabs>
       </div>
 
-      {/* FORM PESQUISAR JOGO */}
-
-      <Row data-aos='fade-right' className="center-align filtersBlock">
-        <div className="col s12 m12 l10 ">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <TextInput
-              icon={<Icon>search</Icon>}
-              id="TextInput-4"
-              label="Procurar Jogo"
-              name="game"
-              ref={register({ required: true })}
-            />
-          </form>
-        </div>
-
-
-        {/* DROPDOWN DE FILTROS */}
-
-        <div data-aos='fade-right' className="col s4 m4 l2">
-          <Dropdown
-            id="Dropdown_6"
-            options={{
-              alignment: 'left',
-              autoTrigger: true,
-              closeOnClick: true,
-              constrainWidth: true,
-              container: null,
-              coverTrigger: true,
-              hover: false,
-              inDuration: 150,
-              onCloseEnd: null,
-              onCloseStart: null,
-              onOpenEnd: null,
-              onOpenStart: null,
-              outDuration: 250
-            }}
-            trigger={<Button node="button">Filtrar</Button>}
-          >
-            <Link to="#" className="all" onClick={() => allGames()}>
-              Todos os jogos
-            </Link>
-            <Link to="#" className="action" onClick={() => filterItems("action")}>
-              Ação/ Aventura
-            </Link>
-
-            <Divider />
-
-            <Link to="#" className="strategy" onClick={() => filterItems("strategy")}>
-              Estratégia
-            </Link>
-
-            <Divider />
-            <Link to="#" className="fight" onClick={() => filterItems("fight")}>
-              Luta
-            </Link>
-
-            <Divider />
-            <Link to="#" className="running" onClick={() => filterItems("running")}>
-              Corrida
-            </Link>
-
-            <Divider />
-            <Link to="#" className="rpg" onClick={() => filterItems("rpg")}>
-              RPG
-            </Link>
-
-            <Divider />
-            <Link to="#" className="construction" onClick={() => filterItems("construction")}>
-              Construção
-            </Link>
-
-            <Divider />
-            <Link to="#" className="vr" onClick={() => filterItems("vr")}>
-              VR
-            </Link>
-
-            <Divider />
-            <Link to="#" className="music" onClick={() => filterItems("music")}>
-              Música
-            </Link>
-
-            <Divider />
-            <Link to="#" className="sports" onClick={() => filterItems("sports")}>
-              Esportes
-            </Link>
-
-
-          </Dropdown>
-        </div>
-      </Row>
-
       <Row className='container catalog'>
         <div>
           {currentPost.map(game => {
@@ -357,7 +293,7 @@ function Games() {
                                       ""
                       }`}>
 
-                      <img className="responsive-img" src={game.img} alt={game.name}/>
+                      <img className="responsive-img" src={game.img} alt={game.name} />
                       <h4 className="center-align">{game.name}</h4>
 
                     </div>

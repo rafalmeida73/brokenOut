@@ -80,14 +80,17 @@
   display: none;
 }
 
+.tabsFilters .tabs .indicator {
+  display: none;
+}
+
+.tabsFilters ::-webkit-scrollbar {
+ display: none;
+}
+
 .tabsFilters .tabs .tab a,
 .tabsFilters .tabs .tab a.active {
   color: #fff;
-}
-
-.filtersBlock .dropdown-content li > a {
-  color: #fff;
-  font-weight: bold;
 }
 
 .filtersBlock .input-field input:not(.browser-default):focus:not([readonly]) {
@@ -117,15 +120,6 @@
 
 .filtersBlock .input-field .prefix.active {
   color: #fff;
-}
-
-.dropdown-content {
-  background: none;
-  box-shadow: none;
-}
-
-.dropdown-content {
-  margin-left: 1px !important;
 }
 
 .filtersBlock .input-field {
@@ -184,12 +178,26 @@
     background-color: var(--primary);
   }
 
-  .tabsFilters {
-    display: none;
-  }
-
   .cardGame {
     height: 270px;
+  }
+
+  .tabsFilters ::-webkit-scrollbar {
+    display: block;
+  }
+   
+  /* Handle */
+  .tabsFilters ::-webkit-scrollbar-thumb {
+    background: var(--primary-dark); 
+  }
+  
+  .tabsFilters ::-webkit-scrollbar-track {
+    background: #272526;       
+  }
+  
+  /* Handle on hover */
+  .tabsFilters ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark); 
   }
 }
 
@@ -214,9 +222,5 @@
 
   .filtersBlock button:hover {
     background-color: var(--primary-dark);
-  }
-
-  .tabsFilters {
-    display: none;
   }
 }
