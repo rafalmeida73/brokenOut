@@ -82,7 +82,7 @@ function Login() {
 
                   {wrongPassword || UserNotFound ? (
                     <Alert variant="filled" severity="error">
-                      E-mail ou senha incorreta!
+                      E-mail ou senha incorretos!
                     </Alert>
                   ) : ''}
 
