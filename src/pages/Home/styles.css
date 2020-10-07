@@ -44,6 +44,7 @@ svg:not(:root) {
   font-size: 1.6rem;
   font-weight: bold;
   margin-top: 30px;
+  margin-bottom: 30px;
   transition: all;
 }
 
@@ -79,6 +80,7 @@ svg:not(:root) {
   background-color: var(--primary) !important;
   border-radius: 50px;
   font-size: 1.6rem;
+  margin-top: 30px;
   font-weight: bold;
   transition: all;
 }
