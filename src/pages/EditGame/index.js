@@ -52,10 +52,6 @@ function NewGame() {
 
  }, []);
 
- console.log(autor);
-
-
-
  const { register, handleSubmit, errors, control } = useForm();
 
  // Cadastro no jogo

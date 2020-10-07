@@ -194,7 +194,6 @@ button i{
 
 `;
 
-  console.log(news)
   return (
     <div className="App">
       {!gameNotFound ?
