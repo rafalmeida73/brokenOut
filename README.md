@@ -1,7 +1,5 @@
 # Broken Out
-### Desenvolver uma vitrine digital com jogos para PC e dispositivos mobile.
-  
-<img src="web/src/assets/img/screen.gif" width="100%"/>
+### O Broken Out é um site que visa facilitar o acesso a informações de jogos, seja do celular, console ou desktop. Disponibilizamos uma imensa variedade de jogos cadastrados. Contudo, você pode adicionar qualquer jogo que não esteja cadastrado. Ajudando assim, outros usuários a encontrar o jogo desejado no site.
 
 #### Equipe:
 * Claudio Zanelatto | claudiozanelatto@gmail.com
