@@ -95,8 +95,8 @@ export default function GameInfo() {
           });
 
         setAppInfo(data);
-        setUrl("https://cors-anywhere.herokuapp.com/" + imagem)
-        // setUrl(imagem)build
+        // setUrl("https://cors-anywhere.herokuapp.com/" + imagem)
+        setUrl(imagem)
       }
     });
 
@@ -158,8 +158,8 @@ export default function GameInfo() {
   //form tools
 
   let date = new Date();
-  let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
-  // let img = `${imgGame}`build;
+  // let img = `https://cors-anywhere.herokuapp.com/${imgGame}`;
+  let img = `${imgGame}`;
 
   const CommentsStyle = styled.form`
 
