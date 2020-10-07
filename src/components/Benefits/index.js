@@ -19,7 +19,7 @@ function Benefits() {
                 </svg>
 
                 <h4>Jogos</h4>
-                <p>Centenas de jogos no site, uma vasta coleção, multiplataforma, online, offline, produtos de diversos gostos!</p>
+                <p>O Broken Out fornece centenas de jogos no site, uma vasta coleção, jogos de todas as platarformas: mobile, tablet, desktop ou console que podem ser online ou offline, produtos de diversos gostos!</p>
             </div>
             <div className="col s12 m4 l4 benefitSBlock">
                 <svg width="197" height="197" viewBox="0 0 197 197" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +32,7 @@ function Benefits() {
                     </g>
                 </svg>
                 <h4>Avaliação</h4>
-                <p>Você pode avaliar o jogo com uma nota de 1 a 5. Onde o 1 significa um jogo ruim e o 5 um jogo fenomenal!</p>
+                <p>O nosso projeto terá uma seção onde usuário poder avaliar os jogos. Assim, outros um usuário com dúvida de algum jogo pode saber se o jogo vale ou não a pena.</p>
             </div>
             <div className="col s12 m4 l4 benefitSBlock">
                 <svg width="197" height="197" viewBox="0 0 197 197" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@ function Benefits() {
                 </svg>
 
                 <h4>Comentários</h4>
-                <p>Adicionar um comentários a um determinado jogo e vizualize o que outros usuários estão falando sobre esses jogos!</p>
+                <p>Os comentários possibilitam a troca de informações e ajudas entre os usuários para facilitar naquele jogo difícil, contendo dicas, explicações de determinado jogo que estiver tendo problema de completar.</p>
             </div>
         </div>
     )

@@ -71,7 +71,7 @@ function Home() {
                </div>
                <div className="col s12 m6 l6">
                   <p>
-                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                  Nossa equipe que desenvolveu esse fórum foi feito  devido ao projeto da faculdade, com 4 alunos do grupo criamos esse projeto que visa em um fórum de ajuda aos jogadores. O grupo vem criando outros tipos de projetos a 3 semestres. O nosso projeto Broken Out tem o objetivo de ficar um bom tempo online devido a quantidade de jogadores que buscam, tem dúvidas ou dificuldade em alguns tipos de jogos com dificuldade avançada, e que tenham dúvidas no qual escolher ou que apenas deseja se informar melhor sobre determinado jogo.
                   </p>
 
                   <Link to='/sobre' className="waves-effect waves-light btn">

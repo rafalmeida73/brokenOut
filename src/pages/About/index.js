@@ -36,7 +36,7 @@ function About() {
             options={defaultOptions}
           />
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At sit enim imperdiet blandit ultrices fermentum gravida pellentesque. Amet scelerisque mi id enim etiam adipiscing velit proin aliquet. Amet condimentum nibh amet semper ut integer sed facilisis. Lacus lorem nisl, tellus, dui convallis. In sit ut elementum at. Amet, orci nibh dignissim eget semper ac ullamcorper elit.</p>
+          <p>O projeto Broken Out foi criado no ano de 2020, os desenvolvedores criaram esse projeto a tentar ajudar os jogadores, com uma vasta seção de jogos as pessoas que tiver com dúvida sobre algo pode vir ao site procurar mais sobre, ter dicas e ajuda da comunidade naquele jogo desejado, os jogadores tem a liberdade de avaliações que ajudam na hora do usuário escolher se estiver em dúvida. O desenvolvimento durou 3 meses.</p>
         </div>
       </header>
 
