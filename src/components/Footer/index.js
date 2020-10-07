@@ -21,7 +21,7 @@ function Footer() {
 
   return (
     <div>
-      <footer className="page-footer" id="footer">
+      <footer id="footer">
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
