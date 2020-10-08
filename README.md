@@ -29,6 +29,7 @@ Backend: https://github.com/rafalmeida73/brokenoutbackend
 ------------
 ####  Como clonar este projeto
 - realize o clone git clone link....
-- instale as dependências das pastas Server e Web (npm install ou yarn install)
-- inicialize o servidor local nas pastas Server e Web (npm start ou yarn start)
+- realize o clone git do repositório [**Broken Out backend**](https://github.com/rafalmeida73/brokenoutbackend)
+- instale as dependências de ambos repositório (npm install ou yarn install)
+- inicialize o servidor local de ambos repositório (npm start ou yarn start)
 - abra o navegador em http://localhost:3000
