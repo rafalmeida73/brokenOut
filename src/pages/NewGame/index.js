@@ -154,7 +154,7 @@ function NewGame() {
             />
 
             <TextInput
-              icon={<Icon>loyalty</Icon>}
+              icon={<Icon>link</Icon>}
               id="microsoft"
               name="microsoft"
               label="Link do jogo na Microsoft Store"
@@ -163,7 +163,7 @@ function NewGame() {
             />
 
             <TextInput
-              icon={<Icon>loyalty</Icon>}
+              icon={<Icon>link</Icon>}
               id="playstation"
               name="playstation"
               label="Link do jogo na Playstation Store"

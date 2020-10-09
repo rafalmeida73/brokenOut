@@ -8,17 +8,17 @@ import Alert from '@material-ui/lab/Alert';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import firebase from '../../fireConnection';
-import { useParams, Redirect } from "react-router-dom";
+import { useParams, Redirect, useHistory } from "react-router-dom";
 
 
 function NewGame() {
  let id = useParams().id;
  const [gameNotFound, setgameNotFound] = useState(false);
- const [sucess, setSucess] = useState(false);
  const [imageType, setImageType] = useState(false);
  const [autor, setAutor] = useState(firebase.getCurrentUid());
  const [imgGame, setImgGame] = useState(null);
  const [appInfo, setAppInfo] = useState([]);
+ let history = useHistory();
 
 
  useEffect(() => {
@@ -30,7 +30,7 @@ function NewGame() {
    if (info.val() === null) {
     setgameNotFound(true);
    } else {
-    let { appStore, descricao, epic, imagem, microsoft, nome, playStore, steam, playstation, autor } = info.val();
+    let { appStore, descricao, epic, imagem, microsoft, nome, playStore, steam, playstation, autor, categoria } = info.val();
     setAutor(autor);
     setImgGame(imagem);
     let data = [];
@@ -44,6 +44,7 @@ function NewGame() {
      appStore,
      epic,
      playstation,
+     categoria,
     });
 
     setAppInfo(data);
@@ -54,7 +55,7 @@ function NewGame() {
 
  const { register, handleSubmit, errors, control } = useForm();
 
- // Cadastro no jogo
+ // submit 
  const onSubmit = async data => {
   let { name, desc, steam, microsoft, epic, play, app, category, playstation } = data;
   const currentUid = firebase.getCurrentUid();
@@ -73,8 +74,9 @@ function NewGame() {
    autor: currentUid
   };
 
-  firebase.editGame(id, info);
-  setSucess(true);
+  await firebase.editGame(id, info);
+
+  history.goBack()
  };
 
  //Gerar Url da imagem
@@ -121,24 +123,15 @@ function NewGame() {
     <div className="editGameBlock">
      <header data-aos='fade-right' className="col s12 m12 l12 ">
 
-     <img src={imgGame} alt="Prévia da imagem"className="responsive-img"/>
-
-
       <div className="errorBlock container">
-       {
-        errors.category
+       {errors.name ||
+        errors.category ||
+        errors.desc 
          ? (
           <Alert variant="filled" severity="warning">
-           Por favor, preencha a categoria!
+          Por favor, preencha todos os campos com *
           </Alert>
          ) : ''}
-
-       {sucess && (
-        <Alert variant="filled" severity="success">
-         Jogo editado com sucesso!
-        </Alert>
-       )}
-
 
        {imageType && (
         <Alert variant="filled" severity="error">
@@ -151,28 +144,28 @@ function NewGame() {
       {appInfo.map((app) => {
        return (
         <form className="container" onSubmit={handleSubmit(onSubmit)}>
-         <TextInput
-          label="Imagem"
-          placeholder="Imagem"
-          type="file"
-          accept="image/png, image/jpeg, image/jpg"
-          onChange={handleFile}
-         />
+
+        <div class="file-field input-field" accept="image/png, image/jpeg, image/jpg" onChange={handleFile}>
+                <input type="file"/>
+                <div class="file-path-wrapper">
+                        <img src={imgGame} alt="Prévia da imagem"className="responsive-img"/>
+                </div>
+        </div>
 
          <TextInput
           icon={<Icon>account_circle</Icon>}
           id="name"
           name="name"
-          label="Nome do jogo"
+          label="Nome *"
           defaultValue={app.name}
           validate
-          ref={register()}
+          ref={register({ required: true })}
          />
 
          <div class="input-field col s12">
           <i class="material-icons prefix">chat</i>
           <textarea ref={register()} name="desc" id="desc" class="materialize-textarea" value={app.desc}></textarea>
-          <label for="desc">Descrição</label>
+          <label for="desc">Descrição *</label>
          </div>
 
          <TextInput
@@ -187,7 +180,7 @@ function NewGame() {
          />
 
          <TextInput
-          icon={<Icon>loyalty</Icon>}
+          icon={<Icon>link</Icon>}
           id="microsoft"
           name="microsoft"
           label="Link do jogo na Microsoft Store"
@@ -197,7 +190,7 @@ function NewGame() {
          />
 
          <TextInput
-          icon={<Icon>loyalty</Icon>}
+          icon={<Icon>link</Icon>}
           id="playstation"
           name="playstation"
           label="Link do jogo na Playstation Store"
@@ -264,6 +257,7 @@ function NewGame() {
             <option
              disabled
              value=""
+             defaultValue
             >
              Escolha a categoria *
     </option>
@@ -299,13 +293,13 @@ function NewGame() {
           name="category"
           rules={{ required: "this is required" }}
           control={control}
-          defaultValue=""
+          defaultValue={app.categoria}
          />
 
          <Button node="button" type="submit" waves="light">
           Editar
        <Icon right>
-           add
+           edit
        </Icon>
          </Button>
         </form>

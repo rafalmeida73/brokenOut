@@ -10,7 +10,7 @@
   outline: none;
   justify-content: center;
   align-items: center;
-  overflow: inherit;
+  overflow: inherit !important;
 }
 
 .controlBlock :first-child svg {
