@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
-import { Collapsible, CollapsibleItem, Icon, Button, Row, TextInput, Dropdown, Divider, Modal, MediaBox } from 'react-materialize';
+import { Collapsible, CollapsibleItem, Icon, Button, Row, TextInput, Dropdown, Modal, MediaBox } from 'react-materialize';
 import './styles.css';
 import Color, { Palette } from "color-thief-react";
 import ReactHtmlParser from 'react-html-parser';
@@ -19,6 +19,7 @@ import Play from '../../assets/img/play.png';
 import App from '../../assets/img/apple.png';
 import Microsoft from '../../assets/img/microsoft.svg';
 import Playstation from '../../assets/img/ps4.png';
+import Example from '../../assets/img/example.png';
 
 import firebase from '../../fireConnection';
 import Submit from '../../components/Submit';
@@ -53,7 +54,7 @@ export default function GameInfo() {
   const [makeLogin, setMakeLogin] = useState(false);
   const [pColor, setpColor] = useState(null);
   const [color, setColor] = useState(null);
-  const [url, setUrl] = useState("https://i.imgur.com/DzapWf3b.jpg");
+  const [url, setUrl] = useState(Example);
   const [autor, setAutor] = useState(firebase.getCurrentUid());
 
 

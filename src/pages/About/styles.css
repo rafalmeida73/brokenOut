@@ -24,6 +24,17 @@ header p {
   color: #fff;
 }
 
+.headerSobre p a {
+  color: #fff;
+}
+
+.headerSobre p a:hover span {
+  background-color: #f7971d;
+  border-radius: 5px;
+  color: #000 !important;
+  font-weight: bold;
+}
+
 .aboutBlock {
   display: flex;
   align-items: center;

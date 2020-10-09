@@ -118,8 +118,11 @@ function NewGame() {
  return (
   <div>
    {!gameNotFound && autor === firebase.getCurrentUid() ? (
-    <div className="newGameBlock">
+    <div className="editGameBlock">
      <header data-aos='fade-right' className="col s12 m12 l12 ">
+
+     <img src={imgGame} alt="Prévia da imagem"className="responsive-img"/>
+
 
       <div className="errorBlock container">
        {
@@ -143,7 +146,8 @@ function NewGame() {
         </Alert>
        )}
 
-      </div>
+      </div> 
+
       {appInfo.map((app) => {
        return (
         <form className="container" onSubmit={handleSubmit(onSubmit)}>
