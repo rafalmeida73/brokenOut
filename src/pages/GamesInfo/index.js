@@ -490,9 +490,10 @@ button i{
                                         startingTop: '4%'
                                       }}
                                       trigger={
-                                        <Link to="#">
+                                        <a node="button" href="#">
                                           Apagar
-                                      </Link>}
+                                      </a>
+                                      }
                                     >
                                       <Lottie
                                         options={defaultOptions}
@@ -502,7 +503,6 @@ button i{
                                          <b className="green-text"> Confirmar </b> o comentário será deletado!
                                       </p>
                                     </Modal>
-                                    <Divider />
                                   </Dropdown>
                                 )}
                               </div>

@@ -1,8 +1,8 @@
-.rtf--mb{
+.rtf--mb {
   background-color: var(--primary) !important;
 }
 
-#Modal-1{
+#Modal-1 {
   height: 45%;
 }
 
@@ -171,7 +171,7 @@ iframe {
   color: #fff;
 }
 
-.commentsForm .errorBlock a{
+.commentsForm .errorBlock a {
   margin: 0;
 }
 
@@ -202,22 +202,26 @@ iframe {
   color: #000;
 }
 
+.dropdown-content ul :nth-child(2) {
+  display: none;
+}
+
 .modal-content p {
   color: #000;
 }
 
-.rtf--ab__c button:focus{
+.rtf--ab__c button:focus {
   background-color: #aaa;
 }
 
 @media (min-width: 768px) {
-  #Modal-1{
+  #Modal-1 {
     height: 60%;
   }
 }
 
 @media (min-width: 1100px) {
-  #Modal-1{
+  #Modal-1 {
     height: 70%;
   }
 
