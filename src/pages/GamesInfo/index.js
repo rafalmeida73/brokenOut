@@ -490,9 +490,9 @@ button i{
                                         startingTop: '4%'
                                       }}
                                       trigger={
-                                        <a node="button" href="#">
+                                        <Link to="#">
                                           Apagar
-                                      </a>
+                                      </Link>
                                       }
                                     >
                                       <Lottie
