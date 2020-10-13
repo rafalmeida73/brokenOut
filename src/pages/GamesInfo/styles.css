@@ -242,9 +242,9 @@ iframe {
   }
 }
 
-@media (max-height: 700px) {
+@media (max-height: 600px) {
   .modal {
-    height: 100%;
+    height: 100% !important;
   }
 
   .modal .modal-footer {
