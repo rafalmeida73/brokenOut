@@ -67,13 +67,13 @@
   transform: translate3d(0, -100px, 0);
 }
 
-.withoutRegOurLog{
+.withoutRegOurLog {
   float: right;
   margin: 10% 0;
   border-bottom: 1px solid white;
 }
 
-.withoutRegOurLog p i{
+.withoutRegOurLog p i {
   color: var(--primary);
 }
 
@@ -133,5 +133,11 @@
 
   [data-aos="fade-left"] {
     transform: translate3d(100px, 0, 0);
+  }
+}
+
+@media (max-height: 700px) {
+  .loginRobotBlock {
+    height: auto;
   }
 }

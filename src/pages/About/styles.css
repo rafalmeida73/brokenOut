@@ -81,3 +81,9 @@ header p {
     color: #fff;
   }
 }
+
+@media (max-height: 700px) {
+  .headerSobre {
+    height: auto;
+  }
+}

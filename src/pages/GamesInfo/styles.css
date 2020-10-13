@@ -242,6 +242,16 @@ iframe {
   }
 }
 
+@media (max-height: 700px) {
+  .modal {
+    height: 100%;
+  }
+
+  .modal .modal-footer {
+    text-align: center;
+  }
+}
+
 /* FONTS */
 @font-face {
   font-family: "Minecrafter";

@@ -258,3 +258,9 @@ svg:not(:root) {
     margin-top: 30px;
   }
 }
+
+@media (max-height: 700px) {
+  header .robotBlock {
+    height: auto;
+  }
+}
