@@ -14,7 +14,7 @@
 }
 
 .controlBlock :first-child svg {
-  height: 45% !important;
+  height: 55% !important;
 }
 
 .signUpBlock {
@@ -110,7 +110,7 @@
   }
 }
 
-@media (max-height: 600px) {
+@media (max-height: 500px) {
   .controlBlock {
     height: auto;
   }

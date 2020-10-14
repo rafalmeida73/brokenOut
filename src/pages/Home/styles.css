@@ -9,23 +9,27 @@ header {
   width: 100vw;
 }
 
-header .robotBlock {
+.robotBlock {
   height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
-header .robotBlock div {
-  height: 53% !important;
-  margin-top: 15% !important;
+header .robotBlock :first-child {
+  display: flex;
+  outline: none;
+  justify-content: center;
+  align-items: center;
   overflow: inherit !important;
 }
 
 .headerBlock {
   max-width: 100%;
-  margin-bottom: 100px;
 }
 
 .robotBlock svg {
-  width: 85% !important;
+  height: 55% !important;
 }
 
 svg:not(:root) {
@@ -259,7 +263,7 @@ svg:not(:root) {
   }
 }
 
-@media (max-height: 600px) {
+@media (max-height: 500px) {
   header .robotBlock {
     height: auto;
   }

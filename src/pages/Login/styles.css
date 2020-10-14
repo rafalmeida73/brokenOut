@@ -136,7 +136,7 @@
   }
 }
 
-@media (max-height: 600px) {
+@media (max-height: 500px) {
   .loginRobotBlock {
     height: auto;
   }

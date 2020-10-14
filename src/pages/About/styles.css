@@ -82,7 +82,7 @@ header p {
   }
 }
 
-@media (max-height: 600px) {
+@media (max-height: 500px) {
   .headerSobre {
     height: auto;
   }
