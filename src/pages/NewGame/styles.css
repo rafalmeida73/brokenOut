@@ -99,3 +99,9 @@
     min-height: 100vh;
   }
 }
+
+@media (min-width: 768px) {
+  .newGameBlock header {
+    min-height: 100vh;
+  }
+}

@@ -15,6 +15,10 @@ p{
  height: 401px;
 }
 
+.benefits p{
+  padding: inherit;
+}
+
 /*SVG */
 #quadrado,
 #quadradoB,
@@ -53,5 +57,8 @@ p{
     transform: scale(0.9);
 }
 
-
-
+@media (min-width: 768px) {
+  .benefits p{
+    padding: unset;
+  }
+}

@@ -46,7 +46,7 @@ function Benefits() {
                 </svg>
 
                 <h4>Comentários</h4>
-                <p>Os comentários possibilitam a troca de informações e ajudas entre os usuários para facilitar naquele jogo difícil, contendo dicas, explicações de determinado jogo que estiver tendo problema de completar.</p>
+                <p>Os comentários possibilitam a troca de informações entre os usuários para facilitar naquele jogo difícil, contendo dicas, explicações do jogo que você está com dificuldade.</p>
             </div>
         </div>
     )
