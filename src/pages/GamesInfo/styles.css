@@ -67,9 +67,6 @@ iframe {
 .news h3 {
   font-weight: bold;
   margin: 100px 0;
-
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000;
 }
 
 .news .collapsible-header {
