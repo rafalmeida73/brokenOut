@@ -8,11 +8,14 @@ import Alert from '@material-ui/lab/Alert';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import firebase from '../../fireConnection';
+import { useHistory } from 'react-router-dom';
+import ImgGame from '../../assets/img/imgGame.svg'
 
 function NewGame() {
-  const [sucess, setSucess] = useState(false);
   const [imageType, setImageType] = useState(false);
-  const [url, setUrl] = useState(null);
+  const [url, setUrl] = useState(ImgGame);
+
+  let history = useHistory();
 
   useEffect(() => {
     AOS.init({
@@ -45,7 +48,7 @@ function NewGame() {
       autor: currentUid
     });
 
-    setSucess(true);
+    history.push(`/jogos/${key}`);
   };
 
   //Gerar Url da imagem
@@ -104,12 +107,6 @@ function NewGame() {
                 </Alert>
               ) : ''}
 
-            {sucess && (
-              <Alert variant="filled" severity="success">
-                Jogo cadastrado com sucesso!
-              </Alert>
-            )}
-
             {imageType && (
               <Alert variant="filled" severity="error">
                 Envie uma imagem do tipo PNG, JPEG ou JPG!
@@ -119,14 +116,13 @@ function NewGame() {
           </div>
 
           <form className="container" onSubmit={handleSubmit(onSubmit)}>
-            <TextInput
-              label="Imagem"
-              placeholder="Imagem"
-              type="file"
-              accept="image/png, image/jpeg, image/jpg"
-              required
-              onChange={handleFile}
-            />
+
+          <div class="file-field input-field" accept="image/png, image/jpeg, image/jpg" onChange={handleFile}>
+              <input type="file" required/>
+              <div class="file-path-wrapper">
+                <img src={url} alt="Prévia da imagem" className="responsive-img" />
+              </div>
+            </div>
 
             <TextInput
               icon={<Icon>account_circle</Icon>}

@@ -164,7 +164,7 @@ function NewGame() {
 
          <div class="input-field col s12">
           <i class="material-icons prefix">chat</i>
-          <textarea ref={register()} name="desc" id="desc" class="materialize-textarea" value={app.desc}></textarea>
+          <textarea ref={register()} name="desc" id="desc" class="materialize-textarea" defaultValue={app.desc}></textarea>
           <label for="desc">Descrição *</label>
          </div>
 

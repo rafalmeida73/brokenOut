@@ -19,7 +19,7 @@ function Benefits() {
                 </svg>
 
                 <h4>Jogos</h4>
-                <p>O Broken Out fornece centenas de jogos no site, uma vasta coleção, jogos de todas as platarformas: mobile, tablet, desktop ou console que podem ser online ou offline, produtos de diversos gostos!</p>
+                <p>O Broken Out fornece centenas de jogos no site, uma vasta coleção, jogos de todas as plataformas: mobile, tablet, desktop ou console que podem ser online ou offline, produtos de diversos gostos!</p>
             </div>
             <div className="col s12 m4 l4 benefitSBlock">
                 <svg width="197" height="197" viewBox="0 0 197 197" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -310,7 +310,6 @@ button i{
                             className={
                               `${info.name.includes('Minecraft') ? "mine" :
                                 info.name.includes('Counter-Strike') ? "cs" :
-                                  info.name.includes("Farcry") ? "farcry" :
                                     info.name.includes("God Of War") ? "god" :
                                       info.name.includes("Grand Theft Auto") || info.name.includes("gta") ? "gta" :
                                         info.name.includes("Street Fighter") ? "sf" :
