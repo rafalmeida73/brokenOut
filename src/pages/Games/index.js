@@ -166,9 +166,9 @@ function Games() {
 
       </Row>
 
-       {/* TABELA DE FILTROS */}
+      {/* TABELA DE FILTROS */}
 
-       <div data-aos='fade-right' className="col s12 m12 l12 container tabsFilters">
+      <div data-aos='fade-right' className="col s12 m12 l12 container tabsFilters">
         <Tabs className="tab-demo z-depth-1 tabs-fixed-width">
           <Tab
             options={{
@@ -177,7 +177,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => allGames()}>Todos</Link>}
+            title={<Link to="#" onClick={() => {allGames(); setCurrentPage(1)}}>Todos</Link>}
           >
           </Tab>
           <Tab
@@ -187,7 +187,8 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("action")}>Ação</Link>}
+            title={<Link to="#" onClick={() => { filterItems("action"); setCurrentPage(1) }}>Ação</Link>}
+
           >
           </Tab>
           <Tab
@@ -197,7 +198,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("strategy")}>Estratégia</Link>}
+            title={<Link to="#" onClick={() => { filterItems("strategy"); setCurrentPage(1) }}>Estratégia</Link>}
           >
           </Tab>
           <Tab
@@ -207,7 +208,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("fight")}>Luta</Link>}
+            title={<Link to="#" onClick={() => { filterItems("fight"); setCurrentPage(1) }}>Luta</Link>}
           >
           </Tab>
           <Tab
@@ -217,7 +218,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("running")}>Corrida</Link>}
+            title={<Link to="#" onClick={() => { filterItems("running"); setCurrentPage(1) }}>Corrida</Link>}
           >
           </Tab>
           <Tab
@@ -227,7 +228,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("rpg")}>RPG</Link>}
+            title={<Link to="#" onClick={() => { filterItems("rpg"); setCurrentPage(1) }}>RPG</Link>}
           >
           </Tab>
           <Tab
@@ -237,7 +238,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("construction")}>Construção</Link>}
+            title={<Link to="#" onClick={() => { filterItems("construction"); setCurrentPage(1) }}>Construção</Link>}
           >
           </Tab>
           <Tab
@@ -247,7 +248,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("vr")}>VR</Link>}
+            title={<Link to="#" onClick={() => { filterItems("vr"); setCurrentPage(1) }}>VR</Link>}
           >
           </Tab>
           <Tab
@@ -257,7 +258,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("music")}>Música</Link>}
+            title={<Link to="#" onClick={() => { filterItems("music"); setCurrentPage(1) }}>Música</Link>}
           >
           </Tab>
           <Tab
@@ -267,7 +268,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => filterItems("sports")}>Esportes</Link>}
+            title={<Link to="#" onClick={() => { filterItems("sports"); setCurrentPage(1) }}>Esportes</Link>}
           >
           </Tab>
         </Tabs>
@@ -304,7 +305,8 @@ function Games() {
           })}
         </div>
       </Row>
-      <Pagination postsPerPage={postsPerPage} totalPosts={games.length} paginate={paginate} />
+
+      <Pagination postsPerPage={postsPerPage} totalPosts={games.length} paginate={paginate} currentPage={currentPage}/>
     </div>
   )
 }
