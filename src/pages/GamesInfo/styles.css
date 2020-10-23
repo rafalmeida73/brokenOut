@@ -15,6 +15,7 @@
 .gameInfoBlock h1 {
   color: #fff;
   font-weight: bold;
+  max-width: 100%;
 }
 
 .gameInfoBlock .descriptionGameBlock p {
@@ -44,7 +45,7 @@
 
 .descriptionGameBlock img {
   border-radius: 15px;
-  padding-top: 10%;
+  margin-top: 10%;
 }
 
 .linksBlock {

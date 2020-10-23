@@ -100,8 +100,9 @@ function Games() {
       })
 
       setGames(searchGame);
-    })
+    });
 
+    await setCurrentPage(1);
     e.target.reset()
   }
 
@@ -144,7 +145,7 @@ function Games() {
             <TextInput
               icon={<Icon>search</Icon>}
               id="TextInput-4"
-              label="Procurar jogo desejado"
+              placeholder="Procurar jogo desejado"
               name="game"
               ref={register({ required: true })}
               className="white-text"
@@ -177,7 +178,7 @@ function Games() {
               responsiveThreshold: Infinity,
               swipeable: false
             }}
-            title={<Link to="#" onClick={() => {allGames(); setCurrentPage(1)}}>Todos</Link>}
+            title={<Link to="#" onClick={() => { allGames(); setCurrentPage(1) }}>Todos</Link>}
           >
           </Tab>
           <Tab
@@ -306,7 +307,7 @@ function Games() {
         </div>
       </Row>
 
-      <Pagination postsPerPage={postsPerPage} totalPosts={games.length} paginate={paginate} currentPage={currentPage}/>
+      <Pagination postsPerPage={postsPerPage} totalPosts={games.length} paginate={paginate} currentPage={currentPage} />
     </div>
   )
 }
