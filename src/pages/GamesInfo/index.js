@@ -310,14 +310,14 @@ button i{
                             className={
                               `${info.name.includes('Minecraft') ? "mine" :
                                 info.name.includes('Counter-Strike') ? "cs" :
-                                    info.name.includes("God Of War") ? "god" :
-                                      info.name.includes("Grand Theft Auto") || info.name.includes("gta") ? "gta" :
-                                        info.name.includes("Street Fighter") ? "sf" :
-                                          info.name.includes("Mortal Kombat") ? "mk" :
-                                            info.name.includes("Halo") ? "halo" :
-                                              info.name.includes("Mario") ? "mario" :
-                                                info.name.includes("Need for Speed") ? "nfs" :
-                                                  ""
+                                  info.name.includes("God Of War") ? "god" :
+                                    info.name.includes("Grand Theft Auto") || info.name.includes("gta") ? "gta" :
+                                      info.name.includes("Street Fighter") ? "sf" :
+                                        info.name.includes("Mortal Kombat") ? "mk" :
+                                          info.name.includes("Halo") ? "halo" :
+                                            info.name.includes("Mario") ? "mario" :
+                                              info.name.includes("Need for Speed") ? "nfs" :
+                                                ""
                               }`
                             }>
                             {info.name}

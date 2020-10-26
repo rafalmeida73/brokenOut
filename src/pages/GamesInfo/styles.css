@@ -16,6 +16,7 @@
   color: #fff;
   font-weight: bold;
   max-width: 100%;
+  text-align: center;
 }
 
 .gameInfoBlock .descriptionGameBlock p {
@@ -253,7 +254,7 @@ iframe {
 /* FONTS */
 @font-face {
   font-family: "Minecrafter";
-  src: url("../../assets/fonts/Minecrafter.Reg.ttf") format("ttf");
+  src: url("../../assets/fonts/Minecrafter.Reg.ttf");
 }
 @font-face {
   font-family: "Counter-Strike";
@@ -294,8 +295,8 @@ iframe {
 
 .mine {
   font-family: "Minecrafter";
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: var(--background);
 }
 
 .cs {
