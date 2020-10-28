@@ -162,6 +162,10 @@ export default function GameInfo() {
 
   const CommentsStyle = styled.form`
 
+input, textarea{
+  color: ${color};
+}
+
   input:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px solid ${color};
   box-shadow: 0 1px 0 0  ${color};

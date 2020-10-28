@@ -57,6 +57,11 @@
   margin-bottom: 150px;
 }
 
+.iframeGame {
+  display: flex;
+  justify-content: center;
+}
+
 iframe {
   width: 90%;
   margin: 100px 0;
@@ -233,7 +238,8 @@ iframe {
   }
 
   .descriptionGameBlock img {
-    padding-top: 0;
+    border-radius: 15px;
+    margin-top: auto;
   }
 
   .news .collapsible-body img {
@@ -259,10 +265,6 @@ iframe {
 @font-face {
   font-family: "Counter-Strike";
   src: url("../../assets/fonts/cs_regular.ttf");
-}
-@font-face {
-  font-family: "Farcry";
-  src: url("../../assets/fonts/FARCRY.TTF");
 }
 @font-face {
   font-family: "GodofWar";
