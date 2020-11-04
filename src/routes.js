@@ -37,9 +37,9 @@ const Routes = () => {
         <Route exact path="/jogos/:id" component={GamesInfo} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/registrar" component={SingUp} />
-        <Route exact path="/gameEdit/:id" component={EditGame} />
+        <PrivateRoute exact path="/gameEdit/:id" component={EditGame} />
         <PrivateRoute path="/novoGame" component={NewGame} />
-        <PrivateRoute path="*" component={Error} />
+        <Route path="*" component={Error} />
       </Switch>
       <Footer />
     </BrowserRouter>
