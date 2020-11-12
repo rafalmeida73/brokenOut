@@ -11,7 +11,7 @@ let team = [
     email: 'claudiozanelatto@gmail.com',
     github: "https://github.com/claudiozanelatto",
     linkedin: "https://www.linkedin.com/in/claudio-zanelatto-79bb4911a/",
-    img: "https://media-exp1.licdn.com/dms/image/C4E03AQE3mkEIHbhOHQ/profile-displayphoto-shrink_400_400/0?e=1605139200&v=beta&t=uFoC6isetaxAVComzXdCUbzsTblhHmMFn3DP6LWH2tA"
+    img: "https://avatars2.githubusercontent.com/u/48970681?s=460&u=dc42ca9abd18faeb6595a24c24ec5395d88642d9&v=4"
   },
    {
     id: 2,
@@ -38,7 +38,7 @@ let team = [
     email: 'rickboto10@gmail.com',
     github: "https://github.com/thiagorick",
     linkedin: "https://www.linkedin.com/in/thiagomoraesz/",
-    img: "https://media-exp1.licdn.com/dms/image/C4D03AQHWFaPKs8ML8g/profile-displayphoto-shrink_200_200/0?e=1605139200&v=beta&t=4D_XSMlxOVC-5Svwd639T8_N2AB9THYFabTPDUYINIg"
+    img: "https://media-exp1.licdn.com/dms/image/C4D03AQHWFaPKs8ML8g/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=kF8oiOrmS16Y_Kab8y29d-ZI1oY9oZnO09Gth6vvIJY"
   },
 ]
 
