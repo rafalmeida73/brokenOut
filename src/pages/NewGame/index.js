@@ -10,6 +10,7 @@ import 'aos/dist/aos.css';
 import firebase from '../../fireConnection';
 import { useHistory } from 'react-router-dom';
 import ImgGame from '../../assets/img/imgGame.svg'
+import loading from '../../assets/img/loading.gif'
 
 function NewGame() {
   const [imageType, setImageType] = useState(false);
@@ -68,7 +69,8 @@ function NewGame() {
         await uploadTaks.on('state_changed',
           (snapshot) => {
             //progress
-            console.log("progress")
+            console.log("progress");
+            setUrl(loading);
           },
           (error) => {
             //error

@@ -9,6 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import firebase from '../../fireConnection';
 import { useParams, Redirect, useHistory } from "react-router-dom";
+import loading from '../../assets/img/loading.gif'
 
 
 function NewGame() {
@@ -96,7 +97,8 @@ function NewGame() {
     await uploadTaks.on('state_changed',
      (snapshot) => {
       //progress
-      console.log("progress")
+      console.log("progress");
+      setImgGame(loading);
      },
      (error) => {
       //error
