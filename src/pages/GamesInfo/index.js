@@ -3,7 +3,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import { Collapsible, CollapsibleItem, Icon, Button, Row, TextInput, Dropdown, Modal, MediaBox } from 'react-materialize';
 import './styles.css';
-import Color, { Palette } from "color-thief-react";
 import ReactHtmlParser from 'react-html-parser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -275,20 +274,7 @@ button i{
               </Action>
             </Fab>
           )}
-
-
-          <Palette src={url} crossOrigin="anonymous" format="hex" colorCount={4}>
-            {({ data, loading }) => {
-              if (loading) return ""
-              return <div>{data.map((color, index) => setColor(color))}</div>
-            }}
-          </Palette>
-          <Color src={img} crossOrigin="null" format="hex">
-            {({ data, loading }) => {
-              if (loading) return <Loading />
-              setpColor(data)
-              return (
-                <div key={"notKey"} data-aos='fade-right' style={{ backgroundColor: data }} className='container gameInfoBlock'>
+                <div key={"notKey"} data-aos='fade-right' className='container gameInfoBlock'>
                   {appInfo.map(info => {
                     return (
                       <>
@@ -515,7 +501,7 @@ button i{
                             <p>
                               {c.comment}
                             </p>
-                            <hr style={{ backgroundColor: data }} />
+                            <hr  />
                           </div>
                         )
                       })}
@@ -573,7 +559,7 @@ button i{
                             ref={register()}
                           />
                           <Store>
-                            <Submit color={color} pcolor={pColor} />
+                            <Submit color={"#E10F4C"} pcolor={pColor} />
                           </Store>
 
                         </form>
@@ -583,8 +569,6 @@ button i{
 
                 </div>
               );
-            }}
-          </Color>
         </>
         :
         <Redirect push to="/404/GameNotFound" />
