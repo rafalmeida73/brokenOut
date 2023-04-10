@@ -1,5 +1,5 @@
 nav {
- height: 50px !important;
+ height: 6vh !important;
  background-color: var(--background-dark);
 }
 
@@ -21,7 +21,7 @@ nav img{
 
 @media (min-width: 1100px) {
  nav {
-  height: 60px !important;
+  height: 6vh !important;
   background-color: var(--background-dark);
  }
 
