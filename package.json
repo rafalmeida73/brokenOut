@@ -15,7 +15,7 @@
     "aos": "^2.3.4",
     "axios": "^0.20.0",
     "color-thief-react": "^2.0.8",
-    "dotenv": "^8.2.0",
+    "dotenv": "^16.0.3",
     "firebase": "^7.21.0",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.13.1",
